@@ -1,6 +1,7 @@
 ---
 layout: default
 title: Malkion - Documentación del Módulo
+permalink: /
 ---
 
 # 📦 Malkion - Gestión de Misiones de Recogida de Datos
@@ -11,26 +12,26 @@ Bienvenido a la documentación oficial del módulo **Malkion**, un sistema de pl
 
 ## 🖼️ Wireframes
 
-➡️ [Ver wireframes](/wireframes)
+➡️ [Ver wireframes]({{ site.baseurl }}/wireframes/)
 
 ---
 
 ## 🧬 Diagrama Entidad-Relación
 
-![Diagrama E-R](/assets/images/er/PFM F4 ER Modulo Malkion Data.png)
+![Diagrama E-R]({{ site.baseurl }}/assets/images/er/PFM F4 ER Modulo Malkion Data.png)
 
 ---
 
 ## 🔁 Diagramas de Flujo
 
 1. **Generación de Misión desde Orden de Trabajo**  
-   ![](/assets/images/diagramas/Flujo_Orden_Trabajo_fondo.png)
+   ![]({{ site.baseurl }}/assets/images/diagramas/Flujo_Orden_Trabajo_fondo.png)
 
 2. **Aprobación de Gestores y Asignación de Recursos**  
-   ![](/assets/images/diagramas/Flujo_mision_iniciada_fondo.png)
+   ![]({{ site.baseurl }}/assets/images/diagramas/Flujo_mision_iniciada_fondo.png)
 
 3. **Ejecución y Cierre de Misión**  
-   ![](/assets/images/diagramas/Flujo_Mision_Ejecucion_General_fondo.png)
+   ![]({{ site.baseurl }}/assets/images/diagramas/Flujo_Mision_Ejecucion_General_fondo.png)
 
 ---
 
