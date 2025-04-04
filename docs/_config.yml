@@ -1,0 +1,7 @@
+title: Malkion - Documentación
+description: Documentación del módulo de recogida de datos en Odoo
+baseurl: ""
+url: "https://davidalbigarcia.github.io"
+markdown: kramdown
+theme: null
+plugins: []
