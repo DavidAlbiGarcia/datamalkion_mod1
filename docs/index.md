@@ -10,17 +10,6 @@ Bienvenido a la documentación oficial del módulo **Malkion**, un sistema de pl
 
 ---
 
----
-layout: default
-title: Malkion - Documentación del Módulo
-permalink: /
----
-
-# 📦 Malkion - Gestión de Misiones de Recogida de Datos
-
-Bienvenido a la documentación oficial del módulo **Malkion**, un sistema de planificación automatizada para la recogida y entrega de datos estructurados en Odoo.
-
----
 
 # Proyecto Malkion — Fase 4: Planificación del Módulo
 
@@ -90,7 +79,7 @@ Incluye automatización de:
 
 ## 🗺️ Mapa del Módulo
 
-1. ![]({{ site.baseurl }}/assets/images/mapa/Mapsite_texto.png)  
+1. ![]({{ site.baseurl }}/assets/images/mapa/Mapsite texto.png)  
 2. ![]({{ site.baseurl }}/assets/images/mapa/Mapsite Malkion.png)
 
 
