@@ -79,8 +79,8 @@ Incluye automatización de:
 
 ## 🗺️ Mapa del Módulo
 
-1. ![]({{ site.baseurl }}/assets/images/mapa/Mapsite texto.png)  
-2. ![]({{ site.baseurl }}/assets/images/mapa/Mapsite Malkion.png)
+![](https://davidalbigarcia.github.io/datamalkion_mod1/assets/images/mapa/Mapsite texto.png)  
+![](https://davidalbigarcia.github.io/datamalkion_mod1/assets/images/mapa/Mapsite Malkion.png)
 
 
 ---
@@ -88,7 +88,7 @@ Incluye automatización de:
 
 ## 📦 Dependencias del módulo
 
-El módulo **Malkion Data ** se apoya en diversos módulos nativos de Odoo para aprovechar funcionalidades existentes y garantizar una integración fluida con el ecosistema empresarial. Las principales dependencias son:
+El módulo **Malkion Data** se apoya en diversos módulos nativos de Odoo para aprovechar funcionalidades existentes y garantizar una integración fluida con el ecosistema empresarial. Las principales dependencias son:
 
 - `'base'`: núcleo de Odoo, requerido por todos los módulos.
 - `'hr'`: modificado para ampliar la gestión de empleados y clasificarlos según su rol operativo (arqueros, cazadores, recolectores, transportistas...).
@@ -101,7 +101,7 @@ El módulo **Malkion Data ** se apoya en diversos módulos nativos de Odoo para 
 
 ## 🖼️ Wireframes
 
-➡️ [Ver wireframes]({{ site.baseurl }}/wireframes/)
+➡️ [Ver wireframes](https://davidalbigarcia.github.io/datamalkion_mod1/wireframes/)
 
 ---
 
@@ -136,20 +136,20 @@ El módulo define diferentes grupos de usuario según el rol en el proceso. Cada
 
 ## 🧬 Diagrama Entidad-Relación
 
-![Diagrama E-R]({{ site.baseurl }}/assets/images/er/PFM F4 ER Modulo Malkion Data.png)
+![Diagrama E-R](https://davidalbigarcia.github.io/datamalkion_mod1/assets/images/er/PFM F4 ER Modulo Malkion Data.png)
 
 ---
 
 ## 🔁 Diagramas de Flujo
 
 1. **Generación de Misión desde Orden de Trabajo**  
-   ![]({{ site.baseurl }}/assets/images/diagramas/Flujo_Orden_Trabajo_fondo.png)
+   ![](https://davidalbigarcia.github.io/datamalkion_mod1/assets/images/diagramas/Flujo_Orden_Trabajo_fondo.png)
 
 2. **Aprobación de Gestores y Asignación de Recursos**  
-   ![]({{ site.baseurl }}/assets/images/diagramas/Flujo_mision_iniciada_fondo.png)
+   ![](https://davidalbigarcia.github.io/datamalkion_mod1/assets/images/diagramas/Flujo_mision_iniciada_fondo.png)
 
 3. **Ejecución y Cierre de Misión**  
-   ![]({{ site.baseurl }}/assets/images/diagramas/Flujo_Mision_Ejecucion_General_fondo.png)
+   ![](https://davidalbigarcia.github.io/datamalkion_mod1/assets/images/diagramas/Flujo_Mision_Ejecucion_General_fondo.png)
 
 ---
 
