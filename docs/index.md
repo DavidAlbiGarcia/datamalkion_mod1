@@ -79,8 +79,8 @@ Incluye automatización de:
 
 ## 🗺️ Mapa del Módulo
 
-![](https://davidalbigarcia.github.io/datamalkion_mod1/assets/images/mapa/Mapsite%texto.png)  
-![](https://davidalbigarcia.github.io/datamalkion_mod1/assets/images/mapa/Mapsite%Malkion.png)
+![](https://davidalbigarcia.github.io/datamalkion_mod1/assets/images/mapa/Mapsite%20texto.png)  
+![](https://davidalbigarcia.github.io/datamalkion_mod1/assets/images/mapa/Mapsite%20Malkion.png)
 
 
 ---
@@ -136,7 +136,7 @@ El módulo define diferentes grupos de usuario según el rol en el proceso. Cada
 
 ## 🧬 Diagrama Entidad-Relación
 
-![Diagrama E-R](https://davidalbigarcia.github.io/datamalkion_mod1/assets/images/er/PFM F4 ER Modulo Malkion%Data.png)
+![Diagrama E-R](https://davidalbigarcia.github.io/datamalkion_mod1/assets/images/er/PFM%20F4%20ER%20Modulo%20Malkion%20Data.png)
 
 ---
 
