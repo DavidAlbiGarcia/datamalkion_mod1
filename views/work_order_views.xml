@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="view_form_work_order" model="ir.ui.view">
+        <field name="name">work.order.form</field>
+        <field name="model">malkion.work.order</field>
+        <field name="arch" type="xml">
+            <form string="Work Order">
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="data_request_id"/>
+                        <field name="creation_date"/>
+                        <field name="assigned_manager_id"/>
+                        <field name="team_manager_id"/>
+                        <field name="transport_managers_ids"/>
+                        <field name="hr_manager_id"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_tree_work_order" model="ir.ui.view">
+        <field name="name">work.order.tree</field>
+        <field name="model">malkion.work.order</field>
+        <field name="arch" type="xml">
+            <tree string="Work Orders">
+                <field name="name"/>
+                <field name="data_request_id"/>
+                <field name="creation_date"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="action_work_order" model="ir.actions.act_window">
+        <field name="name">Work Orders</field>
+        <field name="res_model">malkion.work.order</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="menu_work_order_root" name="Work Orders" parent="menu_data_request_root"/>
+    <menuitem id="menu_work_order_list" name="All Orders" parent="menu_work_order_root" action="action_work_order"/>
+</odoo>

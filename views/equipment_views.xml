@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="view_equipment_form" model="ir.ui.view">
+        <field name="name">malkion.equipment.form</field>
+        <field name="model">malkion.equipment</field>
+        <field name="arch" type="xml">
+            <form string="Equipo">
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="description"/>
+                        <field name="state"/>
+                        <field name="fecha_adquisicion"/>
+                        <field name="observaciones"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_equipment_tree" model="ir.ui.view">
+        <field name="name">malkion.equipment.tree</field>
+        <field name="model">malkion.equipment</field>
+        <field name="arch" type="xml">
+            <tree string="Equipos">
+                <field name="name"/>
+                <field name="state"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="action_equipment" model="ir.actions.act_window">
+        <field name="name">Equipos</field>
+        <field name="res_model">malkion.equipment</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="menu_equipment"
+              name="Equipos"
+              parent="menu_malkion_root"
+              action="action_equipment"/>
+</odoo>

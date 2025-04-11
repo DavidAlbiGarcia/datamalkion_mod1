@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="view_form_data_request" model="ir.ui.view">
+        <field name="name">data.request.form</field>
+        <field name="model">malkion.data.request</field>
+        <field name="arch" type="xml">
+            <form string="Data Request">
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="contract_id"/>
+                        <field name="request_type"/>
+                        <field name="request_date"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_tree_data_request" model="ir.ui.view">
+        <field name="name">data.request.tree</field>
+        <field name="model">malkion.data.request</field>
+        <field name="arch" type="xml">
+            <tree string="Data Requests">
+                <field name="name"/>
+                <field name="contract_id"/>
+                <field name="request_type"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="action_data_request" model="ir.actions.act_window">
+        <field name="name">Data Requests</field>
+        <field name="res_model">malkion.data.request</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="menu_data_request_root" name="Data Requests" parent="menu_contract_root"/>
+    <menuitem id="menu_data_request_list" name="All Requests" parent="menu_data_request_root" action="action_data_request"/>
+</odoo>

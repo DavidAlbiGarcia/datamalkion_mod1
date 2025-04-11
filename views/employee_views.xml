@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="view_form_employee_malkion" model="ir.ui.view">
+        <field name="name">hr.employee.form.malkion</field>
+        <field name="model">hr.employee</field>
+        <field name="inherit_id" ref="hr.view_employee_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//sheet" position="inside">
+                <group string="Malkion Roles">
+                    <field name="is_field_worker"/>
+                    <field name="role_type"/>
+                    <field name="can_be_team_manager"/>
+                    <field name="can_be_equipment_manager"/>
+                    <field name="can_be_transport_manager"/>
+                    <field name="is_mission_supervisor"/>
+                </group>
+            </xpath>
+        </field>
+    </record>
+</odoo>

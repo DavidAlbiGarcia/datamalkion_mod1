@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="view_transport_form" model="ir.ui.view">
+        <field name="name">malkion.transport.form</field>
+        <field name="model">malkion.transport</field>
+        <field name="arch" type="xml">
+            <form string="Transporte">
+                <sheet>
+                    <group>
+                        <field name="license_plate"/>
+                        <field name="tipo"/>
+                        <field name="capacity"/>
+                        <field name="estado"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_transport_tree" model="ir.ui.view">
+        <field name="name">malkion.transport.tree</field>
+        <field name="model">malkion.transport</field>
+        <field name="arch" type="xml">
+            <tree string="Transportes">
+                <field name="license_plate"/>
+                <field name="tipo"/>
+                <field name="estado"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="action_transport" model="ir.actions.act_window">
+        <field name="name">Transportes</field>
+        <field name="res_model">malkion.transport</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="menu_transport"
+              name="Transportes"
+              parent="menu_malkion_root"
+              action="action_transport"/>
+</odoo>

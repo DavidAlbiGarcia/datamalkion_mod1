@@ -1,0 +1,59 @@
+<odoo>
+    <record id="view_form_mission" model="ir.ui.view">
+        <field name="name">mission.form</field>
+        <field name="model">malkion.mission</field>
+        <field name="arch" type="xml">
+            <form string="Misión">
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="work_order_id"/>
+                        <field name="start_date"/>
+                        <field name="end_date"/>
+                        <field name="state"/>
+                    </group>
+                    <group string="Gestores">
+                        <field name="manager_jefe_id"/>
+                        <field name="manager_team_id"/>
+                        <field name="manager_transport_ids"/>
+                    </group>
+                    <group string="Equipo">
+                        <field name="employee_equipment_ids"/>
+                        <field name="equipment_pickup_date"/>
+                        <field name="equipment_return_date"/>
+                    </group>
+                    <group string="Transportes">
+                        <field name="employee_transport_ids"/>
+                        <field name="transport_pickup_date"/>
+                        <field name="transport_return_date"/>
+                    </group>
+                    <group string="Personal">
+                        <field name="employee_assignments_ids"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_tree_mission" model="ir.ui.view">
+        <field name="name">mission.tree</field>
+        <field name="model">malkion.mission</field>
+        <field name="arch" type="xml">
+            <tree string="Missions">
+                <field name="name"/>
+                <field name="work_order_id"/>
+                <field name="start_date"/>
+                <field name="state"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="action_mission" model="ir.actions.act_window">
+        <field name="name">Missions</field>
+        <field name="res_model">malkion.mission</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="menu_mission_root" name="Missions" parent="menu_work_order_root"/>
+    <menuitem id="menu_mission_list" name="All Missions" parent="menu_mission_root" action="action_mission"/>
+</odoo>

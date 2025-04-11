@@ -32,4 +32,17 @@
     'demo': [
         'demo/demo.xml',
     ],
+'data': [
+    'views/contract_views.xml',
+    'views/data_request_views.xml',
+    'views/work_order_views.xml',
+    'views/mission_views.xml',
+    'views/employee_views.xml',
+    'views/equipment_views.xml',
+    'views/transport_views.xml',
+],
+
+
+
+
 }
