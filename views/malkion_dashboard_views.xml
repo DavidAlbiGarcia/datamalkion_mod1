@@ -1,0 +1,32 @@
+<odoo>
+    <!-- Menú raíz de Malkion -->
+    <menuitem id="menu_malkion_root" name="Malkion" sequence="1"/>
+
+    <!-- Acción para el Panel de Control -->
+    <record id="action_malkion_dashboard" model="ir.actions.act_window">
+        <field name="name">Panel de Control Malkion</field>
+        <field name="res_model">malkion_contract</field> <!-- Apunta al modelo de contratos -->
+        <field name="view_mode">tree,form</field> <!-- Define que muestra tanto lista (tree) como formulario (form) -->
+        <field name="context">{}</field>
+    </record>
+
+    <!-- Submenú para el Panel de Control -->
+    <menuitem id="menu_malkion_dashboard" name="Panel de Control Malkion" parent="menu_malkion_root" sequence="10" action="action_malkion_dashboard"/>
+
+    <!-- Vista de Contratos (para ser usada en el menú) -->
+    <record id="view_malkion_dashboard" model="ir.ui.view">
+        <field name="name">malkion_contract.tree</field>
+        <field name="model">malkion_contract</field>
+        <field name="arch" type="xml">
+            <tree string="Contratos">
+                <field name="name"/>
+                <field name="client_id"/>
+                <field name="contract_type"/>
+                <field name="start_date"/>
+                <field name="end_date"/>
+            </tree>
+        </field>
+    </record>
+</odoo>
+
+

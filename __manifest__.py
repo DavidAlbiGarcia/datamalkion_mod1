@@ -20,13 +20,18 @@
     'version': '0.1',
 
     # any module necessary for this one to work correctly
-    'depends': ['base'],
+    'depends': ['base', 'contacts'],
 
     # always loaded
     'data': [
         # 'security/ir.model.access.csv',
         'views/views.xml',
         'views/templates.xml',
+        'views/malkion_dashboard_views.xml', # primero, copón!
+        'views/malkion_contract_views.xml',
+        'views/malkion_point_of_interest_views.xml',
+        'views/malkion_almacenes_views.xml',
+        
     ],
     # only loaded in demonstration mode
     'demo': [

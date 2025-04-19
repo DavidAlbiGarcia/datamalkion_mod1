@@ -1,0 +1,48 @@
+<odoo>
+    <!-- Vista de formulario para Puntos de Interés -->
+    <record id="view_form_point_of_interest" model="ir.ui.view">
+        <field name="name">malkion_point_of_interest.form</field>
+        <field name="model">malkion_point_of_interest</field>
+        <field name="arch" type="xml">
+            <form string="Punto de Interés">
+                <sheet>
+                    <group>
+                        <field name="name" string="Nombre"/>
+                        <field name="point_type" string="Tipo de Punto"/>
+                        <field name="general_location" string="Lugar General"/>
+                        <field name="city" string="Ciudad"/>
+                        <field name="latitude" string="Latitud"/>
+                        <field name="longitude" string="Longitud"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Vista de lista para Puntos de Interés -->
+    <record id="view_tree_point_of_interest" model="ir.ui.view">
+        <field name="name">malkion_point_of_interest.tree</field>
+        <field name="model">malkion_point_of_interest</field>
+        <field name="arch" type="xml">
+            <tree string="Puntos de Interés">
+                <field name="name" string="Nombre"/>
+                <field name="point_type" string="Tipo de Punto"/>
+                <field name="general_location" string="Lugar General"/>
+                <field name="city" string="Ciudad"/>
+                <field name="latitude" string="Latitud"/>
+                <field name="longitude" string="Longitud"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Acción para abrir la vista de contratos -->
+    <record id="action_point_of_interest" model="ir.actions.act_window">
+        <field name="name">Puntos de interes</field>
+        <field name="res_model">malkion_point_of_interest</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- Menú para acceder a los contratos -->
+    <menuitem id="menu_point_of_interest_root" name="Recursos" parent="menu_malkion_root" sequence="20"/>
+    <menuitem id="menu_point_of_interest_action" name="Gestión de puntos de interes" parent="menu_point_of_interest_root" action="action_point_of_interest" sequence="20"/>
+</odoo>

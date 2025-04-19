@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <!-- Vista de formulario para contratos -->
+    <record id="view_form_malkion_contract" model="ir.ui.view">
+        <field name="name">malkion_contract.form</field>
+        <field name="model">malkion_contract</field>
+        <field name="arch" type="xml">
+            <form string="Contrato">
+                <sheet>
+                    <group>
+                        <field name="name" string="Nombre del contrato"/>
+                        <field name="client_id" string="Cliente"/>
+                        <field name="contract_type" string="Tipo de contrato"/>
+                        <field name="start_date" string="Fecha de inicio"/>
+                        <field name="end_date" string="Fecha de finalización"/>
+                        <field name="periodicity" string="Periodicidad"/>
+                        <field name="active" string="Activo"/>
+                        <field name="data_required" string="Dato requerido"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Vista de lista para contratos -->
+    <record id="view_tree_malkion_contract" model="ir.ui.view">
+        <field name="name">malkion_contract.tree</field>
+        <field name="model">malkion_contract</field>
+        <field name="arch" type="xml">
+            <tree string="Contratos">
+                <field name="name" string="Nombre"/>
+                <field name="client_id" string="Cliente"/>
+                <field name="contract_type" string="Tipo de contrato"/>
+                <field name="start_date" string="Fecha de inicio"/>
+                <field name="end_date" string="Fecha de finalización"/>
+                <field name="periodicity" string="Periodicidad"/>
+                <field name="active" string="Activo"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Acción para abrir la vista de contratos -->
+    <record id="action_contract_list" model="ir.actions.act_window">
+        <field name="name">Contratos</field>
+        <field name="res_model">malkion_contract</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- Menú para acceder a los contratos -->
+    <menuitem id="menu_contract_root" name="Contratos" parent="menu_malkion_root" sequence="10"/>
+    <menuitem id="menu_contract_action" name="Gestión de contratos" parent="menu_contract_root" action="action_contract_list" sequence="10"/>
+</odoo>
