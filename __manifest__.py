@@ -20,7 +20,7 @@
     'version': '0.1',
 
     # any module necessary for this one to work correctly
-    'depends': ['base', 'contacts'],
+    'depends': ['base', 'contacts', 'hr'],
 
     # always loaded
     'data': [
@@ -31,6 +31,10 @@
         'views/malkion_contract_views.xml',
         'views/malkion_point_of_interest_views.xml',
         'views/malkion_almacenes_views.xml',
+        'views/malkion_employee_views.xml',
+        'views/malkion_transport_views.xml',
+        'views/malkion_equipo_views.xml',
+        'views/malkion_plantilla_views.xml',
         
     ],
     # only loaded in demonstration mode
