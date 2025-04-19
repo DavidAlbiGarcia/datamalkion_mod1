@@ -1,0 +1,48 @@
+<odoo>
+    <!-- Vista de formulario para equipo -->
+    <record id="view_form_malkion_equipo" model="ir.ui.view">
+        <field name="name">malkion_equipo.form</field>
+        <field name="model">malkion_equipo</field>
+        <field name="arch" type="xml">
+            <form string="Equipo">
+                <sheet>
+                    <group>
+                        <field name="name" string="Nombre"/>
+                        <field name="serial_number" string="Número de Serie"/>
+                        <field name="tipo" string="Tipo"/>
+                        <field name="estado" string="Estado"/>
+                        <field name="fecha_adquisicion" string="Fecha de Adquisición"/>
+                        <field name="observaciones" string="Observaciones"/>
+                        <field name="almacen_id" string="Almacén"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Vista de lista para equipo -->
+    <record id="view_tree_malkion_equipo" model="ir.ui.view">
+        <field name="name">malkion_equipo.tree</field>
+        <field name="model">malkion_equipo</field>
+        <field name="arch" type="xml">
+            <tree string="Equipo">
+                <field name="name" string="Nombre"/>
+                <field name="serial_number" string="Número de Serie"/>
+                <field name="tipo" string="Tipo"/>
+                <field name="estado" string="Estado"/>
+                <field name="almacen_id" string="Almacén"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Acción para abrir la vista de equipo -->
+    <record id="action_equipo" model="ir.actions.act_window">
+        <field name="name">Equipo</field>
+        <field name="res_model">malkion_equipo</field>
+        <field name="view_mode">tree,form</field>
+        <field name="view_id" ref="view_tree_malkion_equipo"/>
+    </record>
+
+    <!-- Submenú de "Equipo" dentro de "Recursos" -->
+    <menuitem id="menu_equipo_root" name="Equipo" parent="menu_recursos" action="action_equipo" sequence="50"/>
+</odoo>

@@ -2,6 +2,8 @@
     <!-- Menú raíz de Malkion -->
     <menuitem id="menu_malkion_root" name="Malkion" sequence="1"/>
 
+    <menuitem id="menu_recursos" name="Recursos" parent="menu_malkion_root" sequence="20"/>
+
     <!-- Acción para el Panel de Control -->
     <record id="action_malkion_dashboard" model="ir.actions.act_window">
         <field name="name">Panel de Control Malkion</field>

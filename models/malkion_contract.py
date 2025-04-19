@@ -5,6 +5,7 @@ class MalkionContract(models.Model):
     _description = 'Contrato con el cliente'
 
     name = fields.Char(string="Nombre del contrato", required=True)
+    _rec_name = 'name'  # Esto indica que Odoo usará 'name' como el campo principal para mostrar en las relaciones, bufff, la leche
     client_id = fields.Many2one('res.partner', string="Cliente", required=True)
     contract_type = fields.Selection([
         ('standard', 'Estándar'),

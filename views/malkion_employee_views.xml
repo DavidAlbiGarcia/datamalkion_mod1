@@ -1,0 +1,41 @@
+<odoo>
+    <!-- Vista de lista para empleados -->
+    <record id="view_tree_malkion_employee" model="ir.ui.view">
+        <field name="name">malkion_employee.tree</field>
+        <field name="model">hr.employee</field>
+        <field name="arch" type="xml">
+            <tree string="Empleados">
+                <field name="name" string="Nombre"/>
+                <field name="estado" string="Estado"/>
+                <field name="disponible" string="Disponibilidad"/>
+                <field name="roles" string="Roles"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Vista de formulario para empleados (heredada y modificada) -->
+    <record id="view_form_malkion_employee" model="ir.ui.view">
+        <field name="name">malkion_employee.form</field>
+        <field name="model">hr.employee</field>
+        <field name="inherit_id" ref="hr.view_employee_form"/> <!-- Heredamos de la vista de formulario estándar -->
+        <field name="arch" type="xml">
+            <xpath expr="//sheet/group" position="inside">
+                <!-- Añadimos los campos personalizados dentro del grupo -->
+                <field name="estado" string="Estado"/>
+                <field name="disponible" string="Disponibilidad"/>
+                <field name="roles" widget="many2many_tags" string="Roles"/>
+            </xpath>
+        </field>
+    </record>
+
+    <!-- Acción para abrir la vista de empleados -->
+    <record id="action_employees" model="ir.actions.act_window">
+        <field name="name">Empleados</field>
+        <field name="res_model">hr.employee</field>
+        <field name="view_mode">tree,form</field>
+        <field name="view_id" ref="view_tree_malkion_employee"/>
+    </record>
+
+    <!-- Submenú de "Empleados" dentro de "Recursos" -->
+    <menuitem id="menu_employees_root" name="Empleados" parent="menu_recursos" action="action_employees" sequence="40"/>
+</odoo>

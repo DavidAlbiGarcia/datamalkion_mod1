@@ -6,9 +6,6 @@
         <field name="view_mode">tree,form</field>
     </record>
 
-    <!-- Menú principal de "Recursos" -->
-    <menuitem id="menu_recursos" name="Recursos" parent="menu_malkion_root" sequence="20"/>
-
     <!-- Submenú de "Almacenes" -->
     <menuitem id="menu_almacenes" name="Almacenes" parent="menu_recursos" action="action_almacenes" sequence="30"/>
 
