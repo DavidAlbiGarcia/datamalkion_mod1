@@ -39,9 +39,9 @@ class MalkionPlantilla(models.Model):
         
         # Agregar el cliente y datos generales
         cliente = ET.SubElement(plantilla, "cliente")
-        cliente.text = self.cliente_id.name
+        cliente.text = self.client_id.name
         dato_requerido = ET.SubElement(plantilla, "dato_requerido")
-        dato_requerido.text = self.dato_requerido if self.dato_requerido else ''
+        dato_requerido.text = self.data_required
         
         contrato = ET.SubElement(plantilla, "contrato")
         contrato_id = ET.SubElement(contrato, "id_contrato")
@@ -80,3 +80,13 @@ class MalkionPlantilla(models.Model):
         xml_str = ET.tostring(plantilla, encoding="unicode", method="xml")
         self.xml_data = xml_str
         return xml_str
+    
+    @api.model
+    def create(self, values):
+        # Crear el objeto plantilla
+        plantilla = super(MalkionPlantilla, self).create(values)
+        
+        # Llamar al método generar_xml después de crear el registro
+        plantilla.generar_xml()
+        
+        return plantilla
