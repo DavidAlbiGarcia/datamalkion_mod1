@@ -1,0 +1,63 @@
+<odoo>
+
+    <!-- Menú principal para Ordenes de Trabajo -->
+    <menuitem id="menu_orden_trabajo" name="Ordenes de Trabajo" parent="menu_malkion_root" sequence="10"/>
+
+    <!-- Acción para abrir la vista de lista de Ordenes de Trabajo -->
+    <record id="action_orden_trabajo" model="ir.actions.act_window">
+        <field name="name">Ordenes de Trabajo</field>
+        <field name="res_model">malkion_orden_trabajo</field>
+        <field name="view_mode">tree,form</field>
+        <field name="domain">[('estado', '=', 'pendiente')]</field> <!-- Solo mostrar las pendientes -->
+    </record>
+
+    <!-- Submenú para ver las Ordenes de Trabajo -->
+    <menuitem id="menu_orden_trabajo_list" name="Ver Ordenes de Trabajo" parent="menu_orden_trabajo" action="action_orden_trabajo" sequence="1"/>
+
+    <!-- Vista de Lista para Ordenes de Trabajo -->
+    <record id="view_orden_trabajo_tree" model="ir.ui.view">
+        <field name="name">malkion_orden_trabajo.tree</field>
+        <field name="model">malkion_orden_trabajo</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="cliente_id"/>
+                <field name="contrato_id"/>
+                <field name="dato_requerido"/>
+                <field name="estado"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Vista de Formulario para Orden de Trabajo -->
+    <record id="view_orden_trabajo_form" model="ir.ui.view">
+        <field name="name">malkion_orden_trabajo.form</field>
+        <field name="model">malkion_orden_trabajo</field>
+        <field name="arch" type="xml">
+            <form string="Orden de Trabajo">
+                <sheet>
+                    <group>
+                        <field name="name" string="Nombre Orden Trabajo"/>
+                        <field name="cliente_id" string="Cliente"/>
+                        <field name="contrato_id" string="Contrato"/>
+                        <field name="dato_requerido" string="Dato Requerido"/>
+                        <field name="gestor_equipo_id" string="Gestor de Equipo"/>
+                        <field name="gestor_transporte_id" string="Gestor de Transporte"/>
+                        <field name="gestor_empleados_id" string="Gestor de Empleados"/>
+                    </group>
+                    <group>
+                        <!-- Puntos de interés relacionados con el contrato -->
+                        <field name="puntos_interes_ids" widget="many2many_tags"/>
+                        <!-- Roles necesarios por plantilla -->
+                        <field name="empleados_roles" widget="many2many_tags" string="Empleados por Rol"/>
+                        <!-- Equipos necesarios -->
+                        <field name="equipo_ids" widget="many2many_tags" string="Equipo Necesario"/>
+                        <!-- Transportes necesarios -->
+                        <field name="transporte_ids" widget="many2many_tags" string="Transporte Necesario"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+</odoo>

@@ -7,18 +7,31 @@ class MalkionPlantilla(models.Model):
     _description = 'Plantillas para Contratos'
 
     nombre = fields.Char("Nombre de la Plantilla", required=True)
-    cliente_id = fields.Many2one('res.partner', string="Cliente", required=True)
-    contrato_id = fields.Many2one('malkion_contract', string="Contrato", required=True)
-    dato_requerido = fields.Char("Dato Requerido")
+    client_id = fields.Many2one('res.partner', string="Cliente", required=True)
+    contrato_id = fields.Many2one(
+        'malkion_contract', 
+        string="Contrato", 
+        required=True,
+        domain="[('client_id', '=', client_id)]"  # Filtrar por cliente
+    )
+    data_required = fields.Char(string="Dato Requerido")
     
     puntos_interes_ids = fields.Many2many('malkion_point_of_interest', string="Puntos de Interés")
-    roles_necesarios = fields.Many2many('hr.job', string="Roles Necesarios")
+    
+    # Relación Many2many con los modelos intermedios para roles
+    roles_necesarios_ids = fields.One2many('malkion_plantilla_rol', 'plantilla_id', string="Roles Necesarios")
 
     # Relación Many2many con los modelos intermedios
     equipo_necesario_ids = fields.One2many('malkion_plantilla_equipo', 'plantilla_id', string="Equipo Necesario")
     transporte_necesario_ids = fields.One2many('malkion_plantilla_transport', 'plantilla_id', string="Transporte Necesario")
     
     xml_data = fields.Text("XML de la Plantilla")
+
+    # Método onchange para actualizar el campo data_required
+    @api.onchange('contrato_id')
+    def _onchange_contrato(self):
+        if self.contrato_id:
+            self.data_required = self.contrato_id.data_required
 
     def generar_xml(self):
         # Crear el elemento raíz del XML
@@ -42,9 +55,13 @@ class MalkionPlantilla(models.Model):
 
         # Roles necesarios
         roles_necesarios = ET.SubElement(plantilla, "roles_necesarios")
-        for rol in self.roles_necesarios:
+        for rol in self.roles_necesarios_ids:
             role = ET.SubElement(roles_necesarios, "role")
-            role.text = rol.name
+            role_name = ET.SubElement(role, "role_name")
+            role_name.text = rol.rol_id.name  # 'rol_id' hace referencia al campo Many2one hacia 'hr.job'
+            
+            cantidad = ET.SubElement(role, "cantidad")
+            cantidad.text = str(rol.cantidad)  # Aquí tomas la cantidad de roles necesarios
 
         # Equipo necesario (con tipos y cantidades)
         equipo_necesario = ET.SubElement(plantilla, "equipo_necesario")
