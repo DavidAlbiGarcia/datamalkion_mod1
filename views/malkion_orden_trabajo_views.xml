@@ -60,6 +60,17 @@
                         <field name="gestor_equipo_id" string="Gestor de Equipo"/>
                         <field name="gestor_transporte_id" string="Gestor de Transporte"/>
                         <field name="gestor_empleados_id" string="Gestor de Empleados"/>
+                        <field name="responsable_equipo_id" string="Responsable de Equipo"/>
+                        <field name="responsable_transporte_id" string="Responsable de Transporte"/>
+
+                        <!-- Roles necesarios Solucion temporal mostrar en pantalla para relleno manual, sin campos dinámicos -->
+                        <field name="roles_str" readonly="1" string="Roles Necesarios"/>
+
+                        <!-- Equipo necesario -->
+                        <field name="equipo_str" readonly="1" string="Equipo Necesario"/>
+
+                        <!-- Transporte necesario -->
+                        <field name="transporte_str" readonly="1" string="Transporte Necesario"/>
                     </group>
                     <group>
                         <!-- Puntos de Interés -->

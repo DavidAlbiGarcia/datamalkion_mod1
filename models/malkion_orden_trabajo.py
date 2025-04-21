@@ -15,14 +15,29 @@ class MalkionOrdenTrabajo(models.Model):
     contrato_id = fields.Many2one('malkion_contract', string="Contrato", required=True, domain="[('client_id', '=', cliente_id)]")
     dato_requerido = fields.Char(string="Dato Requerido")
     jefe_datos_id = fields.Many2one('res.users', string="Jefe de Datos", default=lambda self: self.env.user)
-    gestor_equipo_id = fields.Many2one('res.users', string="Gestor de Equipo", domain="[('active', '=', True)]")
-    gestor_transporte_id = fields.Many2one('res.users', string="Gestor de Transporte", domain="[('active', '=', True)]")
-    gestor_empleados_id = fields.Many2one('res.users', string="Gestor de Empleados", domain="[('active', '=', True)]")
+    gestor_equipo_id = fields.Many2one('hr.employee', string="Gestor de Equipo", domain="[('active', '=', True)]")
+    gestor_transporte_id = fields.Many2one('hr.employee', string="Gestor de Transporte", domain="[('active', '=', True)]")
+    gestor_empleados_id = fields.Many2one('hr.employee', string="Gestor de Empleados", domain="[('active', '=', True)]")
 
     puntos_interes_ids = fields.Many2many('malkion_point_of_interest', string="Puntos de Interés")
     empleados_roles = fields.Many2many('hr.employee', string="Empleados por Rol")
     equipo_ids = fields.Many2many('malkion_equipo', string="Equipo Necesario")
     transporte_ids = fields.Many2many('malkion_transport', string="Transporte Necesario")
+
+    responsable_equipo_id = fields.Many2one(
+        'hr.employee', 
+        string="Responsable de Equipo"
+    )
+    responsable_transporte_id = fields.Many2one(
+        'hr.employee', 
+        string="Responsable de Transporte"
+    )
+
+    #Solucion temporal, mostrar datos en pantalla en lugar de crear dinámicamente los campos
+    # Campos nuevos para almacenar datos extraídos del XML
+    roles_str = fields.Char(string="Roles Necesarios")  # Mostrar como texto
+    equipo_str = fields.Char(string="Equipo Necesario")  # Mostrar como texto
+    transporte_str = fields.Char(string="Transporte Necesario")  # Mostrar como texto
 
     estado = fields.Selection([
         ('pendiente', 'Pendiente'),
@@ -33,6 +48,39 @@ class MalkionOrdenTrabajo(models.Model):
     cantidad_arquero = fields.Integer("Cantidad de Arqueros", default=0)
     cantidad_coche = fields.Integer("Cantidad de Coches", default=0)
     cantidad_guantes = fields.Integer("Cantidad de Guantes", default=0)
+
+    # Campos para decidir los encargados de equipo y transporte
+    encargado_equipo_id = fields.Many2one('hr.employee', string="Encargado de Equipo")
+    encargado_transporte_id = fields.Many2one('hr.employee', string="Encargado de Transporte")
+
+    @api.model
+    def create_mission_from_order(self):
+        for orden in self:
+            mission_vals = {
+                'name': orden.name,
+                'responsable_equipo_id': orden.responsable_equipo_id.id,
+                'responsable_transporte_id': orden.responsable_transporte_id.id,
+                'estado': 'iniciada',
+                'observaciones': orden.dato_requerido,
+                'jefe_data_id': orden.jefe_datos_id.id,
+                'gestor_hunters_id': orden.gestor_empleados_id.id,
+                'gestor_equipo_id': orden.gestor_equipo_id.id,
+                'gestor_transportes_id': orden.gestor_transporte_id.id,
+                'roles_ids': [(6, 0, orden.empleados_roles.ids)],
+                'equipo_ids': [(6, 0, orden.equipo_ids.ids)],
+                'transporte_ids': [(6, 0, orden.transporte_ids.ids)],
+                'puntos_interes_ids': [(6, 0, orden.puntos_interes_ids.ids)], 
+            }
+            # Crear la misión a partir de los datos de la orden de trabajo
+            mission = self.env['malkion_mission'].create(mission_vals)
+            return mission
+
+    @api.model
+    def create(self, vals):
+        # Llamamos al método para crear la misión al guardar la orden de trabajo
+        res = super(MalkionOrdenTrabajo, self).create(vals)
+        res.create_mission_from_order()  # Crear misión al guardar la orden de trabajo
+        return res
 
     @api.onchange('contrato_id')
     def _onchange_contrato(self):
@@ -80,7 +128,26 @@ class MalkionOrdenTrabajo(models.Model):
 
             # Asignar los puntos de interés encontrados a self.puntos_interes_ids
             self.puntos_interes_ids = [(6, 0, puntos_encontrados.ids)]
+
+            # Asignar roles con cantidad
+            roles = xml_root.findall('roles_necesarios/role')
+            roles_nombres = []
+            for role in roles:
+                rol_name = role.find('role_name').text
+                cantidad = role.find('cantidad').text
+                if rol_name and cantidad:
+                    roles_nombres.append(f"{rol_name} ({cantidad})")  # Agregar cantidad junto al rol
+
+            self.roles_str = ", ".join(roles_nombres)  # Mostrar como texto
        
+            ''' Funciona, pero sin cantidad
+            # Asignar roles
+            roles = xml_root.findall('roles_necesarios/role')
+            roles_nombres = [role.find('role_name').text for role in roles if role.find('role_name').text]
+            self.roles_str = ", ".join(roles_nombres)  # Mostrar como texto
+            '''
+
+            '''
             # Asignar roles
             roles = xml_root.findall('roles_necesarios/role')
             for role in roles:
@@ -88,7 +155,51 @@ class MalkionOrdenTrabajo(models.Model):
                 rol_id = self.env['hr.job'].search([('name', '=', role.text)], limit=1)
                 if rol_id:
                     self.empleados_roles = [(4, rol_id.id)]
+            '''
             
+            
+            # Asignar equipo
+            equipo = xml_root.findall('equipo_necesario/equipo')
+            equipo_nombres = [equipo.text for equipo in equipo if equipo.text]
+            self.equipo_str = ", ".join(equipo_nombres)  # Mostrar como text
+            '''
+            for equipo_tipo in equipo:
+                equipo_id = self.env['malkion_equipo'].search([('name', '=', equipo_tipo.text)], limit=1)
+                if equipo_id:
+                    self.equipo_ids = [(4, equipo_id.id)]
+            '''
+
+            # Asignar transporte
+            transporte = xml_root.findall('transporte_necesario/vehiculo')
+            transporte_nombres = [vehiculo.text for vehiculo in transporte if vehiculo.text]
+            self.transporte_str = ", ".join(transporte_nombres)  # Mostrar como texto
+
+            '''
+            for vehiculo in transporte:
+                transporte_id = self.env['malkion_transport'].search([('name', '=', vehiculo.text)], limit=1)
+                if transporte_id:
+                    self.transporte_ids = [(4, transporte_id.id)]
+            '''
+''' Restos de intentos como referencia:
+            # Asignar roles y generar campos dinámicos
+            roles = xml_root.findall('roles_necesarios/role')
+            for role in roles:
+                rol_name = role.find('role_name').text
+                cantidad = int(role.find('cantidad').text)
+
+                # Buscar el rol en la base de datos
+                rol_id = self.env['hr.job'].search([('name', '=', rol_name)], limit=1)
+                
+                if rol_id:
+                    # Crear los registros de empleados necesarios según la cantidad
+                    for _ in range(cantidad):
+                        self.empleados_roles = [(0, 0, {
+                            'role_id': rol_id.id,
+                            # El campo `empleado_id` puede dejarse vacío para selección posterior
+                        })]
+                else:
+                    raise ValidationError(f"El rol '{rol_name}' no está registrado en la base de datos.")
+
             # Asignar equipo
             equipo = xml_root.findall('equipo_necesario/equipo')
             for equipo_tipo in equipo:
@@ -96,10 +207,81 @@ class MalkionOrdenTrabajo(models.Model):
                 if equipo_id:
                     self.equipo_ids = [(4, equipo_id.id)]
 
-            # Asignar transporte
-            transporte = xml_root.findall('transporte_necesario/vehiculo')
-            for vehiculo in transporte:
-                transporte_id = self.env['malkion_transport'].search([('name', '=', vehiculo.text)], limit=1)
-                if transporte_id:
-                    self.transporte_ids = [(4, transporte_id.id)]
+    @api.model
+    def cargar_plantilla(self, xml_data):
+        # Parsear el XML
+        xml_root = ET.fromstring(xml_data)
+
+        # Leer los roles y cantidades del XML
+        roles = xml_root.findall('roles_necesarios/role')
+        for role in roles:
+            rol_name = role.find('role_name').text
+            cantidad = int(role.find('cantidad').text)
+
+            # Buscar el rol en la base de datos
+            rol_id = self.env['hr.job'].search([('name', '=', rol_name)], limit=1)
+            
+            if rol_id:
+                # Crear los registros de empleados necesarios según la cantidad
+                for _ in range(cantidad):
+                    # Crear un registro en `roles_empleados` para cada rol y su correspondiente empleado
+                    self.roles_empleados = [(0, 0, {
+                        'role_id': rol_id.id,
+                        # En este punto, el campo `empleado_id` puede dejarse vacío para seleccionar más tarde
+                    })]
+            else:
+                # Si no se encuentra el rol, lanzar un error
+                raise ValidationError(f"El rol '{rol_name}' no está registrado en la base de datos.")
+        
+        return True
+
+    roles_empleados = fields.One2many('malkion.orden_trabajo.empleado', 'orden_trabajo_id', string="Empleados por Rol")
+
+    @api.model
+    def crear_roles_y_empleados(self, xml_data):
+        # Parsear el XML
+        xml_root = ET.fromstring(xml_data)
+
+        # Procesar roles y cantidades
+        roles = xml_root.findall('roles_necesarios/role')
+        for role in roles:
+            rol_name = role.find('role_name').text
+            cantidad = int(role.find('cantidad').text)
+
+            # Buscar el rol en la base de datos
+            rol_id = self.env['hr.job'].search([('name', '=', rol_name)], limit=1)
+            
+            if rol_id:
+                # Crear los registros de empleados necesarios
+                for _ in range(cantidad):
+                    self.roles_empleados = [(0, 0, {
+                        'role_id': rol_id.id,
+                        
+                    })]
+            else:
+                raise ValidationError(f"El rol '{rol_name}' no está registrado en la base de datos.")
+
+        return True
+
+class EmpleadoRol(models.Model):
+    _name = 'malkion.orden_trabajo.empleado'
+    _description = 'Empleado por Rol'
+
+    orden_trabajo_id = fields.Many2one('malkion_orden_trabajo', string="Orden de Trabajo")
+    role_id = fields.Many2one('hr.job', string="Rol")
+
+    empleado_id = fields.Many2one('hr.employee', string="Empleado", domain="[('job_id', '=', role_id)]")
+                    <!-- Roles Necesarios -->
+                    <group string="Roles Necesarios">
+                        <field name="roles_empleados">
+                            <form>
+                                <group>
+                                    <field name="role_id" string="Rol"/>
+                                    <field name="empleado_id" string="Empleado"/>
+                                </group>
+                            </form>
+                        </field>
+                    </group>
+
+'''
 

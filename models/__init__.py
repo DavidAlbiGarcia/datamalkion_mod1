@@ -11,4 +11,9 @@ from . import malkion_plantilla_rol
 from . import malkion_plantilla_equipo
 from . import malkion_plantilla_transport
 from . import malkion_plantilla
+from . import malkion_mission
+# modelos intermedios después
+from . import malkion_mission_employee_team
+from . import malkion_mission_employee_transport
+
 from . import malkion_orden_trabajo

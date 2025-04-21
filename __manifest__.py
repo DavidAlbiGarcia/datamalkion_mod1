@@ -36,6 +36,8 @@
         'views/malkion_equipo_views.xml',
         'views/malkion_plantilla_views.xml',
         'views/malkion_orden_trabajo_views.xml',
+        'views/malkion_mission_views.xml',
+        
         
     ],
     # only loaded in demonstration mode
