@@ -30,7 +30,35 @@
                         <field name="empleados_transporte_ids" invisible="1"/>
 
                         <field name="name" string="Nombre de la Misión"/>
+
+                        <!-- Campo Estado (editable para Agentes de Campo y Managers) No escalable, solución dinámica si grupos en código
                         <field name="estado" string="Estado"/>
+                                                <field name="estado" 
+                            groups="datamalkion.group_AGENTESCAMPO, datamalkion.group_MANAGER"
+                            attrs="{'readonly': [('groups', 'not in', ['datamalkion.group_AGENTESCAMPO', 'datamalkion.group_MANAGER'])]}"/>
+
+                            <field name="estado" groups="datamalkion.group_AGENTESCAMPO,datamalkion.group_MANAGER,datamalkion.group_ASCLEPIOS"/>
+
+                        <field name="estado" 
+                            groups="datamalkion.group_AGENTESCAMPO,datamalkion.group_MANAGER,datamalkion.group_ASCLEPIOS" 
+                            attrs="{'readonly': [('user_has_group', '=', 'datamalkion.group_AGENTESCAMPO')]}"/>
+
+
+                        <field name="estado"
+                            groups="datamalkion.group_AGENTESCAMPO,datamalkion.group_MANAGER,datamalkion.group_ASCLEPIOS"
+                            attrs="{'readonly': [('groups_id', 'not in', [ref('datamalkion.group_AGENTESCAMPO')])]}"/>
+
+                        <field name="estado" 
+                            attrs="{'readonly': [('user_id.groups_id', 'not in', [ref('datamalkion.group_AGENTESCAMPO')])]}"/>
+
+                                                    <field name="estado" 
+                            attrs="{'readonly': [('user_id.groups_id', 'not in', ['datamalkion.group_AGENTESCAMPO'])]}" 
+                            groups="datamalkion.group_MANAGER,datamalkion.group_AGENTESCAMPO"/>
+                        -->
+             
+
+                        <field name="estado" string="Estado"/>
+
                         <field name="jefe_data_id" string="Jefe de Datos"/>
                         <field name="gestor_hunters_id" string="Gestor de Hunters"/>
                         <field name="gestor_equipo_id" string="Gestor de Equipo"/>

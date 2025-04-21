@@ -1,0 +1,40 @@
+<odoo>
+    <data>
+        <!-- Nota, pruebo con base.module_category_user en lugar de crear categoría personalizada, nevermind no tira -->
+
+        <!-- Crear una categoría personalizada sin depender de base.module_category_user -->
+        <record id="datamalkion.category_group" model="ir.module.category">
+            <field name="name">Malkion</field>
+        </record>
+
+        <!-- Grupo para Administradores (permiso CRUD completo en todos los modelos) -->
+        <record id="datamalkion.group_MANAGER" model="res.groups">
+            <field name="name">Malkion Manager</field>
+            <field name="category_id" ref="datamalkion.category_group"/>
+        </record>
+
+        <!-- Grupo para Agentes de Campo (solo pueden ver misiones, via xml podrán editar campo estado) -->
+        <record id="datamalkion.group_AGENTESCAMPO" model="res.groups">
+            <field name="name">Malkion Agentes de Campo</field>
+            <field name="category_id" ref="datamalkion.category_group"/>
+        </record>
+
+        <!-- Grupo para Asclepios (sin permisos, se gestionarán manualmente los accesos vía xml para ver misiones en estado entregada y poder cerrarlas) -->
+        <record id="datamalkion.group_ASCLEPIOS" model="res.groups">
+            <field name="name">Malkion Asclepios</field>
+            <field name="category_id" ref="datamalkion.category_group"/>
+        </record>
+
+        <!-- Grupo para Ventas (permiso CRUD en malkion_contract) -->
+        <record id="datamalkion.group_VENTAS" model="res.groups">
+            <field name="name">Malkion Ventas</field>
+            <field name="category_id" ref="datamalkion.category_group"/>
+        </record>
+
+        <!-- Grupo para Logística (permiso CRUD en malkion_plantilla, malkion_point_of_interest, malkion_transport, malkion_equipo) -->
+        <record id="datamalkion.group_LOGISTICA" model="res.groups">
+            <field name="name">Malkion Logística</field>
+            <field name="category_id" ref="datamalkion.category_group"/>
+        </record>
+    </data>
+</odoo>
