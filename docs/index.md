@@ -78,7 +78,7 @@ Incluye automatización de:
 
 ## 🗺️ Mapa del Módulo
 
-![](../docs/assets/images/mapa/Mapsite%20Malkion.png)
+![](/docs/assets/images/mapa/Mapsite%20Malkion.png)
 
 
 ---
@@ -134,20 +134,20 @@ El módulo define diferentes grupos de usuario según el rol en el proceso. Cada
 
 ## 🧬 Diagrama Entidad-Relación
 
-![Diagrama E-R](../docs/assets/images/er/PFM%20F4%20ER%20Modulo%20Malkion%20Data.png)
+![Diagrama E-R](/docs/assets/images/er/PFM%20F4%20ER%20Modulo%20Malkion%20Data.png)
 
 ---
 
 ## 🔁 Diagramas de Flujo
 
 1. **Generación de Misión desde Orden de Trabajo**  
-   ![](../docs/assets/images/diagramas/Flujo_Orden_Trabajo_fondo.png)
+   ![](/docs/assets/images/diagramas/Flujo_Orden_Trabajo_fondo.png)
 
 2. **Aprobación de Gestores y Asignación de Recursos**  
-   ![](../docs/assets/images/diagramas/Flujo_mision_iniciada_fondo.png)
+   ![](/docs/assets/images/diagramas/Flujo_mision_iniciada_fondo.png)
 
 3. **Ejecución y Cierre de Misión**  
-   ![](../docs/assets/images/diagramas/Flujo_Mision_Ejecucion_General_fondo.png)
+   ![](/docs/assets/images/diagramas/Flujo_Mision_Ejecucion_General_fondo.png)
 
 ---
 
