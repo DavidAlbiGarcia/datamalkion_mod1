@@ -1,7 +1,8 @@
 ---
-layout: default
 title: Malkion - Documentación del Módulo
-permalink: /
+layout: page
+show_sidebar_ false
+hero_height: is_fullwidth
 ---
 
 # 📦 Malkion - Gestión de Misiones de Recogida de Datos
@@ -79,8 +80,7 @@ Incluye automatización de:
 
 ## 🗺️ Mapa del Módulo
 
-![](https://davidalbigarcia.github.io/datamalkion_mod1/assets/images/mapa/Mapsite%20texto.png)  
-![](https://davidalbigarcia.github.io/datamalkion_mod1/assets/images/mapa/Mapsite%20Malkion.png)
+![](../assets/images/mapa/Mapsite%20Malkion.png)
 
 
 ---
@@ -101,7 +101,7 @@ El módulo **Malkion Data** se apoya en diversos módulos nativos de Odoo para a
 
 ## 🖼️ Wireframes
 
-➡️ [Ver wireframes](https://davidalbigarcia.github.io/datamalkion_mod1/wireframes/)
+➡️ [Ver wireframes](wireframes.md)
 
 ---
 
@@ -136,20 +136,20 @@ El módulo define diferentes grupos de usuario según el rol en el proceso. Cada
 
 ## 🧬 Diagrama Entidad-Relación
 
-![Diagrama E-R](https://davidalbigarcia.github.io/datamalkion_mod1/assets/images/er/PFM%20F4%20ER%20Modulo%20Malkion%20Data.png)
+![Diagrama E-R](../assets/images/er/PFM%20F4%20ER%20Modulo%20Malkion%20Data.png)
 
 ---
 
 ## 🔁 Diagramas de Flujo
 
 1. **Generación de Misión desde Orden de Trabajo**  
-   ![](https://davidalbigarcia.github.io/datamalkion_mod1/assets/images/diagramas/Flujo_Orden_Trabajo_fondo.png)
+   ![](../assets/images/diagramas/Flujo_Orden_Trabajo_fondo.png)
 
 2. **Aprobación de Gestores y Asignación de Recursos**  
-   ![](https://davidalbigarcia.github.io/datamalkion_mod1/assets/images/diagramas/Flujo_mision_iniciada_fondo.png)
+   ![](../assets/images/diagramas/Flujo_mision_iniciada_fondo.png)
 
 3. **Ejecución y Cierre de Misión**  
-   ![](https://davidalbigarcia.github.io/datamalkion_mod1/assets/images/diagramas/Flujo_Mision_Ejecucion_General_fondo.png)
+   ![](../assets/images/diagramas/Flujo_Mision_Ejecucion_General_fondo.png)
 
 ---
 
