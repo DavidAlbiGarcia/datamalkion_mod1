@@ -1,12 +1,11 @@
 from odoo import models, fields
 
 class MalkionEquipo(models.Model):
-    _name = 'malkion_equipo'  # Cambiado de malkion.equipo a malkion_equipo
+    _name = 'malkion.equipo'  # Cambiado de malkion.equipo a malkion_equipo
     _description = 'Equipo'
 
     # Campos
     name = fields.Char(string="Nombre del Equipo", required=True)
-    _rec_name = 'name'  # Esto indica que Odoo usará 'name' como el campo principal para mostrar en las relaciones, bufff, la leche
     serial_number = fields.Char(string="Número de Serie")
     tipo = fields.Selection([
         ('guantes', 'Guantes'),
@@ -23,4 +22,4 @@ class MalkionEquipo(models.Model):
     observaciones = fields.Text(string="Observaciones")
     
     # Relación con almacenes
-    almacen_id = fields.Many2one('malkion_almacenes', string="Almacén al que pertenece", required=True)
+    almacen_id = fields.Many2one('malkion.almacenes', string="Almacén al que pertenece", required=True)

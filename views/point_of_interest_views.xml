@@ -1,8 +1,8 @@
 <odoo>
     <!-- Vista de formulario para Puntos de Interés -->
     <record id="view_form_point_of_interest" model="ir.ui.view">
-        <field name="name">malkion_point_of_interest.form</field>
-        <field name="model">malkion_point_of_interest</field>
+        <field name="name">malkion.point_of_interest.form</field>
+        <field name="model">malkion.point_of_interest</field>
         <field name="arch" type="xml">
             <form string="Punto de Interés">
                 <sheet>
@@ -21,8 +21,8 @@
 
     <!-- Vista de lista para Puntos de Interés -->
     <record id="view_tree_point_of_interest" model="ir.ui.view">
-        <field name="name">malkion_point_of_interest.tree</field>
-        <field name="model">malkion_point_of_interest</field>
+        <field name="name">malkion.point_of_interest.tree</field>
+        <field name="model">malkion.point_of_interest</field>
         <field name="arch" type="xml">
             <tree string="Puntos de Interés">
                 <field name="name" string="Nombre"/>
@@ -38,7 +38,7 @@
     <!-- Acción para abrir la vista de contratos -->
     <record id="action_point_of_interest" model="ir.actions.act_window">
         <field name="name">Puntos de interes</field>
-        <field name="res_model">malkion_point_of_interest</field>
+        <field name="res_model">malkion.point_of_interest</field>
         <field name="view_mode">tree,form</field>
     </record>
 

@@ -1,12 +1,12 @@
 <odoo>    
     <record id="view_plantilla_form" model="ir.ui.view">
         <field name="name">malkion.plantilla.form</field>
-        <field name="model">malkion_plantilla</field>
+        <field name="model">malkion.plantilla</field>
         <field name="arch" type="xml">
             <form string="Plantilla de Contrato">
                 <sheet>
                     <group>
-                        <field name="nombre" />
+                        <field name="name" />
                         <field name="client_id" />
                         <field name="contrato_id" />
                         <field name="data_required" />
@@ -51,10 +51,10 @@
     <!-- Vista de árbol para las plantillas -->
     <record id="view_plantilla_tree" model="ir.ui.view">
         <field name="name">malkion.plantilla.tree</field>
-        <field name="model">malkion_plantilla</field>
+        <field name="model">malkion.plantilla</field>
         <field name="arch" type="xml">
             <tree string="Plantillas de Contratos">
-                <field name="nombre"/>
+                <field name="name"/>
                 <field name="client_id"/>
                 <field name="contrato_id"/>
             </tree>
@@ -64,7 +64,7 @@
     <!-- Acción para abrir la vista de plantillas -->
     <record id="action_plantillas" model="ir.actions.act_window">
         <field name="name">Plantillas de Contrato</field>
-        <field name="res_model">malkion_plantilla</field>
+        <field name="res_model">malkion.plantilla</field>
         <field name="view_mode">tree,form</field>
         <field name="view_id" ref="view_plantilla_tree"/>
     </record>

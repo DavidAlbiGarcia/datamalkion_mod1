@@ -6,11 +6,11 @@ from odoo.exceptions import ValidationError
 _logger = logging.getLogger(__name__)
 
 class MalkionMission(models.Model):
-    _name = 'malkion_mission'
+    _name = 'malkion.mission'
     _description = 'Misión'
 
     name = fields.Char(string="Nombre de la Misión", required=True)
-    puntos_interes_ids = fields.Many2many('malkion_point_of_interest', string="Puntos de Interés")
+    puntos_interes_ids = fields.Many2many('malkion.point_of_interest', string="Puntos de Interés")
     
     jefe_data_id = fields.Many2one('hr.employee', string="Jefe de Datos")
     gestor_hunters_id = fields.Many2one('hr.employee', string="Gestor de Hunters")
@@ -19,12 +19,12 @@ class MalkionMission(models.Model):
     
     roles_ids = fields.Many2many('hr.employee', string="Roles")  # Relación muchos a muchos con empleados
     
-    equipo_ids = fields.Many2many('malkion_equipo', string="Equipo")
-    transporte_ids = fields.Many2many('malkion_transport', string="Transporte")
+    equipo_ids = fields.Many2many('malkion.equipo', string="Equipo")
+    transporte_ids = fields.Many2many('malkion.transport', string="Transporte")
 
     # Relaciones ternarias: empleado - equipo / transporte
-    empleados_equipo_ids = fields.One2many('malkion_mission_employee_team', 'mision_id', string="Empleados Asignados a Equipo")
-    empleados_transporte_ids = fields.One2many('malkion_mission_employee_transport', 'mision_id', string="Empleados Asignados a Transporte")
+    empleados_equipo_ids = fields.One2many('malkion.mission_employee_team', 'mision_id', string="Empleados Asignados a Equipo")
+    empleados_transporte_ids = fields.One2many('malkion.mission_employee_transport', 'mision_id', string="Empleados Asignados a Transporte")
 
     # 
     # Dejo el filtrado por el momento

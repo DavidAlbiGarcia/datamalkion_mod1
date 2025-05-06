@@ -1,8 +1,8 @@
 <odoo>
     <!-- Vista de lista para transportes -->
     <record id="view_tree_malkion_transport" model="ir.ui.view">
-        <field name="name">malkion_transport.tree</field>
-        <field name="model">malkion_transport</field>
+        <field name="name">malkion.transport.tree</field>
+        <field name="model">malkion.transport</field>
         <field name="arch" type="xml">
             <tree string="Transportes">
                 <field name="name" string="Nombre"/>
@@ -18,8 +18,8 @@
 
     <!-- Vista de formulario para transportes -->
     <record id="view_form_malkion_transport" model="ir.ui.view">
-        <field name="name">malkion_transport.form</field>
-        <field name="model">malkion_transport</field>
+        <field name="name">malkion.transport.form</field>
+        <field name="model">malkion.transport</field>
         <field name="arch" type="xml">
             <form string="Transporte">
                 <sheet>
@@ -42,7 +42,7 @@
         <!-- Acción para abrir la vista de transportes -->
     <record id="action_transportes" model="ir.actions.act_window">
         <field name="name">Transportes</field>
-        <field name="res_model">malkion_transport</field>
+        <field name="res_model">malkion.transport</field>
         <field name="view_mode">tree,form</field>
         <field name="view_id" ref="view_tree_malkion_transport"/>
     </record>

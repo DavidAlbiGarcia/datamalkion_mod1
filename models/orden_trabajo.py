@@ -7,22 +7,22 @@ from odoo.exceptions import ValidationError
 _logger = logging.getLogger(__name__)
 
 class MalkionOrdenTrabajo(models.Model):
-    _name = 'malkion_orden_trabajo'
+    _name = 'malkion.orden_trabajo'
     _description = 'Orden de trabajo'
 
     name = fields.Char(string="Nombre de la Orden de Trabajo", required=True)
     cliente_id = fields.Many2one('res.partner', string="Cliente", required=True)
-    contrato_id = fields.Many2one('malkion_contract', string="Contrato", required=True, domain="[('client_id', '=', cliente_id)]")
+    contrato_id = fields.Many2one('malkion.contract', string="Contrato", required=True, domain="[('client_id', '=', cliente_id)]")
     dato_requerido = fields.Char(string="Dato Requerido")
     jefe_datos_id = fields.Many2one('res.users', string="Jefe de Datos", default=lambda self: self.env.user)
     gestor_equipo_id = fields.Many2one('hr.employee', string="Gestor de Equipo", domain="[('active', '=', True)]")
     gestor_transporte_id = fields.Many2one('hr.employee', string="Gestor de Transporte", domain="[('active', '=', True)]")
     gestor_empleados_id = fields.Many2one('hr.employee', string="Gestor de Empleados", domain="[('active', '=', True)]")
 
-    puntos_interes_ids = fields.Many2many('malkion_point_of_interest', string="Puntos de Interés")
+    puntos_interes_ids = fields.Many2many('malkion.point_of_interest', string="Puntos de Interés")
     empleados_roles = fields.Many2many('hr.employee', string="Empleados por Rol")
-    equipo_ids = fields.Many2many('malkion_equipo', string="Equipo Necesario")
-    transporte_ids = fields.Many2many('malkion_transport', string="Transporte Necesario")
+    equipo_ids = fields.Many2many('malkion.equipo', string="Equipo Necesario")
+    transporte_ids = fields.Many2many('malkion.transport', string="Transporte Necesario")
 
     responsable_equipo_id = fields.Many2one(
         'hr.employee', 
@@ -36,8 +36,8 @@ class MalkionOrdenTrabajo(models.Model):
     #Solucion temporal, mostrar datos en pantalla en lugar de crear dinámicamente los campos
     # Campos nuevos para almacenar datos extraídos del XML
     roles_str = fields.Char(string="Roles Necesarios")  # Mostrar como texto
-    equipo_str = fields.Char(string="Equipo Necesario")  # Mostrar como texto
-    transporte_str = fields.Char(string="Transporte Necesario")  # Mostrar como texto
+    equipo_str = fields.Char(string="Equipo Necesario Cantidad")  # Mostrar como texto
+    transporte_str = fields.Char(string="Transporte Necesario Cantidad")  # Mostrar como texto
 
     estado = fields.Selection([
         ('pendiente', 'Pendiente'),
@@ -72,7 +72,7 @@ class MalkionOrdenTrabajo(models.Model):
                 'puntos_interes_ids': [(6, 0, orden.puntos_interes_ids.ids)], 
             }
             # Crear la misión a partir de los datos de la orden de trabajo
-            mission = self.env['malkion_mission'].create(mission_vals)
+            mission = self.env['mission'].create(mission_vals)
             return mission
 
     @api.model
@@ -93,7 +93,7 @@ class MalkionOrdenTrabajo(models.Model):
 
             
         # Buscar la plantilla asociada al contrato
-        plantilla = self.env['malkion_plantilla'].search([
+        plantilla = self.env['plantilla'].search([
             ('contrato_id', '=', self.contrato_id.id)
         ], limit=1)
 
@@ -124,7 +124,7 @@ class MalkionOrdenTrabajo(models.Model):
             puntos_nombres = [punto.text for punto in puntos_interes if punto.text]
 
             # Realizar una única búsqueda para todos los puntos de interés a la vez
-            puntos_encontrados = self.env['malkion_point_of_interest'].search([('name', 'in', puntos_nombres)])
+            puntos_encontrados = self.env['point_of_interest'].search([('name', 'in', puntos_nombres)])
 
             # Asignar los puntos de interés encontrados a self.puntos_interes_ids
             self.puntos_interes_ids = [(6, 0, puntos_encontrados.ids)]

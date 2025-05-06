@@ -2,7 +2,7 @@
     <!-- Acción para abrir la vista de almacenes -->
     <record id="action_almacenes" model="ir.actions.act_window">
         <field name="name">Almacenes</field>
-        <field name="res_model">malkion_almacenes</field>  <!-- Cambiado al nuevo _name -->
+        <field name="res_model">malkion.almacenes</field>  <!-- Cambiado al nuevo _name -->
         <field name="view_mode">tree,form</field>
     </record>
 
@@ -11,8 +11,8 @@
 
     <!-- Vista de lista para almacenes -->
     <record id="view_tree_malkion_almacenes" model="ir.ui.view">
-        <field name="name">malkion_almacenes.tree</field> <!-- Cambiado al nuevo _name -->
-        <field name="model">malkion_almacenes</field> <!-- Cambiado al nuevo _name -->
+        <field name="name">malkion.almacenes.tree</field> <!-- Cambiado al nuevo _name -->
+        <field name="model">malkion.almacenes</field> <!-- Cambiado al nuevo _name -->
         <field name="arch" type="xml">
             <tree string="Almacenes">
                 <field name="name" string="Nombre"/>
@@ -25,8 +25,8 @@
 
     <!-- Vista de formulario para almacenes -->
     <record id="view_form_malkion_almacenes" model="ir.ui.view">
-        <field name="name">malkion_almacenes.form</field> <!-- Cambiado al nuevo _name -->
-        <field name="model">malkion_almacenes</field> <!-- Cambiado al nuevo _name -->
+        <field name="name">malkion.almacenes.form</field> <!-- Cambiado al nuevo _name -->
+        <field name="model">malkion.almacenes</field> <!-- Cambiado al nuevo _name -->
         <field name="arch" type="xml">
             <form string="Almacén">
                 <sheet>

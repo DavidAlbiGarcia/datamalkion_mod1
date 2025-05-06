@@ -1,8 +1,8 @@
 <odoo>
     <!-- Vista de formulario para equipo -->
     <record id="view_form_malkion_equipo" model="ir.ui.view">
-        <field name="name">malkion_equipo.form</field>
-        <field name="model">malkion_equipo</field>
+        <field name="name">malkion.equipo.form</field>
+        <field name="model">malkion.equipo</field>
         <field name="arch" type="xml">
             <form string="Equipo">
                 <sheet>
@@ -22,8 +22,8 @@
 
     <!-- Vista de lista para equipo -->
     <record id="view_tree_malkion_equipo" model="ir.ui.view">
-        <field name="name">malkion_equipo.tree</field>
-        <field name="model">malkion_equipo</field>
+        <field name="name">malkion.equipo.tree</field>
+        <field name="model">malkion.equipo</field>
         <field name="arch" type="xml">
             <tree string="Equipo">
                 <field name="name" string="Nombre"/>
@@ -38,7 +38,7 @@
     <!-- Acción para abrir la vista de equipo -->
     <record id="action_equipo" model="ir.actions.act_window">
         <field name="name">Equipo</field>
-        <field name="res_model">malkion_equipo</field>
+        <field name="res_model">malkion.equipo</field>
         <field name="view_mode">tree,form</field>
         <field name="view_id" ref="view_tree_malkion_equipo"/>
     </record>

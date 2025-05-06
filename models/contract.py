@@ -1,11 +1,10 @@
 from odoo import models, fields
 
 class MalkionContract(models.Model):
-    _name = 'malkion_contract' # _ pero da igual que se llame como archivo pues busca name? ¿no es convención . en names y _ en archivos? repreguntar, nah, recambiado
+    _name = 'malkion.contract' # _ pero da igual que se llame como archivo pues busca name? ¿no es convención . en names y _ en archivos? repreguntar, nah, recambiado
     _description = 'Contrato con el cliente'
 
     name = fields.Char(string="Nombre del contrato", required=True)
-    _rec_name = 'name'  # Esto indica que Odoo usará 'name' como el campo principal para mostrar en las relaciones, bufff, la leche
     client_id = fields.Many2one('res.partner', string="Cliente", required=True)
     contract_type = fields.Selection([
         ('standard', 'Estándar'),

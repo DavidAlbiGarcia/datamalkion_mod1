@@ -3,27 +3,27 @@ from odoo.exceptions import ValidationError
 import xml.etree.ElementTree as ET
 
 class MalkionPlantilla(models.Model):
-    _name = 'malkion_plantilla'
+    _name = 'malkion.plantilla'
     _description = 'Plantillas para Contratos'
 
-    nombre = fields.Char("Nombre de la Plantilla", required=True)
+    name = fields.Char("Nombre de la Plantilla", required=True)
     client_id = fields.Many2one('res.partner', string="Cliente", required=True)
     contrato_id = fields.Many2one(
-        'malkion_contract', 
+        'malkion.contract', 
         string="Contrato", 
         required=True,
         domain="[('client_id', '=', client_id)]"  # Filtrar por cliente
     )
     data_required = fields.Char(string="Dato Requerido")
     
-    puntos_interes_ids = fields.Many2many('malkion_point_of_interest', string="Puntos de Interés")
+    puntos_interes_ids = fields.Many2many('malkion.point_of_interest', string="Puntos de Interés")
     
     # Relación Many2many con los modelos intermedios para roles
-    roles_necesarios_ids = fields.One2many('malkion_plantilla_rol', 'plantilla_id', string="Roles Necesarios")
+    roles_necesarios_ids = fields.One2many('malkion.plantilla_rol', 'plantilla_id', string="Roles Necesarios")
 
     # Relación Many2many con los modelos intermedios
-    equipo_necesario_ids = fields.One2many('malkion_plantilla_equipo', 'plantilla_id', string="Equipo Necesario")
-    transporte_necesario_ids = fields.One2many('malkion_plantilla_transport', 'plantilla_id', string="Transporte Necesario")
+    equipo_necesario_ids = fields.One2many('malkion.plantilla_equipo', 'plantilla_id', string="Equipo Necesario")
+    transporte_necesario_ids = fields.One2many('malkion.plantilla_transport', 'plantilla_id', string="Transporte Necesario")
     
     xml_data = fields.Text("XML de la Plantilla")
 

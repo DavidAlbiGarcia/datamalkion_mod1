@@ -2,8 +2,8 @@
 <odoo>
     <!-- Vista de formulario para contratos -->
     <record id="view_form_malkion_contract" model="ir.ui.view">
-        <field name="name">malkion_contract.form</field>
-        <field name="model">malkion_contract</field>
+        <field name="name">malkion.contract.form</field>
+        <field name="model">malkion.contract</field>
         <field name="arch" type="xml">
             <form string="Contrato">
                 <sheet>
@@ -24,8 +24,8 @@
 
     <!-- Vista de lista para contratos -->
     <record id="view_tree_malkion_contract" model="ir.ui.view">
-        <field name="name">malkion_contract.tree</field>
-        <field name="model">malkion_contract</field>
+        <field name="name">malkion.contract.tree</field>
+        <field name="model">malkion.contract</field>
         <field name="arch" type="xml">
             <tree string="Contratos">
                 <field name="name" string="Nombre"/>
@@ -42,7 +42,7 @@
     <!-- Acción para abrir la vista de contratos -->
     <record id="action_contract_list" model="ir.actions.act_window">
         <field name="name">Contratos</field>
-        <field name="res_model">malkion_contract</field>
+        <field name="res_model">malkion.contract</field>
         <field name="view_mode">tree,form</field>
     </record>
 

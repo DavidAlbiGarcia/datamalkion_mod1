@@ -1,7 +1,7 @@
 <odoo>
     <!-- Vista de lista para empleados -->
     <record id="view_tree_malkion_employee" model="ir.ui.view">
-        <field name="name">malkion_employee.tree</field>
+        <field name="name">malkion.employee.tree</field>
         <field name="model">hr.employee</field>
         <field name="arch" type="xml">
             <tree string="Empleados">
@@ -15,7 +15,7 @@
 
     <!-- Vista de formulario para empleados (heredada y modificada) -->
     <record id="view_form_malkion_employee" model="ir.ui.view">
-        <field name="name">malkion_employee.form</field>
+        <field name="name">malkion.employee.form</field>
         <field name="model">hr.employee</field>
         <field name="inherit_id" ref="hr.view_employee_form"/> <!-- Heredamos de la vista de formulario estándar -->
         <field name="arch" type="xml">

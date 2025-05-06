@@ -1,18 +1,18 @@
 # -*- coding: utf-8 -*-
 
-from . import malkion_contract
-from . import malkion_point_of_interest
-from . import malkion_almacenes
-from . import malkion_employee
-from . import malkion_transport
-from . import malkion_equipo
-from . import malkion_plantilla_rol
-from . import malkion_plantilla_equipo
-from . import malkion_plantilla_transport
-from . import malkion_plantilla
-from . import malkion_mission
+from . import contract
+from . import point_of_interest
+from . import almacenes
+from . import employee
+from . import transport
+from . import equipo
+from . import plantilla_rol
+from . import plantilla_equipo
+from . import plantilla_transport
+from . import plantilla
+from . import mission
 # modelos intermedios después
-from . import malkion_mission_employee_team
-from . import malkion_mission_employee_transport
+from . import mission_employee_team
+from . import mission_employee_transport
 
-from . import malkion_orden_trabajo
+from . import orden_trabajo

@@ -7,7 +7,7 @@
     <!-- Acción para el Panel de Control -->
     <record id="action_malkion_dashboard" model="ir.actions.act_window">
         <field name="name">Panel de Control Malkion</field>
-        <field name="res_model">malkion_contract</field> <!-- Apunta al modelo de contratos -->
+        <field name="res_model">malkion.contract</field> <!-- Apunta al modelo de contratos -->
         <field name="view_mode">tree,form</field> <!-- Define que muestra tanto lista (tree) como formulario (form) -->
         <field name="context">{}</field>
     </record>
@@ -17,8 +17,8 @@
 
     <!-- Vista de Contratos (para ser usada en el menú) -->
     <record id="view_malkion_dashboard" model="ir.ui.view">
-        <field name="name">malkion_contract.tree</field>
-        <field name="model">malkion_contract</field>
+        <field name="name">malkion.contract.tree</field>
+        <field name="model">malkion.contract</field>
         <field name="arch" type="xml">
             <tree string="Contratos">
                 <field name="name"/>
