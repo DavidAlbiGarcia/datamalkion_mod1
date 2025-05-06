@@ -13,10 +13,13 @@ permalink: /wireframes
    ![Listado Misiones]({% if jekyll.environment == 'production' %}{{ site.baseurl }}/docs/assets/images/wireframes/listado_misiones.png)
 
 3. **Formulario Creación Misión**  
-   ![Crear Misión](/docs/assets/images/wireframes/creacion_mision.png)
+   ![Crear Misión]({ site.baseurl }/docs/assets/images/wireframes/creacion_mision.png)
 
 4. **Plantillas de Misión**  
    ![Plantilla Misión](/docs/assets/images/wireframes/plantillas_de_mision.png)
+   
+   ![test]({% if jekyll.environment == 'production' %}{{ site.baseurl }}/assets/images/wireframes/panel_principal.png{% else %}/docs/assets/images/wireframes/panel_principal.png{% endif %})
+
 
 5. **Aprobación de Misión**  
    ![Aprobar Misión](/docs/assets/images/wireframes/aprobacion_mision.png)
