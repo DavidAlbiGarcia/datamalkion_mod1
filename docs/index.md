@@ -1,11 +1,9 @@
 ---
 title: Malkion - Documentación del Módulo
 layout: page
-show_sidebar_ false
+show_sidebar: false
 hero_height: is_fullwidth
 ---
-
-# 📦 Malkion - Gestión de Misiones de Recogida de Datos
 
 Bienvenido a la documentación oficial del módulo **Malkion**, un sistema de planificación automatizada para la recogida y entrega de datos estructurados en Odoo.
 
@@ -80,7 +78,7 @@ Incluye automatización de:
 
 ## 🗺️ Mapa del Módulo
 
-![](../assets/images/mapa/Mapsite%20Malkion.png)
+![](../docs/assets/images/mapa/Mapsite%20Malkion.png)
 
 
 ---
@@ -136,20 +134,20 @@ El módulo define diferentes grupos de usuario según el rol en el proceso. Cada
 
 ## 🧬 Diagrama Entidad-Relación
 
-![Diagrama E-R](../assets/images/er/PFM%20F4%20ER%20Modulo%20Malkion%20Data.png)
+![Diagrama E-R](../docs/assets/images/er/PFM%20F4%20ER%20Modulo%20Malkion%20Data.png)
 
 ---
 
 ## 🔁 Diagramas de Flujo
 
 1. **Generación de Misión desde Orden de Trabajo**  
-   ![](../assets/images/diagramas/Flujo_Orden_Trabajo_fondo.png)
+   ![](../docs/assets/images/diagramas/Flujo_Orden_Trabajo_fondo.png)
 
 2. **Aprobación de Gestores y Asignación de Recursos**  
-   ![](../assets/images/diagramas/Flujo_mision_iniciada_fondo.png)
+   ![](../docs/assets/images/diagramas/Flujo_mision_iniciada_fondo.png)
 
 3. **Ejecución y Cierre de Misión**  
-   ![](../assets/images/diagramas/Flujo_Mision_Ejecucion_General_fondo.png)
+   ![](../docs/assets/images/diagramas/Flujo_Mision_Ejecucion_General_fondo.png)
 
 ---
 
