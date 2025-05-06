@@ -10,7 +10,7 @@ permalink: /wireframes
    ![Panel Principal](./docs/assets/images/wireframes/panel_principal.png)
 
 2. **Listado de Misiones**  
-   ![Listado Misiones]({% if jekyll.environment == 'production' %}{{ site.baseurl }}/docs/assets/images/wireframes/listado_misiones.png)
+   ![Listado Misiones]({% if jekyll.environment == 'production' %}{{ site.baseurl }}/docs/assets/images/wireframes/listado_misiones.png{% endif %})
 
 3. **Formulario Creación Misión**  
    ![Crear Misión]({ site.baseurl }/docs/assets/images/wireframes/creacion_mision.png)
