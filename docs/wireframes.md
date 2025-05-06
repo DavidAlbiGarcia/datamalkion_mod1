@@ -7,10 +7,10 @@ permalink: /wireframes
 # 🖼️ Wireframes del Módulo Malkion
 
 1. **Panel Principal**  
-   ![Panel Principal](/docs/assets/images/wireframes/panel_principal.png)
+   ![Panel Principal](./docs/assets/images/wireframes/panel_principal.png)
 
 2. **Listado de Misiones**  
-   ![Listado Misiones](/docs/assets/images/wireframes/listado_misiones.png)
+   ![Listado Misiones]({% if jekyll.environment == 'production' %}{{ site.baseurl }}/docs/assets/images/wireframes/listado_misiones.png)
 
 3. **Formulario Creación Misión**  
    ![Crear Misión](/docs/assets/images/wireframes/creacion_mision.png)
