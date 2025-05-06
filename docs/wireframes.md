@@ -22,13 +22,13 @@ permalink: /wireframes
 
 
 5. **Aprobación de Misión**  
-   ![Aprobar Misión](/docs/assets/images/wireframes/aprobacion_mision.png)
+   ![Aprobar Misión](./assets/images/wireframes/aprobacion_mision.png)
 
 6. **Puntos y Centros**  
-   ![Puntos y Centros](/docs/assets/images/wireframes/puntos_y_centros.png)
+   ![Puntos y Centros](./assets/images/wireframes/puntos_y_centros.png)
 
 7. **Informes**  
-   ![Informes](/docs/assets/images/wireframes/Informes.png)
+   ![Informes](.../assets/images/wireframes/Informes.png)
 
 8. **Módulo Modificado de Gestión de Empleados**  
-   ![Empleados Modificado](/docs/assets/images/wireframes/empleados.png)
+   ![Empleados Modificado](.../docs/assets/images/wireframes/empleados.png)
