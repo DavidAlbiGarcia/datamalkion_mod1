@@ -1,0 +1,23 @@
+<odoo>
+  <data noupdate="0">
+
+    <!-- Plantilla para contrato ACME -->
+    <record id="plantilla_acme" model="malkion.plantilla">
+      <field name="name">Plantilla ACME - Recolección</field>
+      <field name="client_id" ref="cliente_acme"/>
+      <field name="contrato_id" ref="contrato_acme_standard"/>
+      <field name="data_required">Muestras de aire urbano</field>
+      <field name="puntos_interes_ids" eval="[(6, 0, [ref('punto_recogida_1'), ref('punto_entrega_1')])]"/>
+    </record>
+
+    <!-- Plantilla para contrato BioTec -->
+    <record id="plantilla_biotec" model="malkion.plantilla">
+      <field name="name">Plantilla BioTec - Muestreo</field>
+      <field name="client_id" ref="cliente_biotec"/>
+      <field name="contrato_id" ref="contrato_biotec_premium"/>
+      <field name="data_required">Secuenciación de polen ambiental</field>
+      <field name="puntos_interes_ids" eval="[(6, 0, [ref('punto_medicion_1'), ref('punto_entrega_1')])]"/>
+    </record>
+
+  </data>
+</odoo>

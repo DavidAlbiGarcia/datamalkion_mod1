@@ -1,0 +1,23 @@
+<odoo>
+  <data noupdate="1">
+
+    <record id="cliente_acme" model="res.partner">
+      <field name="name">ACME S.A.</field>
+      <field name="street">Calle Inventada 123</field>
+      <field name="city">Madrid</field>
+      <field name="email">contacto@acme.es</field>
+      <field name="phone">+34 911 123 456</field>
+      <field name="company_type">company</field>
+    </record>
+
+    <record id="cliente_biotec" model="res.partner">
+      <field name="name">BioTec Global</field>
+      <field name="street">Av. Ciencia 42</field>
+      <field name="city">Sevilla</field>
+      <field name="email">info@biotec.com</field>
+      <field name="phone">+34 955 987 654</field>
+      <field name="company_type">company</field>
+    </record>
+
+  </data>
+</odoo>

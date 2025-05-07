@@ -43,6 +43,35 @@
         'views/plantilla_views.xml',
         'views/orden_trabajo_views.xml',
         'views/mission_views.xml',
+        # 1. Definiciones base
+        'data/hr_job.xml',
+
+        # 2. Usuarios y empleados
+        'data/users.xml',
+        'data/employees.xml',
+
+        # 3. Almacenes
+        'data/almacenes.xml',
+
+        # 4. Recursos
+        'data/equipos.xml',
+        'data/transportes.xml',
+
+        # 5. Puntos de interés
+        'data/puntos_interes.xml',
+
+        # 6. Clientes y contratos
+        'data/clientes.xml',
+        'data/contratos.xml',
+
+        # 7. Plantillas de misión
+        'data/plantillas/plantillas.xml', # imagino primero para ser referenciada
+        'data/plantillas/plantilla_roles.xml',
+        'data/plantillas/plantilla_equipo.xml',
+        'data/plantillas/plantilla_transporte.xml',
+
+        # 8. Misión precargada de ejemplo, mission imposible
+        'data/misiones.xml',
         
         
     ],

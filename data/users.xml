@@ -1,0 +1,51 @@
+<odoo>
+  <data noupdate="0">
+
+    <record id="user_juan" model="res.users">
+      <field name="name">Juan Campo</field>
+      <field name="login">juan</field>
+      <field name="password">juan123</field>
+      <field name="groups_id" eval="[(6, 0, [ref('base.group_user')])]"/>
+    </record>
+
+    <record id="user_maria" model="res.users">
+      <field name="name">Maria Campo</field>
+      <field name="login">maria</field>
+      <field name="password">maria123</field>
+      <field name="groups_id" eval="[(6, 0, [ref('base.group_user')])]"/>
+    </record>
+
+        <!-- Jefe de datos -->
+    <record id="user_jefe_datos" model="res.users">
+      <field name="name">Jefe Datos</field>
+      <field name="login">jefe</field>
+      <field name="password">jefe123</field>
+      <field name="groups_id" eval="[(6, 0, [ref('base.group_user')])]"/>
+    </record>
+
+    <!-- Gestor hunters -->
+    <record id="user_gestor_hunters" model="res.users">
+      <field name="name">Gestor Hunters</field>
+      <field name="login">ghunters</field>
+      <field name="password">ghunters123</field>
+      <field name="groups_id" eval="[(6, 0, [ref('base.group_user')])]"/>
+    </record>
+
+    <!-- Gestor equipo -->
+    <record id="user_gestor_equipo" model="res.users">
+      <field name="name">Gestor Equipo</field>
+      <field name="login">gequipo</field>
+      <field name="password">gequipo123</field>
+      <field name="groups_id" eval="[(6, 0, [ref('base.group_user')])]"/>
+    </record>
+
+    <!-- Gestor transportes -->
+    <record id="user_gestor_transportes" model="res.users">
+      <field name="name">Gestor Transportes</field>
+      <field name="login">gtransportes</field>
+      <field name="password">gtransportes123</field>
+      <field name="groups_id" eval="[(6, 0, [ref('base.group_user')])]"/>
+    </record>
+
+  </data>
+</odoo>

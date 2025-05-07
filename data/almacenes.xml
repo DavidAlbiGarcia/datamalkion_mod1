@@ -1,0 +1,23 @@
+<odoo>
+  <data noupdate="1">
+
+    <record id="almacen_equipo_centro" model="malkion.almacenes">
+      <field name="name">Almacén Central de Equipos</field>
+      <field name="tipo_almacen">equipo</field>
+      <field name="ubicacion_general">Calle 1, Zona Industrial</field>
+      <field name="ciudad">Madrid</field>
+      <field name="latitud">40.4168</field>
+      <field name="longitud">-3.7038</field>
+    </record>
+
+    <record id="almacen_transporte_sur" model="malkion.almacenes">
+      <field name="name">Almacén Sur de Transportes</field>
+      <field name="tipo_almacen">transporte</field>
+      <field name="ubicacion_general">Polígono Sur, Nave 5</field>
+      <field name="ciudad">Sevilla</field>
+      <field name="latitud">37.3891</field>
+      <field name="longitud">-5.9845</field>
+    </record>
+
+  </data>
+</odoo>

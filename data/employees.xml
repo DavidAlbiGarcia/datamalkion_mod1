@@ -1,0 +1,57 @@
+<odoo>
+  <data noupdate="0">
+
+    <record id="employee_juan" model="hr.employee">
+      <field name="name">Juan Campo</field>
+      <field name="user_id" ref="user_juan"/>
+      <field name="estado">activo</field>
+      <field name="disponible">disponible</field>
+      <field name="roles" eval="[(6, 0, [ref('job_arquero'), ref('job_cazador')])]"/>
+    </record>
+
+    <record id="employee_maria" model="hr.employee">
+      <field name="name">Maria Campo</field>
+      <field name="user_id" ref="user_maria"/>
+      <field name="estado">activo</field>
+      <field name="disponible">disponible</field>
+      <field name="roles" eval="[(6, 0, [ref('job_recolector')])]"/>
+    </record>
+
+        <!-- Empleado jefe de datos -->
+    <record id="employee_jefe_datos" model="hr.employee">
+      <field name="name">Jefe Datos</field>
+      <field name="user_id" ref="user_jefe_datos"/>
+      <field name="estado">activo</field>
+      <field name="disponible">disponible</field>
+      <field name="roles" eval="[(6, 0, [ref('job_jefe_datos')])]"/>
+    </record>
+
+    <!-- Empleado gestor hunters -->
+    <record id="employee_gestor_hunters" model="hr.employee">
+      <field name="name">Gestor Hunters</field>
+      <field name="user_id" ref="user_gestor_hunters"/>
+      <field name="estado">activo</field>
+      <field name="disponible">disponible</field>
+      <field name="roles" eval="[(6, 0, [ref('job_gestor_hunters')])]"/>
+    </record>
+
+    <!-- Empleado gestor equipo -->
+    <record id="employee_gestor_equipo" model="hr.employee">
+      <field name="name">Gestor Equipo</field>
+      <field name="user_id" ref="user_gestor_equipo"/>
+      <field name="estado">activo</field>
+      <field name="disponible">disponible</field>
+      <field name="roles" eval="[(6, 0, [ref('job_gestor_equipo')])]"/>
+    </record>
+
+    <!-- Empleado gestor transportes -->
+    <record id="employee_gestor_transportes" model="hr.employee">
+      <field name="name">Gestor Transportes</field>
+      <field name="user_id" ref="user_gestor_transportes"/>
+      <field name="estado">activo</field>
+      <field name="disponible">disponible</field>
+      <field name="roles" eval="[(6, 0, [ref('job_gestor_transportes')])]"/>
+    </record>
+
+  </data>
+</odoo>

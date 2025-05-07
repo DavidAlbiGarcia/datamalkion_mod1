@@ -1,0 +1,29 @@
+<odoo>
+  <data noupdate="1">
+
+    <record id="transporte_furgoneta_1" model="malkion.transport">
+      <field name="name">Furgoneta M-01</field>
+      <field name="matricula">1234-FGT</field>
+      <field name="tipo">furgoneta</field>
+      <field name="estado">disponible</field>
+      <field name="capacidad">4</field>
+      <field name="fecha_adquisicion">2022-09-20</field>
+      <field name="fecha_itv">2025-01-15</field>
+      <field name="observaciones">Vehículo con refrigeración y tracción total</field>
+      <field name="almacen_id" ref="almacen_transporte_sur"/>
+    </record>
+
+    <record id="transporte_coche_1" model="malkion.transport">
+      <field name="name">Coche de Apoyo</field>
+      <field name="matricula">5678-CCH</field>
+      <field name="tipo">coche</field>
+      <field name="estado">disponible</field>
+      <field name="capacidad">2</field>
+      <field name="fecha_adquisicion">2023-03-05</field>
+      <field name="fecha_itv">2024-12-01</field>
+      <field name="observaciones">Ideal para desplazamientos rápidos en ciudad</field>
+      <field name="almacen_id" ref="almacen_transporte_sur"/>
+    </record>
+
+  </data>
+</odoo>

@@ -1,0 +1,37 @@
+<odoo>
+  <data noupdate="1">
+
+    <record id="job_arquero" model="hr.job">
+      <field name="name">Arquero</field>
+    </record>
+
+    <record id="job_cazador" model="hr.job">
+      <field name="name">Cazador</field>
+    </record>
+
+    <record id="job_recolector" model="hr.job">
+      <field name="name">Recolector</field>
+    </record>
+
+    <record id="job_jefe_datos" model="hr.job">
+      <field name="name">Jefe de datos</field>
+    </record>
+
+    <record id="job_gestor_equipo" model="hr.job">
+      <field name="name">Gestor de equipo</field>
+    </record>
+
+    <record id="job_gestor_hunters" model="hr.job">
+      <field name="name">Gestor de hunters</field>
+    </record>
+
+    <record id="job_gestor_transportes" model="hr.job">
+      <field name="name">Gestor de transportes</field>
+    </record>
+
+    <record id="job_conductor" model="hr.job">
+      <field name="name">Conductor</field>
+    </record>
+
+  </data>
+</odoo>

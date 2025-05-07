@@ -1,0 +1,25 @@
+<odoo>
+  <data noupdate="1">
+
+    <record id="equipo_guantes_1" model="malkion.equipo">
+      <field name="name">Guantes Aislantes</field>
+      <field name="serial_number">GUA-001</field>
+      <field name="tipo">guantes</field>
+      <field name="estado">disponible</field>
+      <field name="fecha_adquisicion">2023-04-15</field>
+      <field name="observaciones">Guantes para manipulación de sustancias químicas</field>
+      <field name="almacen_id" ref="almacen_equipo_centro"/>
+    </record>
+
+    <record id="equipo_recipiente_1" model="malkion.equipo">
+      <field name="name">Recipiente de Muestra A</field>
+      <field name="serial_number">REC-023</field>
+      <field name="tipo">recipienteA</field>
+      <field name="estado">disponible</field>
+      <field name="fecha_adquisicion">2024-01-10</field>
+      <field name="observaciones">Usado para contener muestras biológicas sensibles</field>
+      <field name="almacen_id" ref="almacen_equipo_centro"/>
+    </record>
+
+  </data>
+</odoo>

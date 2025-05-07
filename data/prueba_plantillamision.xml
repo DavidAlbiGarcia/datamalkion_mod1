@@ -1,0 +1,35 @@
+<odoo>
+  <data noupdate="1">
+
+    <!-- Plantilla para ACME -->
+    <record id="plantilla_acme_recoleccion" model="malkion.mission_template">
+      <field name="name">Plantilla Recolección ACME</field>
+      <field name="contract_id" ref="contrato_acme_standard"/>
+      <field name="xml_data">
+        &lt;plantilla&gt;
+          &lt;punto tipo="recogida"&gt;Punto de Recogida Norte&lt;/punto&gt;
+          &lt;punto tipo="entrega"&gt;Laboratorio Central&lt;/punto&gt;
+          &lt;recurso tipo="empleado" rol="recolector" cantidad="1"/&gt;
+          &lt;recurso tipo="equipo" nombre="Guantes Aislantes" cantidad="1"/&gt;
+          &lt;recurso tipo="transporte" nombre="Furgoneta M-01" cantidad="1"/&gt;
+        &lt;/plantilla&gt;
+      </field>
+    </record>
+
+    <!-- Plantilla para BioTec -->
+    <record id="plantilla_biotec_muestreo" model="malkion.mission_template">
+      <field name="name">Plantilla Muestreo BioTec</field>
+      <field name="contract_id" ref="contrato_biotec_premium"/>
+      <field name="xml_data">
+        &lt;plantilla&gt;
+          &lt;punto tipo="medicion"&gt;Zona de Medición Río Sur&lt;/punto&gt;
+          &lt;punto tipo="entrega"&gt;Laboratorio Central&lt;/punto&gt;
+          &lt;recurso tipo="empleado" rol="cazador" cantidad="1"/&gt;
+          &lt;recurso tipo="equipo" nombre="Recipiente de Muestra A" cantidad="1"/&gt;
+          &lt;recurso tipo="transporte" nombre="Coche de Apoyo" cantidad="1"/&gt;
+        &lt;/plantilla&gt;
+      </field>
+    </record>
+
+  </data>
+</odoo>
