@@ -2,19 +2,6 @@
     <!-- Menú principal para Ordenes de Trabajo -->
     <menuitem id="menu_orden_trabajo" name="Ordenes de Trabajo" parent="menu_malkion_root" sequence="10"/>
 
-    <!-- Acción para abrir la vista de lista de Contratos -->
-    <record id="action_orden_trabajo" model="ir.actions.act_window">
-        <field name="name">Contratos para Ordenes de Trabajo</field>
-        <field name="res_model">malkion.contract</field> <!-- Usamos el modelo de contratos -->
-        <field name="view_mode">tree</field>  <!-- Solo la vista de lista -->
-        <!-- <field name="view_id" ref="view_orden_trabajo_tree"/> b Especifica la vista, locuraaaaaaaaaaaaa-->
-        <field name="domain">[('active', '=', True)]</field> <!-- Mostrar solo contratos activos -->
-    </record>
-
-    <!-- Submenú para ver los Contratos -->
-    <menuitem id="menu_orden_trabajo_list" name="Ver Contratos" parent="menu_orden_trabajo" action="action_orden_trabajo" sequence="1"/>
-
-    
 
     <!-- Acción para abrir el formulario de creación de Orden de Trabajo al seleccionar un contrato -->
     <record id="action_create_orden_trabajo" model="ir.actions.act_window">
@@ -89,4 +76,16 @@
             </form>
         </field>
     </record>
+
+        <!-- Acción para abrir la vista de lista de Contratos -->
+    <record id="action_orden_trabajo" model="ir.actions.act_window">
+        <field name="name">Contratos para Ordenes de Trabajo</field>
+        <field name="res_model">malkion.contract</field> <!-- Usamos el modelo de contratos -->
+        <field name="view_mode">tree</field>  <!-- Solo la vista de lista -->
+        <field name="view_id" ref="view_orden_trabajo_tree"/>
+        <field name="domain">[('active', '=', True)]</field> <!-- Mostrar solo contratos activos -->
+    </record>
+
+        <!-- Submenú para ver los Contratos -->
+    <menuitem id="menu_orden_trabajo_list" name="Ver Contratos" parent="menu_orden_trabajo" action="action_orden_trabajo" sequence="1"/>
 </odoo>
