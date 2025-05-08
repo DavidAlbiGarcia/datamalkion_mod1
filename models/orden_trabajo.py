@@ -73,6 +73,25 @@ class MalkionOrdenTrabajo(models.Model):
             }
             # Crear la misión a partir de los datos de la orden de trabajo
             mission = self.env['malkion.mission'].create(mission_vals)
+
+            # Crear relaciones ternarias: empleado - equipo
+            if orden.responsable_equipo_id and orden.equipo_ids:
+                for eq in orden.equipo_ids:
+                    self.env['malkion.mission_employee_team'].create({
+                        'mision_id': mission.id,
+                        'empleado_id': orden.responsable_equipo_id.id,
+                        'equipo_id': eq.id,
+                    })
+
+            # Crear relaciones ternarias: empleado - transporte
+            if orden.responsable_transporte_id and orden.transporte_ids:
+                for tr in orden.transporte_ids:
+                    self.env['malkion.mission_employee_transport'].create({
+                        'mision_id': mission.id,
+                        'empleado_id': orden.responsable_transporte_id.id,
+                        'transporte_id': tr.id,
+                    })
+
             return mission
 
     @api.model

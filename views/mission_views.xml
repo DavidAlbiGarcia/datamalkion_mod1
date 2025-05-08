@@ -29,54 +29,29 @@
                         <!-- Campo invisible para 'empleados_transporte_ids' -->
                         <field name="empleados_transporte_ids" invisible="1"/>
 
-                        <field name="name" string="Nombre de la Misión"/>
-
-                        <!-- Campo Estado (editable para Agentes de Campo y Managers) No escalable, solución dinámica si grupos en código
-                        <field name="estado" string="Estado"/>
-                                                <field name="estado" 
-                            groups="datamalkion.group_AGENTESCAMPO, datamalkion.group_MANAGER"
-                            attrs="{'readonly': [('groups', 'not in', ['datamalkion.group_AGENTESCAMPO', 'datamalkion.group_MANAGER'])]}"/>
-
-                            <field name="estado" groups="datamalkion.group_AGENTESCAMPO,datamalkion.group_MANAGER,datamalkion.group_ASCLEPIOS"/>
-
-                        <field name="estado" 
-                            groups="datamalkion.group_AGENTESCAMPO,datamalkion.group_MANAGER,datamalkion.group_ASCLEPIOS" 
-                            attrs="{'readonly': [('user_has_group', '=', 'datamalkion.group_AGENTESCAMPO')]}"/>
-
-
-                        <field name="estado"
-                            groups="datamalkion.group_AGENTESCAMPO,datamalkion.group_MANAGER,datamalkion.group_ASCLEPIOS"
-                            attrs="{'readonly': [('groups_id', 'not in', [ref('datamalkion.group_AGENTESCAMPO')])]}"/>
-
-                        <field name="estado" 
-                            attrs="{'readonly': [('user_id.groups_id', 'not in', [ref('datamalkion.group_AGENTESCAMPO')])]}"/>
-
-                                                    <field name="estado" 
-                            attrs="{'readonly': [('user_id.groups_id', 'not in', ['datamalkion.group_AGENTESCAMPO'])]}" 
-                            groups="datamalkion.group_MANAGER,datamalkion.group_AGENTESCAMPO"/>
-                        -->
-             
+                        <field name="name" string="Nombre de la Misión" readonly="1" groups="malkion.group_AGENTESCAMPO"/>
 
                         <field name="estado" string="Estado"/>
 
-                        <field name="jefe_data_id" string="Jefe de Datos"/>
-                        <field name="gestor_hunters_id" string="Gestor de Hunters"/>
-                        <field name="gestor_equipo_id" string="Gestor de Equipo"/>
-                        <field name="gestor_transportes_id" string="Gestor de Empleados"/>
-                        <field name="observaciones" string="Observaciones"/>
+                        <field name="jefe_data_id" string="Jefe de Datos" readonly="1" groups="malkion.group_AGENTESCAMPO"/>
+                        <field name="gestor_hunters_id" string="Gestor de Hunters" readonly="1" groups="malkion.group_AGENTESCAMPO"/>
+                        <field name="gestor_equipo_id" string="Gestor de Equipo" readonly="1" groups="malkion.group_AGENTESCAMPO"/>
+                        <field name="gestor_transportes_id" string="Gestor de Empleados" readonly="1" groups="malkion.group_AGENTESCAMPO"/>
+                        <field name="observaciones" string="Observaciones"
+                            readonly="1" groups="malkion.group_AGENTESCAMPO"/>
                     </group>
                     <group>
-                        <field name="puntos_interes_ids" widget="many2many_tags" string="Puntos de Interés"/>
-                        <field name="roles_ids" widget="many2many_tags" string="Roles"/>
-                        <field name="equipo_ids" widget="many2many_tags" string="Equipo Necesario"/>
-                        <field name="transporte_ids" widget="many2many_tags" string="Transporte Necesario"/>
+                        <field name="puntos_interes_ids" widget="many2many_tags" string="Puntos de Interés" readonly="1" groups="malkion.group_AGENTESCAMPO"/>
+                        <field name="roles_ids" widget="many2many_tags" string="Roles" readonly="1" groups="malkion.group_AGENTESCAMPO"/>
+                        <field name="equipo_ids" widget="many2many_tags" string="Equipo Necesario" readonly="1" groups="malkion.group_AGENTESCAMPO"/>
+                        <field name="transporte_ids" widget="many2many_tags" string="Transporte Necesario" readonly="1" groups="malkion.group_AGENTESCAMPO"/>
                     </group>
                     <group>
                         <!-- Responsables de equipo -->
-                        <field name="responsable_equipo_id" string="Responsables de Equipo"/>
+                        <field name="responsable_equipo_id" string="Responsables de Equipo" readonly="1" groups="malkion.group_AGENTESCAMPO"/>
                         
                         <!-- Responsables de transporte -->
-                        <field name="responsable_transporte_id" string="Responsables de Transporte"/>
+                        <field name="responsable_transporte_id" string="Responsables de Transporte" readonly="1" groups="malkion.group_AGENTESCAMPO"/>
                     </group>
                 </sheet>
             </form>

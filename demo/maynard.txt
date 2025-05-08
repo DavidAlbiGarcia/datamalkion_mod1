@@ -132,3 +132,28 @@ class EmpleadoRol(models.Model):
                 if equipo_id:
                     self.equipo_ids = [(4, equipo_id.id)]
             '''
+
+                                    <!-- Campo Estado (editable para Agentes de Campo y Managers) No escalable, solución dinámica si grupos en código
+                        <field name="estado" string="Estado"/>
+                                                <field name="estado" 
+                            groups="datamalkion.group_AGENTESCAMPO, datamalkion.group_MANAGER"
+                            attrs="{'readonly': [('groups', 'not in', ['datamalkion.group_AGENTESCAMPO', 'datamalkion.group_MANAGER'])]}"/>
+
+                            <field name="estado" groups="datamalkion.group_AGENTESCAMPO,datamalkion.group_MANAGER,datamalkion.group_ASCLEPIOS"/>
+
+                        <field name="estado" 
+                            groups="datamalkion.group_AGENTESCAMPO,datamalkion.group_MANAGER,datamalkion.group_ASCLEPIOS" 
+                            attrs="{'readonly': [('user_has_group', '=', 'datamalkion.group_AGENTESCAMPO')]}"/>
+
+
+                        <field name="estado"
+                            groups="datamalkion.group_AGENTESCAMPO,datamalkion.group_MANAGER,datamalkion.group_ASCLEPIOS"
+                            attrs="{'readonly': [('groups_id', 'not in', [ref('datamalkion.group_AGENTESCAMPO')])]}"/>
+
+                        <field name="estado" 
+                            attrs="{'readonly': [('user_id.groups_id', 'not in', [ref('datamalkion.group_AGENTESCAMPO')])]}"/>
+
+                                                    <field name="estado" 
+                            attrs="{'readonly': [('user_id.groups_id', 'not in', ['datamalkion.group_AGENTESCAMPO'])]}" 
+                            groups="datamalkion.group_MANAGER,datamalkion.group_AGENTESCAMPO"/>
+                        -->

@@ -1,6 +1,7 @@
 from odoo import models, fields, api
 import logging
 from odoo.exceptions import ValidationError
+from odoo.exceptions import AccessError
 
 # Crear un logger
 _logger = logging.getLogger(__name__)
@@ -48,6 +49,45 @@ class MalkionMission(models.Model):
     ], default='iniciada', string="Estado")
 
     observaciones = fields.Text(string="Observaciones")
+
+    def write(self, vals):
+        user = self.env.user
+        grupo_agentes = self.env.ref('malkion.group_AGENTESCAMPO')
+
+        if grupo_agentes in user.groups_id:
+            campos_permitidos = {'estado'}
+            campos_recibidos = set(vals.keys())
+
+            if not campos_recibidos.issubset(campos_permitidos):
+                raise AccessError("No tienes permisos para editar otros campos.")
+
+        return super().write(vals)
+
+    """ added por si acaso, no deberian crearse manualmente, solo desde orden trabajo"""
+    @api.model
+    def create(self, vals):
+        mission = super().create(vals)
+
+        if mission.responsable_equipo_id and mission.equipo_ids:
+            for eq in mission.equipo_ids:
+                self.env['malkion.mission_employee_team'].create({
+                    'mision_id': mission.id,
+                    'empleado_id': mission.responsable_equipo_id.id,
+                    'equipo_id': eq.id,
+                })
+
+        if mission.responsable_transporte_id and mission.transporte_ids:
+            for tr in mission.transporte_ids:
+                self.env['malkion.mission_employee_transport'].create({
+                    'mision_id': mission.id,
+                    'empleado_id': mission.responsable_transporte_id.id,
+                    'transporte_id': tr.id,
+                })
+
+        return mission
+    
+    
+
 
 
 

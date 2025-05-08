@@ -1,0 +1,59 @@
+<odoo>
+  <template id="report_recursos_asignados">
+    <t t-call="web.basic_layout">
+      <div class="page">
+        <h2>Recursos Asignados (Equipos y Transportes)</h2>
+
+        <h3>Equipos Asignados</h3>
+        <table class="table table-sm">
+          <thead>
+            <tr>
+              <th>Equipo</th>
+              <th>Estado</th>
+              <th>Misión</th>
+              <th>Empleado Responsable</th>
+            </tr>
+          </thead>
+          <tbody>
+            <t t-foreach="env['malkion.mission_employee_team'].search([])" t-as="rel">
+              <t t-if="rel.equipo_id.estado != 'disponible'">
+                <tr>
+                  <td><t t-esc="rel.equipo_id.name"/></td>
+                  <td><t t-esc="rel.equipo_id.estado"/></td>
+                  <td><t t-esc="rel.mision_id.name"/></td>
+                  <td><t t-esc="rel.empleado_id.name"/></td>
+                </tr>
+              </t>
+            </t>
+          </tbody>
+        </table>
+
+        <h3>Transportes Asignados</h3>
+        <table class="table table-sm">
+          <thead>
+            <tr>
+              <th>Transporte</th>
+              <th>Estado</th>
+              <th>Misión</th>
+              <th>Empleado Responsable</th>
+            </tr>
+          </thead>
+          <tbody>
+            <t t-foreach="env['malkion.mission_employee_transport'].search([])" t-as="rel">
+            
+              <t t-if="rel.transporte_id.estado == 'disponible'"> <!-- temporalmente cambiado de != -->
+                <tr>
+                  <td><t t-esc="rel.transporte_id.name"/></td>
+                  <td><t t-esc="rel.transporte_id.estado"/></td>
+                  <td><t t-esc="rel.mision_id.name"/></td>
+                  <td><t t-esc="rel.empleado_id.name"/></td>
+                </tr>
+              </t>
+            </t>
+          </tbody>
+        </table>
+
+      </div>
+    </t>
+  </template>
+</odoo>

@@ -29,8 +29,8 @@
 
     # always loaded
     'data': [
-        # 'security/groups.xml',
-        # 'security/ir.model.access.csv',
+        'security/groups.xml',
+        'security/ir.model.access.csv',
         'views/views.xml',
         'views/templates.xml',
         'views/dashboard_views.xml', # primero, copón!
@@ -72,6 +72,13 @@
 
         # 8. Misión precargada de ejemplo, mission imposible
         'data/misiones.xml',
+
+        #reports
+        'reports/report_mission.xml',
+        'reports/report_mission_template.xml',
+        'reports/report_recursos_asignados.xml',
+        'reports/report_recursos_asignados_template.xml',
+
         
         
     ],
