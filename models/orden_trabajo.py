@@ -14,7 +14,10 @@ class MalkionOrdenTrabajo(models.Model):
     cliente_id = fields.Many2one('res.partner', string="Cliente", required=True)
     contrato_id = fields.Many2one('malkion.contract', string="Contrato", required=True, domain="[('client_id', '=', cliente_id)]")
     dato_requerido = fields.Char(string="Dato Requerido")
-    jefe_datos_id = fields.Many2one('res.users', string="Jefe de Datos", default=lambda self: self.env.user)
+
+    jefe_datos_id = fields.Many2one('hr.employee', string="Jefe de Datos", default=lambda self: self.env['hr.employee'].search([('user_id', '=', self.env.uid)], limit=1))
+
+
     gestor_equipo_id = fields.Many2one('hr.employee', string="Gestor de Equipo", domain="[('active', '=', True)]")
     gestor_transporte_id = fields.Many2one('hr.employee', string="Gestor de Transporte", domain="[('active', '=', True)]")
     gestor_empleados_id = fields.Many2one('hr.employee', string="Gestor de Empleados", domain="[('active', '=', True)]")
@@ -96,10 +99,137 @@ class MalkionOrdenTrabajo(models.Model):
 
     @api.model
     def create(self, vals):
-        # Llamamos al método para crear la misión al guardar la orden de trabajo
         res = super(MalkionOrdenTrabajo, self).create(vals)
-        res.create_mission_from_order()  # Crear misión al guardar la orden de trabajo
+        if not self.env.context.get('no_auto_mission'):
+            res.create_mission_from_order()
         return res
+
+    
+    def crear_mision_automatica_desde_plantilla(self):
+        for orden in self:
+            # usar create_mission_from_order directamente
+            orden.create_mission_from_contract()
+            # orden.estado = 'mision_creada'  # O
+        return True
+
+    @api.model
+    def create_mission_from_contract(self):
+        for contrato in self:
+            # Buscar plantilla asociada al contrato
+            plantilla = self.env['malkion.plantilla'].search([
+            ('contrato_id', '=', self.contrato_id.id)
+            ], limit=1)
+
+            if not plantilla:
+                raise ValidationError("No se encontró una plantilla para este contrato.")
+
+            if not plantilla.xml_data:
+                raise ValidationError("La plantilla no tiene datos XML.")
+
+            import xml.etree.ElementTree as ET
+            xml_root = ET.fromstring(plantilla.xml_data)
+
+            # Obtener puntos de interés
+            puntos_nombres = [p.text for p in xml_root.findall('puntos_interes/punto_recogida')]
+            puntos_ids = self.env['malkion.point_of_interest'].search([('name', 'in', puntos_nombres)]).ids
+
+            # Equipo necesario
+            equipo_tipo_cant = [
+                (e.text.split(" (")[0], int(e.text.split(" (")[1][:-1]))
+                for e in xml_root.findall('equipo_necesario/equipo')
+            ]
+            equipo_ids = []
+            for tipo, _ in equipo_tipo_cant:
+                eq = self.env['malkion.equipo'].search([('tipo', '=', tipo)], limit=1)
+                if eq:
+                    equipo_ids.append(eq.id)
+
+            # Transporte necesario
+            transporte_tipo_cant = [
+                (t.text.split(" (")[0], int(t.text.split(" (")[1][:-1]))
+                for t in xml_root.findall('transporte_necesario/vehiculo')
+            ]
+            transporte_ids = []
+            for tipo, _ in transporte_tipo_cant:
+                tr = self.env['malkion.transport'].search([('tipo', '=', tipo)], limit=1)
+                if tr:
+                    transporte_ids.append(tr.id)
+
+            # Leer roles desde el XML
+            roles_info = []
+            for role in xml_root.findall('roles_necesarios/role'):
+                rol_name = role.find('role_name').text
+                cantidad = int(role.find('cantidad').text)
+                if rol_name and cantidad:
+                    roles_info.append((rol_name.strip(), cantidad))
+
+            empleado_por_rol = {}
+            empleados_roles_ids = []
+
+            for rol_name, cantidad in roles_info:
+                empleados = self.env['hr.employee'].search(
+                    [('roles.name', '=', rol_name)],
+                    limit=cantidad
+                )
+                if empleados:
+                    empleado_por_rol[rol_name] = empleados[0]  # uno para asignaciones
+                    empleados_roles_ids += empleados.ids
+                else:
+                    raise ValidationError(f"No se encontraron empleados con el rol '{rol_name}'.")
+
+            # Validar que 'Jefe de datos' tenga user_id
+            # jefe_datos = empleado_por_rol.get('Jefe de datos')
+            # _logger.info("Roles encontrados: %s", list(empleado_por_rol.keys()))
+            # _logger.info("Jefe de datos: %s", jefe_datos and jefe_datos.name)            if not jefe_datos or not jefe_datos.user_id:
+                 # raise ValidationError("El empleado con rol 'Jefe de datos' no tiene un usuario asignado (user_id).")
+            # _logger.info("Tiene user_id: %s", jefe_datos and jefe_datos.user_id)
+
+            # Obtener lista de empleados disponibles para roles variables
+            empleados_disponibles = list(empleado_por_rol.values())
+
+
+            
+            jefe_datos = self.env['hr.employee'].search([('job_id.name', '=', 'Jefe de datos')], limit=1)
+            if not jefe_datos:
+                raise ValidationError("No se encontró un empleado con el rol obligatorio 'Jefe de datos'.")
+
+            gestor_equipo = self.env['hr.employee'].search([('job_id.name', '=', 'Gestor de equipo')], limit=1)
+            gestor_transportes = self.env['hr.employee'].search([('job_id.name', '=', 'Gestor de transportes')], limit=1)
+            gestor_hunters = self.env['hr.employee'].search([('job_id.name', '=', 'Gestor de hunters')], limit=1)
+
+            # Obtener lista de empleados disponibles para roles variables
+            empleados_disponibles = list(empleado_por_rol.values())
+
+            # Si hay al menos un empleado, usar el primero para ambos responsables (o usar dos distintos si quieres)
+            if not empleados_disponibles:
+                raise ValidationError("No hay empleados disponibles en los roles de la plantilla para asignar como responsables.")
+
+            responsable_equipo = empleados_disponibles[0]
+            responsable_transporte = empleados_disponibles[0] 
+
+            orden_vals = {
+                'name': f"Orden auto de {contrato.name}",
+                'estado': 'iniciada',
+                'observaciones': f"AutoGenerada desde contrato {contrato.name} el {fields.Date.today()}",
+                'puntos_interes_ids': [(6, 0, puntos_ids)],
+                'equipo_ids': [(6, 0, equipo_ids)],
+                'transporte_ids': [(6, 0, transporte_ids)],
+                'empleados_roles': [(6, 0, empleados_roles_ids)],
+                'jefe_datos_id': jefe_datos.user_id.id,
+                'gestor_equipo_id': gestor_equipo.id,
+                'gestor_transporte_id': gestor_transportes.id,
+                'gestor_empleados_id': gestor_hunters.id,
+                'responsable_equipo_id': responsable_equipo.id,
+                'responsable_transporte_id': responsable_transporte.id,
+            }
+
+
+            # Crear la orden de trabajo, lo que creará automáticamente la misión vía create()
+            mission = self.env['malkion.mission'].with_context(no_auto_mission=True).create(orden_vals)
+
+
+            return mission
+
 
     @api.onchange('contrato_id')
     def _onchange_contrato(self):

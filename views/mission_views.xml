@@ -5,53 +5,81 @@
         <field name="model">malkion.mission</field>
         <field name="arch" type="xml">
             <tree string="Misiones">
-                <field name="name" string="Nombre de la Misión"/>
-                <field name="estado" string="Estado"/>
-                <field name="jefe_data_id" string="Jefe de Datos"/>
-                <field name="gestor_hunters_id" string="Gestor de Hunters"/>
-                <field name="gestor_equipo_id" string="Gestor de Equipo"/>
-                <field name="gestor_transportes_id" string="Gestor de Empleados"/>
-                <field name="observaciones" string="Observaciones"/>
+                <field name="name"/>
+                <field name="estado"/>
+                <field name="jefe_data_id"/>
+                <field name="gestor_hunters_id"/>
+                <field name="gestor_equipo_id"/>
+                <field name="gestor_transportes_id"/>
+                <field name="observaciones"/>
             </tree>
         </field>
     </record>
 
-    <!-- Vista de formulario para misiones -->
-    <record id="view_malkion_mission_form" model="ir.ui.view">
-        <field name="name">malkion.mission.form</field>
+    <!-- Formulario para Managers (acceso completo) -->
+    <record id="view_malkion_mission_form_manager" model="ir.ui.view">
+        <field name="name">malkion.mission.form.manager</field>
         <field name="model">malkion.mission</field>
+        <field name="priority" eval="20"/>
+        <field name="groups_id" eval="[(4, ref('malkion.group_MANAGER'))]"/>
         <field name="arch" type="xml">
-            <form string="Misión">
+            <form string="Misión (Manager)">
                 <sheet>
                     <group>
-                        <!-- Campo invisible para 'empleados_equipo_ids' -->
                         <field name="empleados_equipo_ids" invisible="1"/>
-                        <!-- Campo invisible para 'empleados_transporte_ids' -->
                         <field name="empleados_transporte_ids" invisible="1"/>
-
-                        <field name="name" string="Nombre de la Misión" readonly="1" groups="malkion.group_AGENTESCAMPO"/>
-
-                        <field name="estado" string="Estado"/>
-
-                        <field name="jefe_data_id" string="Jefe de Datos" readonly="1" groups="malkion.group_AGENTESCAMPO"/>
-                        <field name="gestor_hunters_id" string="Gestor de Hunters" readonly="1" groups="malkion.group_AGENTESCAMPO"/>
-                        <field name="gestor_equipo_id" string="Gestor de Equipo" readonly="1" groups="malkion.group_AGENTESCAMPO"/>
-                        <field name="gestor_transportes_id" string="Gestor de Empleados" readonly="1" groups="malkion.group_AGENTESCAMPO"/>
-                        <field name="observaciones" string="Observaciones"
-                            readonly="1" groups="malkion.group_AGENTESCAMPO"/>
+                        <field name="name"/>
+                        <field name="estado"/>
+                        <field name="jefe_data_id"/>
+                        <field name="gestor_hunters_id"/>
+                        <field name="gestor_equipo_id"/>
+                        <field name="gestor_transportes_id"/>
+                        <field name="observaciones"/>
                     </group>
                     <group>
-                        <field name="puntos_interes_ids" widget="many2many_tags" string="Puntos de Interés" readonly="1" groups="malkion.group_AGENTESCAMPO"/>
-                        <field name="roles_ids" widget="many2many_tags" string="Roles" readonly="1" groups="malkion.group_AGENTESCAMPO"/>
-                        <field name="equipo_ids" widget="many2many_tags" string="Equipo Necesario" readonly="1" groups="malkion.group_AGENTESCAMPO"/>
-                        <field name="transporte_ids" widget="many2many_tags" string="Transporte Necesario" readonly="1" groups="malkion.group_AGENTESCAMPO"/>
+                        <field name="puntos_interes_ids" widget="many2many_tags"/>
+                        <field name="roles_ids" widget="many2many_tags"/>
+                        <field name="equipo_ids" widget="many2many_tags"/>
+                        <field name="transporte_ids" widget="many2many_tags"/>
                     </group>
                     <group>
-                        <!-- Responsables de equipo -->
-                        <field name="responsable_equipo_id" string="Responsables de Equipo" readonly="1" groups="malkion.group_AGENTESCAMPO"/>
-                        
-                        <!-- Responsables de transporte -->
-                        <field name="responsable_transporte_id" string="Responsables de Transporte" readonly="1" groups="malkion.group_AGENTESCAMPO"/>
+                        <field name="responsable_equipo_id"/>
+                        <field name="responsable_transporte_id"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Formulario para Agentes de Campo (solo editable el estado) -->
+    <record id="view_malkion_mission_form_agente" model="ir.ui.view">
+        <field name="name">malkion.mission.form.agente</field>
+        <field name="model">malkion.mission</field>
+        <field name="priority" eval="10"/>
+        <field name="groups_id" eval="[(4, ref('malkion.group_AGENTESCAMPO'))]"/>
+        <field name="arch" type="xml">
+            <form string="Misión (Agente de Campo)">
+                <sheet>
+                    <group>
+                        <field name="empleados_equipo_ids" invisible="1"/>
+                        <field name="empleados_transporte_ids" invisible="1"/>
+                        <field name="name" readonly="1"/>
+                        <field name="estado"/>
+                        <field name="jefe_data_id" readonly="1"/>
+                        <field name="gestor_hunters_id" readonly="1"/>
+                        <field name="gestor_equipo_id" readonly="1"/>
+                        <field name="gestor_transportes_id" readonly="1"/>
+                        <field name="observaciones" readonly="1"/>
+                    </group>
+                    <group>
+                        <field name="puntos_interes_ids" widget="many2many_tags" readonly="1"/>
+                        <field name="roles_ids" widget="many2many_tags" readonly="1"/>
+                        <field name="equipo_ids" widget="many2many_tags" readonly="1"/>
+                        <field name="transporte_ids" widget="many2many_tags" readonly="1"/>
+                    </group>
+                    <group>
+                        <field name="responsable_equipo_id" readonly="1"/>
+                        <field name="responsable_transporte_id" readonly="1"/>
                     </group>
                 </sheet>
             </form>
@@ -63,7 +91,6 @@
         <field name="name">Misiones</field>
         <field name="res_model">malkion.mission</field>
         <field name="view_mode">tree,form</field>
-        <field name="context">{}</field>
     </record>
 
     <!-- Menú para misiones -->

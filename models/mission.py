@@ -14,6 +14,7 @@ class MalkionMission(models.Model):
     puntos_interes_ids = fields.Many2many('malkion.point_of_interest', string="Puntos de Interés")
     
     jefe_data_id = fields.Many2one('hr.employee', string="Jefe de Datos")
+    
     gestor_hunters_id = fields.Many2one('hr.employee', string="Gestor de Hunters")
     gestor_equipo_id = fields.Many2one('hr.employee', string="Gestor de Equipo")
     gestor_transportes_id = fields.Many2one('hr.employee', string="Gestor de Empleados")
