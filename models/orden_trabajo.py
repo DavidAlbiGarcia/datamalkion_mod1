@@ -189,13 +189,13 @@ class MalkionOrdenTrabajo(models.Model):
 
 
             
-            jefe_datos = self.env['hr.employee'].search([('job_id.name', '=', 'Jefe de datos')], limit=1)
+            jefe_datos = self.env['hr.employee'].search([('roles.name', '=', 'Jefe de datos')], limit=1)
             if not jefe_datos:
                 raise ValidationError("No se encontró un empleado con el rol obligatorio 'Jefe de datos'.")
 
-            gestor_equipo = self.env['hr.employee'].search([('job_id.name', '=', 'Gestor de equipo')], limit=1)
-            gestor_transportes = self.env['hr.employee'].search([('job_id.name', '=', 'Gestor de transportes')], limit=1)
-            gestor_hunters = self.env['hr.employee'].search([('job_id.name', '=', 'Gestor de hunters')], limit=1)
+            gestor_equipo = self.env['hr.employee'].search([('roles.name', '=', 'Gestor de equipo')], limit=1)
+            gestor_transportes = self.env['hr.employee'].search([('roles.name', '=', 'Gestor de transportes')], limit=1)
+            gestor_hunters = self.env['hr.employee'].search([('roles.name', '=', 'Gestor de hunters')], limit=1)
 
             # Obtener lista de empleados disponibles para roles variables
             empleados_disponibles = list(empleado_por_rol.values())
@@ -214,11 +214,11 @@ class MalkionOrdenTrabajo(models.Model):
                 'puntos_interes_ids': [(6, 0, puntos_ids)],
                 'equipo_ids': [(6, 0, equipo_ids)],
                 'transporte_ids': [(6, 0, transporte_ids)],
-                'empleados_roles': [(6, 0, empleados_roles_ids)],
-                'jefe_datos_id': jefe_datos.user_id.id,
+                'roles_ids': [(6, 0, empleados_roles_ids)],
+                'jefe_data_id': jefe_datos.id,
                 'gestor_equipo_id': gestor_equipo.id,
-                'gestor_transporte_id': gestor_transportes.id,
-                'gestor_empleados_id': gestor_hunters.id,
+                'gestor_transportes_id': gestor_transportes.id,
+                'gestor_hunters_id': gestor_hunters.id,
                 'responsable_equipo_id': responsable_equipo.id,
                 'responsable_transporte_id': responsable_transporte.id,
             }
