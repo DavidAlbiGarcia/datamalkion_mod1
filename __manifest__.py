@@ -32,6 +32,7 @@
         'security/groups.xml',
         'data/init_admin_group.xml',
         'security/ir.model.access.csv',
+        'security/rules/mission_rules.xml',
         'views/views.xml',
         'views/templates.xml',
         'views/dashboard_views.xml', # primero, copón!

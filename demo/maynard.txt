@@ -157,3 +157,83 @@ class EmpleadoRol(models.Model):
                             attrs="{'readonly': [('user_id.groups_id', 'not in', ['datamalkion.group_AGENTESCAMPO'])]}" 
                             groups="datamalkion.group_MANAGER,datamalkion.group_AGENTESCAMPO"/>
                         -->
+   """ added por si acaso, no deberian crearse manualmente, solo desde orden trabajo"""
+    @api.model
+    def create(self, vals):
+        mission = super().create(vals)
+
+        if mission.responsable_equipo_id and mission.equipo_ids:
+            for eq in mission.equipo_ids:
+                self.env['malkion.mission_employee_team'].create({
+                    'mision_id': mission.id,
+                    'empleado_id': mission.responsable_equipo_id.id,
+                    'equipo_id': eq.id,
+                })
+
+        if mission.responsable_transporte_id and mission.transporte_ids:
+            for tr in mission.transporte_ids:
+                self.env['malkion.mission_employee_transport'].create({
+                    'mision_id': mission.id,
+                    'empleado_id': mission.responsable_transporte_id.id,
+                    'transporte_id': tr.id,
+                })
+
+        return mission
+    
+    
+
+
+
+
+
+''' why falla esto? whyyyy? ok, domain de un many to many en un one2many que es la ternaria
+        # Nuevos campos para responsables (lógica no de código (de negocio, vamos) no clara del todo pero bueno)
+    responsables_equipo_ids = fields.Many2many(
+        'hr.employee', 
+        string="Responsables de Equipo", 
+        domain="[('id', 'in', empleados_equipo_ids)]"
+    )
+    
+
+    responsables_transporte_ids = fields.Many2many( 
+        'hr.employee', 
+        string="Responsables de Transporte", 
+        domain="[('id', 'in', empleados_transporte_ids)]"
+    )
+
+
+
+    extra:
+        @api.onchange('empleados_equipo_ids')
+    def _onchange_empleados_equipo_ids(self):
+        if self.empleados_equipo_ids:
+            empleados_ids = self.empleados_equipo_ids.mapped('empleado_id').ids
+            self.responsable_equipo_id = empleados_ids[0] if empleados_ids else False  # Asignar el primer empleado
+
+    @api.onchange('empleados_transporte_ids')
+    def _onchange_empleados_transporte_ids(self):
+        if self.empleados_transporte_ids:
+            empleados_ids = self.empleados_transporte_ids.mapped('empleado_id').ids
+            self.responsable_transporte_id = empleados_ids[0] if empleados_ids else False
+
+
+Con este casi iba el filtrado:
+
+    @api.onchange('roles_ids')
+    def _onchange_roles_ids(self):
+        """
+        Filtrar empleados en roles_ids para ser seleccionados como responsables de equipo o transporte.
+        Este método actualizará los campos responsables según los empleados en roles_ids.
+        """
+        if self.roles_ids:
+            empleados_ids = self.roles_ids.ids  # Obtener los IDs de los empleados en roles_ids
+            _logger.info("Empleados en roles_ids: %s", empleados_ids)  # Verifica los IDs de empleados
+            # Limpiar responsables antes de asignar nuevos valores
+            self.responsable_equipo_id = False
+            self.responsable_transporte_id = False
+            # Ahora puedes elegir empleados para cada campo
+            # Actualizamos el responsable de equipo con el primer empleado de roles_ids (solo si hay empleados)
+            if empleados_ids:
+                self.responsable_equipo_id = empleados_ids[0]
+                self.responsable_transporte_id = empleados_ids[0]  # Usamos el primer empleado también para transporte si es necesario
+'''

@@ -1,0 +1,45 @@
+<odoo>
+  <data noupdate="1">
+
+    <!-- Regla: agentes solo ven sus misiones activas -->
+    <record id="mision_rule_agentes_campo" model="ir.rule">
+      <field name="name">Misiones del agente</field>
+      <field name="model_id" ref="model_malkion_mission"/>
+      <field name="groups" eval="[(4, ref('malkion.group_AGENTESCAMPO'))]"/>
+      <field name="domain_force">
+        [('roles_ids.user_id', '=', user.id), ('estado', 'not in', [
+            'dato_entregado',
+            'incidencia_datoentregado',
+            'dato_procesando',
+            'incidencia_datoprocesando',
+            'finalizada'
+        ])]
+      </field>
+    <field name="perm_read" eval="1"/>
+    <field name="perm_write" eval="1"/>
+    <field name="perm_create" eval="0"/>
+    <field name="perm_unlink" eval="0"/>
+    </record>
+
+        <!-- Regla: Asclepios solo ve misiones en fase de entrega, procesamiento o finalizadas -->
+    <record id="mision_rule_asclepios" model="ir.rule">
+      <field name="name">Misiones visibles por Asclepios</field>
+      <field name="model_id" ref="model_malkion_mission"/>
+      <field name="groups" eval="[(4, ref('malkion.group_ASCLEPIOS'))]"/>
+      <field name="domain_force">
+        [('estado', 'in', [
+            'dato_entregado',
+            'incidencia_datoentregado',
+            'dato_procesando',
+            'incidencia_datoprocesando',
+            'finalizada'
+        ])]
+      </field>
+      <field name="perm_read" eval="1"/>
+      <field name="perm_write" eval="1"/>
+      <field name="perm_create" eval="0"/>
+      <field name="perm_unlink" eval="0"/>
+    </record>
+
+  </data>
+</odoo>
