@@ -1,28 +1,225 @@
 <odoo>
   <data noupdate="1">
 
-    <record id="transporte_furgoneta_1" model="malkion.transport">
-      <field name="name">Furgoneta M-01</field>
-      <field name="matricula">1234-FGT</field>
-      <field name="tipo">furgoneta</field>
-      <field name="estado">disponible</field>
-      <field name="capacidad">4</field>
-      <field name="fecha_adquisicion">2022-09-20</field>
-      <field name="fecha_itv">2025-01-15</field>
-      <field name="observaciones">Vehículo con refrigeración y tracción total</field>
-      <field name="almacen_id" ref="almacen_transporte_sur"/>
-    </record>
-
-    <record id="transporte_coche_1" model="malkion.transport">
-      <field name="name">Coche de Apoyo</field>
-      <field name="matricula">5678-CCH</field>
+    <!-- COCHES -->
+    <record id="transporte_coche_01" model="malkion.transport">
+      <field name="name">Coche Apoyo 01</field>
+      <field name="matricula">1111-VAL</field>
       <field name="tipo">coche</field>
       <field name="estado">disponible</field>
       <field name="capacidad">2</field>
-      <field name="fecha_adquisicion">2023-03-05</field>
+      <field name="fecha_adquisicion">2023-01-10</field>
+      <field name="fecha_itv">2025-01-10</field>
+      <field name="observaciones">Pequeño, ágil, ideal ciudad</field>
+      <field name="almacen_id" ref="almacen_transporte_norte_valencia"/>
+    </record>
+
+    <record id="transporte_coche_02" model="malkion.transport">
+      <field name="name">Coche Apoyo 02</field>
+      <field name="matricula">2222-VAL</field>
+      <field name="tipo">coche</field>
+      <field name="estado">disponible</field>
+      <field name="capacidad">2</field>
+      <field name="fecha_adquisicion">2023-02-15</field>
+      <field name="fecha_itv">2025-02-15</field>
+      <field name="observaciones">Versión híbrida</field>
+      <field name="almacen_id" ref="almacen_transporte_sur_valencia"/>
+    </record>
+
+    <record id="transporte_coche_03" model="malkion.transport">
+      <field name="name">Coche Apoyo 03</field>
+      <field name="matricula">3333-VAL</field>
+      <field name="tipo">coche</field>
+      <field name="estado">disponible</field>
+      <field name="capacidad">2</field>
+      <field name="fecha_adquisicion">2022-08-20</field>
+      <field name="fecha_itv">2024-08-20</field>
+      <field name="observaciones">Utilitario compacto</field>
+      <field name="almacen_id" ref="almacen_transporte_norte_valencia"/>
+    </record>
+
+    <record id="transporte_coche_04" model="malkion.transport">
+      <field name="name">Coche Apoyo 04</field>
+      <field name="matricula">4444-VAL</field>
+      <field name="tipo">coche</field>
+      <field name="estado">disponible</field>
+      <field name="capacidad">2</field>
+      <field name="fecha_adquisicion">2023-06-01</field>
+      <field name="fecha_itv">2025-06-01</field>
+      <field name="observaciones">Con GPS integrado</field>
+      <field name="almacen_id" ref="almacen_transporte_sur_valencia"/>
+    </record>
+
+    <!-- MOTOS -->
+    <record id="transporte_moto_01" model="malkion.transport">
+      <field name="name">Moto Ligera 01</field>
+      <field name="matricula">M111-VAL</field>
+      <field name="tipo">moto</field>
+      <field name="estado">disponible</field>
+      <field name="capacidad">1</field>
+      <field name="fecha_adquisicion">2021-05-10</field>
+      <field name="fecha_itv">2024-05-10</field>
+      <field name="observaciones">Alta maniobrabilidad</field>
+      <field name="almacen_id" ref="almacen_transporte_norte_valencia"/>
+    </record>
+
+    <record id="transporte_moto_02" model="malkion.transport">
+      <field name="name">Moto Ligera 02</field>
+      <field name="matricula">M222-VAL</field>
+      <field name="tipo">moto</field>
+      <field name="estado">disponible</field>
+      <field name="capacidad">1</field>
+      <field name="fecha_adquisicion">2022-07-12</field>
+      <field name="fecha_itv">2025-07-12</field>
+      <field name="observaciones">Uso urbano</field>
+      <field name="almacen_id" ref="almacen_transporte_sur_valencia"/>
+    </record>
+
+    <record id="transporte_moto_03" model="malkion.transport">
+      <field name="name">Moto Ligera 03</field>
+      <field name="matricula">M333-VAL</field>
+      <field name="tipo">moto</field>
+      <field name="estado">disponible</field>
+      <field name="capacidad">1</field>
+      <field name="fecha_adquisicion">2020-10-20</field>
+      <field name="fecha_itv">2024-10-20</field>
+      <field name="observaciones">Motor eléctrico</field>
+      <field name="almacen_id" ref="almacen_transporte_norte_valencia"/>
+    </record>
+
+    <record id="transporte_moto_04" model="malkion.transport">
+      <field name="name">Moto Ligera 04</field>
+      <field name="matricula">M444-VAL</field>
+      <field name="tipo">moto</field>
+      <field name="estado">disponible</field>
+      <field name="capacidad">1</field>
+      <field name="fecha_adquisicion">2023-01-01</field>
+      <field name="fecha_itv">2025-01-01</field>
+      <field name="observaciones">Bajo consumo</field>
+      <field name="almacen_id" ref="almacen_transporte_sur_valencia"/>
+    </record>
+
+    <!-- FURGONETAS -->
+    <record id="transporte_furgo_01" model="malkion.transport">
+      <field name="name">Furgoneta Mediana 01</field>
+      <field name="matricula">F111-VAL</field>
+      <field name="tipo">furgoneta</field>
+      <field name="estado">disponible</field>
+      <field name="capacidad">4</field>
+      <field name="fecha_adquisicion">2021-09-30</field>
+      <field name="fecha_itv">2024-09-30</field>
+      <field name="observaciones">Espacio para muestras</field>
+      <field name="almacen_id" ref="almacen_transporte_norte_valencia"/>
+    </record>
+
+    <record id="transporte_furgo_02" model="malkion.transport">
+      <field name="name">Furgoneta Mediana 02</field>
+      <field name="matricula">F222-VAL</field>
+      <field name="tipo">furgoneta</field>
+      <field name="estado">disponible</field>
+      <field name="capacidad">4</field>
+      <field name="fecha_adquisicion">2022-03-22</field>
+      <field name="fecha_itv">2025-03-22</field>
+      <field name="observaciones">Refrigerada</field>
+      <field name="almacen_id" ref="almacen_transporte_sur_valencia"/>
+    </record>
+
+    <record id="transporte_furgo_03" model="malkion.transport">
+      <field name="name">Furgoneta Mediana 03</field>
+      <field name="matricula">F333-VAL</field>
+      <field name="tipo">furgoneta</field>
+      <field name="estado">disponible</field>
+      <field name="capacidad">4</field>
+      <field name="fecha_adquisicion">2020-11-10</field>
+      <field name="fecha_itv">2024-11-10</field>
+      <field name="observaciones">Puerta lateral</field>
+      <field name="almacen_id" ref="almacen_transporte_norte_valencia"/>
+    </record>
+
+    <record id="transporte_furgo_04" model="malkion.transport">
+      <field name="name">Furgoneta Mediana 04</field>
+      <field name="matricula">F444-VAL</field>
+      <field name="tipo">furgoneta</field>
+      <field name="estado">disponible</field>
+      <field name="capacidad">4</field>
+      <field name="fecha_adquisicion">2021-12-01</field>
       <field name="fecha_itv">2024-12-01</field>
-      <field name="observaciones">Ideal para desplazamientos rápidos en ciudad</field>
-      <field name="almacen_id" ref="almacen_transporte_sur"/>
+      <field name="observaciones">4x4 para zonas rurales</field>
+      <field name="almacen_id" ref="almacen_transporte_sur_valencia"/>
+    </record>
+
+    <!-- CAMIONES -->
+    <record id="transporte_camion_01" model="malkion.transport">
+      <field name="name">Camión Carga 01</field>
+      <field name="matricula">C111-VAL</field>
+      <field name="tipo">camion</field>
+      <field name="estado">disponible</field>
+      <field name="capacidad">10</field>
+      <field name="fecha_adquisicion">2019-02-14</field>
+      <field name="fecha_itv">2024-02-14</field>
+      <field name="observaciones">Gran capacidad</field>
+      <field name="almacen_id" ref="almacen_transporte_norte_valencia"/>
+    </record>
+
+    <record id="transporte_camion_02" model="malkion.transport">
+      <field name="name">Camión Carga 02</field>
+      <field name="matricula">C222-VAL</field>
+      <field name="tipo">camion</field>
+      <field name="estado">disponible</field>
+      <field name="capacidad">10</field>
+      <field name="fecha_adquisicion">2020-06-30</field>
+      <field name="fecha_itv">2025-06-30</field>
+      <field name="observaciones">Plataforma elevadora</field>
+      <field name="almacen_id" ref="almacen_transporte_sur_valencia"/>
+    </record>
+
+    <record id="transporte_camion_03" model="malkion.transport">
+      <field name="name">Camión Carga 03</field>
+      <field name="matricula">C333-VAL</field>
+      <field name="tipo">camion</field>
+      <field name="estado">disponible</field>
+      <field name="capacidad">10</field>
+      <field name="fecha_adquisicion">2018-11-22</field>
+      <field name="fecha_itv">2024-11-22</field>
+      <field name="observaciones">Doble eje</field>
+      <field name="almacen_id" ref="almacen_transporte_norte_valencia"/>
+    </record>
+
+    <record id="transporte_camion_04" model="malkion.transport">
+      <field name="name">Camión Carga 04</field>
+      <field name="matricula">C444-VAL</field>
+      <field name="tipo">camion</field>
+      <field name="estado">disponible</field>
+      <field name="capacidad">10</field>
+      <field name="fecha_adquisicion">2021-03-01</field>
+      <field name="fecha_itv">2025-03-01</field>
+      <field name="observaciones">Cabina doble</field>
+      <field name="almacen_id" ref="almacen_transporte_sur_valencia"/>
+    </record>
+
+    <!-- OTROS -->
+    <record id="transporte_otro_01" model="malkion.transport">
+      <field name="name">Quad Rápido</field>
+      <field name="matricula">Q111-VAL</field>
+      <field name="tipo">otro</field>
+      <field name="estado">disponible</field>
+      <field name="capacidad">1</field>
+      <field name="fecha_adquisicion">2022-04-04</field>
+      <field name="fecha_itv">2025-04-04</field>
+      <field name="observaciones">Usado en terrenos difíciles</field>
+      <field name="almacen_id" ref="almacen_transporte_norte_valencia"/>
+    </record>
+
+    <record id="transporte_otro_02" model="malkion.transport">
+      <field name="name">Remolque Especial</field>
+      <field name="matricula">R222-VAL</field>
+      <field name="tipo">otro</field>
+      <field name="estado">disponible</field>
+      <field name="capacidad">6</field>
+      <field name="fecha_adquisicion">2021-08-08</field>
+      <field name="fecha_itv">2024-08-08</field>
+      <field name="observaciones">Remolque para equipamiento pesado</field>
+      <field name="almacen_id" ref="almacen_transporte_sur_valencia"/>
     </record>
 
   </data>

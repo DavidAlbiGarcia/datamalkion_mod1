@@ -1,0 +1,10 @@
+<odoo>
+  <data noupdate="0">
+
+    <!-- Asegurar que el usuario admin (ID=1) está en el grupo MANAGER -->
+    <record id="base.user_admin" model="res.users">
+      <field name="groups_id" eval="[(4, ref('malkion.group_MANAGER'))]"/>
+    </record>
+
+  </data>
+</odoo>

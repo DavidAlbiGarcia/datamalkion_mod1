@@ -1,23 +1,50 @@
 <odoo>
   <data noupdate="1">
 
-    <record id="almacen_equipo_centro" model="malkion.almacenes">
-      <field name="name">Almacén Central de Equipos</field>
+<odoo>
+  <data noupdate="1">
+
+    <!-- Almacenes de equipo -->
+    <record id="almacen_equipo_norte_valencia" model="malkion.almacenes">
+      <field name="name">Almacén Norte de Equipos</field>
       <field name="tipo_almacen">equipo</field>
-      <field name="ubicacion_general">Calle 1, Zona Industrial</field>
-      <field name="ciudad">Madrid</field>
-      <field name="latitud">40.4168</field>
-      <field name="longitud">-3.7038</field>
+      <field name="ubicacion_general">Avenida del Puerto, 123</field>
+      <field name="ciudad">Valencia</field>
+      <field name="latitud">39.4702</field>
+      <field name="longitud">-0.3768</field>
     </record>
 
-    <record id="almacen_transporte_sur" model="malkion.almacenes">
+    <record id="almacen_equipo_sur_valencia" model="malkion.almacenes">
+      <field name="name">Almacén Sur de Equipos</field>
+      <field name="tipo_almacen">equipo</field>
+      <field name="ubicacion_general">Calle de San Vicente, 45</field>
+      <field name="ciudad">Valencia</field>
+      <field name="latitud">39.4589</field>
+      <field name="longitud">-0.3754</field>
+    </record>
+
+    <!-- Almacenes de transporte -->
+    <record id="almacen_transporte_norte_valencia" model="malkion.almacenes">
+      <field name="name">Almacén Norte de Transportes</field>
+      <field name="tipo_almacen">transporte</field>
+      <field name="ubicacion_general">Camino de Moncada, 10</field>
+      <field name="ciudad">Valencia</field>
+      <field name="latitud">39.4952</field>
+      <field name="longitud">-0.3642</field>
+    </record>
+
+    <record id="almacen_transporte_sur_valencia" model="malkion.almacenes">
       <field name="name">Almacén Sur de Transportes</field>
       <field name="tipo_almacen">transporte</field>
-      <field name="ubicacion_general">Polígono Sur, Nave 5</field>
-      <field name="ciudad">Sevilla</field>
-      <field name="latitud">37.3891</field>
-      <field name="longitud">-5.9845</field>
+      <field name="ubicacion_general">Calle Jesús Morante Borrás, 9</field>
+      <field name="ciudad">Valencia</field>
+      <field name="latitud">39.4440</field>
+      <field name="longitud">-0.3675</field>
     </record>
+
+  </data>
+</odoo>
+
 
   </data>
 </odoo>

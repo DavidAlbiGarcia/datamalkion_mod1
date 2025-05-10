@@ -1,0 +1,27 @@
+<odoo>
+  <data noupdate="0">
+
+    <!-- Orden de trabajo demo completa para usar en post_init_hook -->
+    <record id="orden_trabajo_demo_acme" model="malkion.orden_trabajo">
+      <field name="name">Orden Demo ACME</field>
+      <field name="contrato_id" ref="contrato_acme_standard"/>
+      <field name="cliente_id" ref="cliente_acme"/>
+      <field name="estado">pendiente</field>
+
+      <!-- Campos copiados desde plantilla / asignados manualmente -->
+      <field name="dato_requerido">Muestras de aire urbano</field>
+      <field name="jefe_datos_id" ref="empleado_jefe_datos_1"/>
+      <field name="gestor_empleados_id" ref="empleado_gestor_hunters_1"/>
+      <field name="gestor_equipo_id" ref="empleado_gestor_equipo_1"/>
+      <field name="gestor_transporte_id" ref="empleado_gestor_transportes_1"/>
+      <field name="responsable_equipo_id" ref="empleado_arquero_1"/>
+      <field name="responsable_transporte_id" ref="empleado_conductor_1"/>
+
+      <field name="empleados_roles" eval="[(6, 0, [ref('empleado_arquero_1'), ref('empleado_cazador_1')])]"/>
+      <field name="equipo_ids" eval="[(6, 0, [ref('equipo_guantes_01')])]"/>
+      <field name="transporte_ids" eval="[(6, 0, [ref('transporte_furgo_01')])]"/>
+      <field name="puntos_interes_ids" eval="[(6, 0, [ref('punto_recogida_1'), ref('punto_entrega_1')])]"/>
+    </record>
+
+  </data>
+</odoo>

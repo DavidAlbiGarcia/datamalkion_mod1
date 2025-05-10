@@ -1,51 +1,211 @@
 <odoo>
   <data noupdate="0">
 
-    <record id="user_juan" model="res.users">
-      <field name="name">Juan Campo</field>
-      <field name="login">juan</field>
-      <field name="password">juan123</field>
+    <!-- === Usuarios con rol: Arquero === -->
+
+    <record id="user_arquero_1" model="res.users">
+      <field name="name">Maria Arquero</field>
+      <field name="login">mariaArquero</field>
+      <field name="password">potato</field>
+      <field name="groups_id" eval="[(6, 0, [ref('base.group_user'), ref('malkion.group_AGENTESCAMPO')])]"/>
+    </record>
+
+    <record id="user_arquero_2" model="res.users">
+      <field name="name">Pepe Arquero</field>
+      <field name="login">pepeArquero</field>
+      <field name="password">potato</field>
+      <field name="groups_id" eval="[(6, 0, [ref('base.group_user'), ref('malkion.group_AGENTESCAMPO')])]"/>
+    </record>
+
+    <record id="user_arquero_3" model="res.users">
+      <field name="name">Maria Arquero</field>
+      <field name="login">mariaArquero2</field>
+      <field name="password">potato</field>
+      <field name="groups_id" eval="[(6, 0, [ref('base.group_user'), ref('malkion.group_AGENTESCAMPO')])]"/>
+    </record>
+
+    <record id="user_arquero_4" model="res.users">
+      <field name="name">Pepe Arquero</field>
+      <field name="login">pepeArquero2</field>
+      <field name="password">potato</field>
+      <field name="groups_id" eval="[(6, 0, [ref('base.group_user'), ref('malkion.group_AGENTESCAMPO')])]"/>
+    </record>
+
+    <!-- === Usuarios con rol: Cazador === -->
+
+    <record id="user_cazador_1" model="res.users">
+      <field name="name">Pepe Cazador</field>
+      <field name="login">pepeCazador</field>
+      <field name="password">potato</field>
+      <field name="groups_id" eval="[(6, 0, [ref('base.group_user'), ref('malkion.group_AGENTESCAMPO')])]"/>
+    </record>
+
+    <record id="user_cazador_2" model="res.users">
+      <field name="name">Maria Cazador</field>
+      <field name="login">mariaCazador</field>
+      <field name="password">potato</field>
+      <field name="groups_id" eval="[(6, 0, [ref('base.group_user'), ref('malkion.group_AGENTESCAMPO')])]"/>
+    </record>
+
+    <record id="user_cazador_3" model="res.users">
+      <field name="name">Pepe Cazador</field>
+      <field name="login">pepeCazador2</field>
+      <field name="password">potato</field>
+      <field name="groups_id" eval="[(6, 0, [ref('base.group_user'), ref('malkion.group_AGENTESCAMPO')])]"/>
+    </record>
+
+    <record id="user_cazador_4" model="res.users">
+      <field name="name">Maria Cazador</field>
+      <field name="login">mariaCazador2</field>
+      <field name="password">potato</field>
+      <field name="groups_id" eval="[(6, 0, [ref('base.group_user'), ref('malkion.group_AGENTESCAMPO')])]"/>
+    </record>
+
+    <!-- === Usuarios con rol: Recolector === -->
+
+    <record id="user_recolector_1" model="res.users">
+      <field name="name">Maria Recolector</field>
+      <field name="login">mariaRecolector</field>
+      <field name="password">potato</field>
+      <field name="groups_id" eval="[(6, 0, [ref('base.group_user'), ref('malkion.group_AGENTESCAMPO')])]"/>
+    </record>
+
+    <record id="user_recolector_2" model="res.users">
+      <field name="name">Pepe Recolector</field>
+      <field name="login">pepeRecolector</field>
+      <field name="password">potato</field>
+      <field name="groups_id" eval="[(6, 0, [ref('base.group_user'), ref('malkion.group_AGENTESCAMPO')])]"/>
+    </record>
+
+    <record id="user_recolector_3" model="res.users">
+      <field name="name">Maria Recolector</field>
+      <field name="login">mariaRecolector2</field>
+      <field name="password">potato</field>
+      <field name="groups_id" eval="[(6, 0, [ref('base.group_user'), ref('malkion.group_AGENTESCAMPO')])]"/>
+    </record>
+
+    <record id="user_recolector_4" model="res.users">
+      <field name="name">Pepe Recolector</field>
+      <field name="login">pepeRecolector2</field>
+      <field name="password">potato</field>
+      <field name="groups_id" eval="[(6, 0, [ref('base.group_user'), ref('malkion.group_AGENTESCAMPO')])]"/>
+    </record>
+
+    <!-- === Usuarios con rol: Jefe === -->
+
+    <record id="user_jefe_datos_1" model="res.users">
+      <field name="name">Pepe Jefe de datos</field>
+      <field name="login">pepeJefe_datos</field>
+      <field name="password">potato</field>
       <field name="groups_id" eval="[(6, 0, [ref('base.group_user')])]"/>
     </record>
 
-    <record id="user_maria" model="res.users">
-      <field name="name">Maria Campo</field>
-      <field name="login">maria</field>
-      <field name="password">maria123</field>
+    <!-- === Usuarios con rol: Gestor === -->
+
+    <record id="user_gestor_equipo_1" model="res.users">
+      <field name="name">Maria Gestor de equipo</field>
+      <field name="login">mariaGestor_equipo</field>
+      <field name="password">potato</field>
       <field name="groups_id" eval="[(6, 0, [ref('base.group_user')])]"/>
     </record>
 
-        <!-- Jefe de datos -->
-    <record id="user_jefe_datos" model="res.users">
-      <field name="name">Jefe Datos</field>
-      <field name="login">jefe</field>
-      <field name="password">jefe123</field>
+    <record id="user_gestor_equipo_2" model="res.users">
+      <field name="name">Pepe Gestor de equipo</field>
+      <field name="login">pepeGestor_equipo</field>
+      <field name="password">potato</field>
       <field name="groups_id" eval="[(6, 0, [ref('base.group_user')])]"/>
     </record>
 
-    <!-- Gestor hunters -->
-    <record id="user_gestor_hunters" model="res.users">
-      <field name="name">Gestor Hunters</field>
-      <field name="login">ghunters</field>
-      <field name="password">ghunters123</field>
+    <record id="user_gestor_hunters_1" model="res.users">
+      <field name="name">Pepe Gestor de hunters</field>
+      <field name="login">pepeGestor_hunters</field>
+      <field name="password">potato</field>
       <field name="groups_id" eval="[(6, 0, [ref('base.group_user')])]"/>
     </record>
 
-    <!-- Gestor equipo -->
-    <record id="user_gestor_equipo" model="res.users">
-      <field name="name">Gestor Equipo</field>
-      <field name="login">gequipo</field>
-      <field name="password">gequipo123</field>
+    <record id="user_gestor_hunters_2" model="res.users">
+      <field name="name">Maria Gestor de hunters</field>
+      <field name="login">mariaGestor_hunters</field>
+      <field name="password">potato</field>
       <field name="groups_id" eval="[(6, 0, [ref('base.group_user')])]"/>
     </record>
 
-    <!-- Gestor transportes -->
-    <record id="user_gestor_transportes" model="res.users">
-      <field name="name">Gestor Transportes</field>
-      <field name="login">gtransportes</field>
-      <field name="password">gtransportes123</field>
+    <record id="user_gestor_transportes_1" model="res.users">
+      <field name="name">Maria Gestor de transportes</field>
+      <field name="login">mariaGestor_transportes</field>
+      <field name="password">potato</field>
       <field name="groups_id" eval="[(6, 0, [ref('base.group_user')])]"/>
     </record>
 
+    <record id="user_gestor_transportes_2" model="res.users">
+      <field name="name">Pepe Gestor de transportes</field>
+      <field name="login">pepeGestor_transportes</field>
+      <field name="password">potato</field>
+      <field name="groups_id" eval="[(6, 0, [ref('base.group_user')])]"/>
+    </record>
+
+    <!-- === Usuarios con rol: Conductor === -->
+
+    <record id="user_conductor_1" model="res.users">
+      <field name="name">Pepe Conductor</field>
+      <field name="login">pepeConductor</field>
+      <field name="password">potato</field>
+      <field name="groups_id" eval="[(6, 0, [ref('base.group_user'), ref('malkion.group_AGENTESCAMPO')])]"/>
+    </record>
+
+    <record id="user_conductor_2" model="res.users">
+      <field name="name">Maria Conductor</field>
+      <field name="login">mariaConductor</field>
+      <field name="password">potato</field>
+      <field name="groups_id" eval="[(6, 0, [ref('base.group_user'), ref('malkion.group_AGENTESCAMPO')])]"/>
+    </record>
+
+    <!-- === Usuarios con rol: Asclepios === -->
+
+    <record id="user_asclepios_1" model="res.users">
+      <field name="name">Asclepios 1</field>
+      <field name="login">asclepios1</field>
+      <field name="password">potato</field>
+      <field name="groups_id" eval="[(6, 0, [ref('base.group_user'), ref('malkion.group_ASCLEPIOS')])]"/>
+    </record>
+
+    <record id="user_asclepios_2" model="res.users">
+      <field name="name">Asclepios 2</field>
+      <field name="login">asclepios2</field>
+      <field name="password">potato</field>
+      <field name="groups_id" eval="[(6, 0, [ref('base.group_user'), ref('malkion.group_ASCLEPIOS')])]"/>
+    </record>
+
+    <!-- === Usuarios con rol: Logistica === -->
+
+    <record id="user_logistica_1" model="res.users">
+      <field name="name">Logistica 1</field>
+      <field name="login">logistica1</field>
+      <field name="password">potato</field>
+      <field name="groups_id" eval="[(6, 0, [ref('base.group_user'), ref('malkion.group_LOGISTICA')])]"/>
+    </record>
+
+    <record id="user_logistica_2" model="res.users">
+      <field name="name">Logistica 2</field>
+      <field name="login">logistica2</field>
+      <field name="password">potato</field>
+      <field name="groups_id" eval="[(6, 0, [ref('base.group_user'), ref('malkion.group_LOGISTICA')])]"/>
+    </record>
+
+    <!-- === Usuarios con rol: Ventas === -->
+
+    <record id="user_ventas_1" model="res.users">
+      <field name="name">Ventas 1</field>
+      <field name="login">ventas1</field>
+      <field name="password">potato</field>
+      <field name="groups_id" eval="[(6, 0, [ref('base.group_user'), ref('malkion.group_VENTAS')])]"/>
+    </record>
+
+    <record id="user_ventas_2" model="res.users">
+      <field name="name">Ventas 2</field>
+      <field name="login">ventas2</field>
+      <field name="password">potato</field>
+      <field name="groups_id" eval="[(6, 0, [ref('base.group_user'), ref('malkion.group_VENTAS')])]"/>
+    </record>
   </data>
 </odoo>

@@ -30,6 +30,7 @@
     # always loaded
     'data': [
         'security/groups.xml',
+        'data/init_admin_group.xml',
         'security/ir.model.access.csv',
         'views/views.xml',
         'views/templates.xml',
@@ -71,7 +72,13 @@
         'data/plantillas/plantilla_transporte.xml',
 
         # 8. Misión precargada de ejemplo, mission imposible
-        'data/misiones.xml',
+        # 'data/misiones.xml',
+        # uso método alternativo, quiero que pase por la lógica de create order para poblar ternarias, cambiar equipo etc
+        # si lo ajusto manual sería problemático y, a la vez, quiero una misión ya hecha de ejemplo
+        # como la plantilla se puebla en onchangecontract, opto por mandar los datos poblados ya:
+
+        'data/orden_trabajo.xml',
+
 
         #reports
         'reports/report_mission.xml',
@@ -82,6 +89,8 @@
         
         
     ],
+
+    'post_init_hook': 'post_init_hook',
     # only loaded in demonstration mode
     'demo': [
         'demo/demo.xml',

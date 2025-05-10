@@ -101,8 +101,12 @@ class MalkionOrdenTrabajo(models.Model):
     def create(self, vals):
         res = super(MalkionOrdenTrabajo, self).create(vals)
         if not self.env.context.get('no_auto_mission'):
-            res.create_mission_from_order()
+            # Verificar si ya existe una misión con el mismo nombre
+            mision = self.env['malkion.mission'].search([('name', '=', res.name)], limit=1)
+            if not mision:
+                res.create_mission_from_order()
         return res
+
 
     
     def crear_mision_automatica_desde_plantilla(self):

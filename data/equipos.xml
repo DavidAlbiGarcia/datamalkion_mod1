@@ -1,25 +1,465 @@
 <odoo>
   <data noupdate="1">
 
-    <record id="equipo_guantes_1" model="malkion.equipo">
-      <field name="name">Guantes Aislantes</field>
-      <field name="serial_number">GUA-001</field>
+    <!-- === Guantes === -->
+
+    <record id="equipo_guantes_01" model="malkion.equipo">
+      <field name="name">Guantes #1</field>
       <field name="tipo">guantes</field>
       <field name="estado">disponible</field>
-      <field name="fecha_adquisicion">2023-04-15</field>
-      <field name="observaciones">Guantes para manipulación de sustancias químicas</field>
-      <field name="almacen_id" ref="almacen_equipo_centro"/>
+      <field name="fecha_adquisicion">2023-11-14</field>
+      <field name="observaciones">Equipo tipo guantes</field>
+      <field name="almacen_id" ref="almacen_equipo_norte_valencia"/>
     </record>
 
-    <record id="equipo_recipiente_1" model="malkion.equipo">
-      <field name="name">Recipiente de Muestra A</field>
-      <field name="serial_number">REC-023</field>
+    <record id="equipo_guantes_02" model="malkion.equipo">
+      <field name="name">Guantes #2</field>
+      <field name="tipo">guantes</field>
+      <field name="estado">disponible</field>
+      <field name="fecha_adquisicion">2024-04-22</field>
+      <field name="observaciones">Equipo tipo guantes</field>
+      <field name="almacen_id" ref="almacen_equipo_sur_valencia"/>
+    </record>
+
+    <record id="equipo_guantes_03" model="malkion.equipo">
+      <field name="name">Guantes #3</field>
+      <field name="tipo">guantes</field>
+      <field name="estado">asignado</field>
+      <field name="fecha_adquisicion">2023-02-22</field>
+      <field name="observaciones">Equipo tipo guantes</field>
+      <field name="almacen_id" ref="almacen_equipo_norte_valencia"/>
+    </record>
+
+    <record id="equipo_guantes_04" model="malkion.equipo">
+      <field name="name">Guantes #4</field>
+      <field name="tipo">guantes</field>
+      <field name="estado">asignado</field>
+      <field name="fecha_adquisicion">2023-07-25</field>
+      <field name="observaciones">Equipo tipo guantes</field>
+      <field name="almacen_id" ref="almacen_equipo_sur_valencia"/>
+    </record>
+
+    <!-- === Recipientea === -->
+
+    <record id="equipo_recipienteA_01" model="malkion.equipo">
+      <field name="name">Recipientea #1</field>
+      <field name="tipo">recipienteA</field>
+      <field name="estado">asignado</field>
+      <field name="fecha_adquisicion">2023-04-26</field>
+      <field name="observaciones">Equipo tipo recipienteA</field>
+      <field name="almacen_id" ref="almacen_equipo_sur_valencia"/>
+    </record>
+
+    <record id="equipo_recipienteA_02" model="malkion.equipo">
+      <field name="name">Recipientea #2</field>
+      <field name="tipo">recipienteA</field>
+      <field name="estado">asignado</field>
+      <field name="fecha_adquisicion">2024-02-03</field>
+      <field name="observaciones">Equipo tipo recipienteA</field>
+      <field name="almacen_id" ref="almacen_equipo_norte_valencia"/>
+    </record>
+
+    <record id="equipo_recipienteA_03" model="malkion.equipo">
+      <field name="name">Recipientea #3</field>
       <field name="tipo">recipienteA</field>
       <field name="estado">disponible</field>
-      <field name="fecha_adquisicion">2024-01-10</field>
-      <field name="observaciones">Usado para contener muestras biológicas sensibles</field>
-      <field name="almacen_id" ref="almacen_equipo_centro"/>
+      <field name="fecha_adquisicion">2022-11-25</field>
+      <field name="observaciones">Equipo tipo recipienteA</field>
+      <field name="almacen_id" ref="almacen_equipo_sur_valencia"/>
     </record>
 
+    <record id="equipo_recipienteA_04" model="malkion.equipo">
+      <field name="name">Recipientea #4</field>
+      <field name="tipo">recipienteA</field>
+      <field name="estado">disponible</field>
+      <field name="fecha_adquisicion">2023-02-16</field>
+      <field name="observaciones">Equipo tipo recipienteA</field>
+      <field name="almacen_id" ref="almacen_equipo_norte_valencia"/>
+    </record>
+
+    <!-- === Traje === -->
+
+    <record id="equipo_traje_01" model="malkion.equipo">
+      <field name="name">Traje #1</field>
+      <field name="tipo">traje</field>
+      <field name="estado">disponible</field>
+      <field name="fecha_adquisicion">2023-12-20</field>
+      <field name="observaciones">Equipo tipo traje</field>
+      <field name="almacen_id" ref="almacen_equipo_norte_valencia"/>
+    </record>
+
+    <record id="equipo_traje_02" model="malkion.equipo">
+      <field name="name">Traje #2</field>
+      <field name="tipo">traje</field>
+      <field name="estado">disponible</field>
+      <field name="fecha_adquisicion">2024-02-21</field>
+      <field name="observaciones">Equipo tipo traje</field>
+      <field name="almacen_id" ref="almacen_equipo_sur_valencia"/>
+    </record>
+
+    <record id="equipo_traje_03" model="malkion.equipo">
+      <field name="name">Traje #3</field>
+      <field name="tipo">traje</field>
+      <field name="estado">disponible</field>
+      <field name="fecha_adquisicion">2023-04-23</field>
+      <field name="observaciones">Equipo tipo traje</field>
+      <field name="almacen_id" ref="almacen_equipo_norte_valencia"/>
+    </record>
+
+    <record id="equipo_traje_04" model="malkion.equipo">
+      <field name="name">Traje #4</field>
+      <field name="tipo">traje</field>
+      <field name="estado">disponible</field>
+      <field name="fecha_adquisicion">2023-04-29</field>
+      <field name="observaciones">Equipo tipo traje</field>
+      <field name="almacen_id" ref="almacen_equipo_sur_valencia"/>
+    </record>
+
+    <!-- === Cuerda === -->
+
+    <record id="equipo_cuerda_01" model="malkion.equipo">
+      <field name="name">Cuerda #1</field>
+      <field name="tipo">cuerda</field>
+      <field name="estado">asignado</field>
+      <field name="fecha_adquisicion">2023-01-02</field>
+      <field name="observaciones">Equipo tipo cuerda</field>
+      <field name="almacen_id" ref="almacen_equipo_sur_valencia"/>
+    </record>
+
+    <record id="equipo_cuerda_02" model="malkion.equipo">
+      <field name="name">Cuerda #2</field>
+      <field name="tipo">cuerda</field>
+      <field name="estado">asignado</field>
+      <field name="fecha_adquisicion">2023-07-23</field>
+      <field name="observaciones">Equipo tipo cuerda</field>
+      <field name="almacen_id" ref="almacen_equipo_norte_valencia"/>
+    </record>
+
+    <!-- === Sonda === -->
+
+    <record id="equipo_sonda_agua_01" model="malkion.equipo">
+      <field name="name">Sonda Agua #1</field>
+      <field name="tipo">sonda_agua</field>
+      <field name="estado">disponible</field>
+      <field name="fecha_adquisicion">2022-12-12</field>
+      <field name="observaciones">Equipo tipo sonda agua</field>
+      <field name="almacen_id" ref="almacen_equipo_norte_valencia"/>
+    </record>
+
+    <record id="equipo_sonda_agua_02" model="malkion.equipo">
+      <field name="name">Sonda Agua #2</field>
+      <field name="tipo">sonda_agua</field>
+      <field name="estado">disponible</field>
+      <field name="fecha_adquisicion">2023-05-01</field>
+      <field name="observaciones">Equipo tipo sonda agua</field>
+      <field name="almacen_id" ref="almacen_equipo_sur_valencia"/>
+    </record>
+
+    <!-- === Kit === -->
+
+    <record id="equipo_kit_ph_01" model="malkion.equipo">
+      <field name="name">Kit Ph #1</field>
+      <field name="tipo">kit_ph</field>
+      <field name="estado">disponible</field>
+      <field name="fecha_adquisicion">2023-11-30</field>
+      <field name="observaciones">Equipo tipo kit ph</field>
+      <field name="almacen_id" ref="almacen_equipo_sur_valencia"/>
+    </record>
+
+    <record id="equipo_kit_ph_02" model="malkion.equipo">
+      <field name="name">Kit Ph #2</field>
+      <field name="tipo">kit_ph</field>
+      <field name="estado">disponible</field>
+      <field name="fecha_adquisicion">2024-04-30</field>
+      <field name="observaciones">Equipo tipo kit ph</field>
+      <field name="almacen_id" ref="almacen_equipo_norte_valencia"/>
+    </record>
+
+    <!-- === Traje === -->
+
+    <record id="equipo_traje_bioseguridad_01" model="malkion.equipo">
+      <field name="name">Traje Bioseguridad #1</field>
+      <field name="tipo">traje_bioseguridad</field>
+      <field name="estado">disponible</field>
+      <field name="fecha_adquisicion">2024-03-27</field>
+      <field name="observaciones">Equipo tipo traje bioseguridad</field>
+      <field name="almacen_id" ref="almacen_equipo_norte_valencia"/>
+    </record>
+
+    <record id="equipo_traje_bioseguridad_02" model="malkion.equipo">
+      <field name="name">Traje Bioseguridad #2</field>
+      <field name="tipo">traje_bioseguridad</field>
+      <field name="estado">asignado</field>
+      <field name="fecha_adquisicion">2023-10-02</field>
+      <field name="observaciones">Equipo tipo traje bioseguridad</field>
+      <field name="almacen_id" ref="almacen_equipo_sur_valencia"/>
+    </record>
+
+    <!-- === Linterna === -->
+
+    <record id="equipo_linterna_01" model="malkion.equipo">
+      <field name="name">Linterna #1</field>
+      <field name="tipo">linterna</field>
+      <field name="estado">asignado</field>
+      <field name="fecha_adquisicion">2023-08-08</field>
+      <field name="observaciones">Equipo tipo linterna</field>
+      <field name="almacen_id" ref="almacen_equipo_sur_valencia"/>
+    </record>
+
+    <record id="equipo_linterna_02" model="malkion.equipo">
+      <field name="name">Linterna #2</field>
+      <field name="tipo">linterna</field>
+      <field name="estado">asignado</field>
+      <field name="fecha_adquisicion">2024-05-21</field>
+      <field name="observaciones">Equipo tipo linterna</field>
+      <field name="almacen_id" ref="almacen_equipo_norte_valencia"/>
+    </record>
+
+    <!-- === Medidor === -->
+
+    <record id="equipo_medidor_gas_01" model="malkion.equipo">
+      <field name="name">Medidor Gas #1</field>
+      <field name="tipo">medidor_gas</field>
+      <field name="estado">disponible</field>
+      <field name="fecha_adquisicion">2023-01-31</field>
+      <field name="observaciones">Equipo tipo medidor gas</field>
+      <field name="almacen_id" ref="almacen_equipo_norte_valencia"/>
+    </record>
+
+    <!-- === Sonda === -->
+
+    <record id="equipo_sonda_lodo_01" model="malkion.equipo">
+      <field name="name">Sonda Lodo #1</field>
+      <field name="tipo">sonda_lodo</field>
+      <field name="estado">disponible</field>
+      <field name="fecha_adquisicion">2023-04-28</field>
+      <field name="observaciones">Equipo tipo sonda lodo</field>
+      <field name="almacen_id" ref="almacen_equipo_sur_valencia"/>
+    </record>
+
+    <record id="equipo_sonda_lodo_02" model="malkion.equipo">
+      <field name="name">Sonda Lodo #2</field>
+      <field name="tipo">sonda_lodo</field>
+      <field name="estado">disponible</field>
+      <field name="fecha_adquisicion">2023-08-03</field>
+      <field name="observaciones">Equipo tipo sonda lodo</field>
+      <field name="almacen_id" ref="almacen_equipo_norte_valencia"/>
+    </record>
+
+    <!-- === Georradar === -->
+
+    <record id="equipo_georradar_01" model="malkion.equipo">
+      <field name="name">Georradar #1</field>
+      <field name="tipo">georradar</field>
+      <field name="estado">disponible</field>
+      <field name="fecha_adquisicion">2024-05-29</field>
+      <field name="observaciones">Equipo tipo georradar</field>
+      <field name="almacen_id" ref="almacen_equipo_norte_valencia"/>
+    </record>
+
+    <record id="equipo_georradar_02" model="malkion.equipo">
+      <field name="name">Georradar #2</field>
+      <field name="tipo">georradar</field>
+      <field name="estado">disponible</field>
+      <field name="fecha_adquisicion">2023-04-23</field>
+      <field name="observaciones">Equipo tipo georradar</field>
+      <field name="almacen_id" ref="almacen_equipo_sur_valencia"/>
+    </record>
+
+    <!-- === Dosimetro === -->
+
+    <record id="equipo_dosimetro_01" model="malkion.equipo">
+      <field name="name">Dosimetro #1</field>
+      <field name="tipo">dosimetro</field>
+      <field name="estado">disponible</field>
+      <field name="fecha_adquisicion">2024-05-03</field>
+      <field name="observaciones">Equipo tipo dosimetro</field>
+      <field name="almacen_id" ref="almacen_equipo_sur_valencia"/>
+    </record>
+
+    <record id="equipo_dosimetro_02" model="malkion.equipo">
+      <field name="name">Dosimetro #2</field>
+      <field name="tipo">dosimetro</field>
+      <field name="estado">disponible</field>
+      <field name="fecha_adquisicion">2023-03-14</field>
+      <field name="observaciones">Equipo tipo dosimetro</field>
+      <field name="almacen_id" ref="almacen_equipo_norte_valencia"/>
+    </record>
+
+    <!-- === Recipiente === -->
+
+    <record id="equipo_recipiente_biologico_01" model="malkion.equipo">
+      <field name="name">Recipiente Biologico #1</field>
+      <field name="tipo">recipiente_biologico</field>
+      <field name="estado">disponible</field>
+      <field name="fecha_adquisicion">2023-12-13</field>
+      <field name="observaciones">Equipo tipo recipiente biologico</field>
+      <field name="almacen_id" ref="almacen_equipo_norte_valencia"/>
+    </record>
+
+    <record id="equipo_recipiente_biologico_02" model="malkion.equipo">
+      <field name="name">Recipiente Biologico #2</field>
+      <field name="tipo">recipiente_biologico</field>
+      <field name="estado">asignado</field>
+      <field name="fecha_adquisicion">2024-04-17</field>
+      <field name="observaciones">Equipo tipo recipiente biologico</field>
+      <field name="almacen_id" ref="almacen_equipo_sur_valencia"/>
+    </record>
+
+    <!-- === Filtro === -->
+
+    <record id="equipo_filtro_agua_01" model="malkion.equipo">
+      <field name="name">Filtro Agua #1</field>
+      <field name="tipo">filtro_agua</field>
+      <field name="estado">disponible</field>
+      <field name="fecha_adquisicion">2023-08-26</field>
+      <field name="observaciones">Equipo tipo filtro agua</field>
+      <field name="almacen_id" ref="almacen_equipo_sur_valencia"/>
+    </record>
+
+    <record id="equipo_filtro_agua_02" model="malkion.equipo">
+      <field name="name">Filtro Agua #2</field>
+      <field name="tipo">filtro_agua</field>
+      <field name="estado">disponible</field>
+      <field name="fecha_adquisicion">2024-02-20</field>
+      <field name="observaciones">Equipo tipo filtro agua</field>
+      <field name="almacen_id" ref="almacen_equipo_norte_valencia"/>
+    </record>
+
+    <!-- === Sensor === -->
+
+    <record id="equipo_sensor_temperatura_01" model="malkion.equipo">
+      <field name="name">Sensor Temperatura #1</field>
+      <field name="tipo">sensor_temperatura</field>
+      <field name="estado">disponible</field>
+      <field name="fecha_adquisicion">2024-05-31</field>
+      <field name="observaciones">Equipo tipo sensor temperatura</field>
+      <field name="almacen_id" ref="almacen_equipo_norte_valencia"/>
+    </record>
+
+    <record id="equipo_sensor_temperatura_02" model="malkion.equipo">
+      <field name="name">Sensor Temperatura #2</field>
+      <field name="tipo">sensor_temperatura</field>
+      <field name="estado">disponible</field>
+      <field name="fecha_adquisicion">2023-09-10</field>
+      <field name="observaciones">Equipo tipo sensor temperatura</field>
+      <field name="almacen_id" ref="almacen_equipo_sur_valencia"/>
+    </record>
+
+    <record id="equipo_sensor_humedad_01" model="malkion.equipo">
+      <field name="name">Sensor Humedad #1</field>
+      <field name="tipo">sensor_humedad</field>
+      <field name="estado">asignado</field>
+      <field name="fecha_adquisicion">2023-09-29</field>
+      <field name="observaciones">Equipo tipo sensor humedad</field>
+      <field name="almacen_id" ref="almacen_equipo_sur_valencia"/>
+    </record>
+
+    <record id="equipo_sensor_humedad_02" model="malkion.equipo">
+      <field name="name">Sensor Humedad #2</field>
+      <field name="tipo">sensor_humedad</field>
+      <field name="estado">asignado</field>
+      <field name="fecha_adquisicion">2023-09-14</field>
+      <field name="observaciones">Equipo tipo sensor humedad</field>
+      <field name="almacen_id" ref="almacen_equipo_norte_valencia"/>
+    </record>
+
+    <!-- === Equipo === -->
+
+    <record id="equipo_equipo_muestreo_aire_01" model="malkion.equipo">
+      <field name="name">Equipo Muestreo Aire #1</field>
+      <field name="tipo">equipo_muestreo_aire</field>
+      <field name="estado">disponible</field>
+      <field name="fecha_adquisicion">2023-01-23</field>
+      <field name="observaciones">Equipo tipo equipo muestreo aire</field>
+      <field name="almacen_id" ref="almacen_equipo_norte_valencia"/>
+    </record>
+
+    <record id="equipo_equipo_muestreo_aire_02" model="malkion.equipo">
+      <field name="name">Equipo Muestreo Aire #2</field>
+      <field name="tipo">equipo_muestreo_aire</field>
+      <field name="estado">disponible</field>
+      <field name="fecha_adquisicion">2023-12-04</field>
+      <field name="observaciones">Equipo tipo equipo muestreo aire</field>
+      <field name="almacen_id" ref="almacen_equipo_sur_valencia"/>
+    </record>
+
+    <record id="equipo_equipo_video_01" model="malkion.equipo">
+      <field name="name">Equipo Video #1</field>
+      <field name="tipo">equipo_video</field>
+      <field name="estado">disponible</field>
+      <field name="fecha_adquisicion">2024-01-15</field>
+      <field name="observaciones">Equipo tipo equipo video</field>
+      <field name="almacen_id" ref="almacen_equipo_sur_valencia"/>
+    </record>
+
+    <record id="equipo_equipo_video_02" model="malkion.equipo">
+      <field name="name">Equipo Video #2</field>
+      <field name="tipo">equipo_video</field>
+      <field name="estado">disponible</field>
+      <field name="fecha_adquisicion">2023-02-01</field>
+      <field name="observaciones">Equipo tipo equipo video</field>
+      <field name="almacen_id" ref="almacen_equipo_norte_valencia"/>
+    </record>
+
+    <!-- === Muestra === -->
+
+    <record id="equipo_muestra_suelo_01" model="malkion.equipo">
+      <field name="name">Muestra Suelo #1</field>
+      <field name="tipo">muestra_suelo</field>
+      <field name="estado">asignado</field>
+      <field name="fecha_adquisicion">2023-03-19</field>
+      <field name="observaciones">Equipo tipo muestra suelo</field>
+      <field name="almacen_id" ref="almacen_equipo_norte_valencia"/>
+    </record>
+
+    <record id="equipo_muestra_suelo_02" model="malkion.equipo">
+      <field name="name">Muestra Suelo #2</field>
+      <field name="tipo">muestra_suelo</field>
+      <field name="estado">disponible</field>
+      <field name="fecha_adquisicion">2023-10-11</field>
+      <field name="observaciones">Equipo tipo muestra suelo</field>
+      <field name="almacen_id" ref="almacen_equipo_sur_valencia"/>
+    </record>
+
+    <!-- === Kit === -->
+
+    <record id="equipo_kit_quimico_01" model="malkion.equipo">
+      <field name="name">Kit Quimico #1</field>
+      <field name="tipo">kit_quimico</field>
+      <field name="estado">disponible</field>
+      <field name="fecha_adquisicion">2024-05-24</field>
+      <field name="observaciones">Equipo tipo kit quimico</field>
+      <field name="almacen_id" ref="almacen_equipo_sur_valencia"/>
+    </record>
+
+    <record id="equipo_kit_quimico_02" model="malkion.equipo">
+      <field name="name">Kit Quimico #2</field>
+      <field name="tipo">kit_quimico</field>
+      <field name="estado">disponible</field>
+      <field name="fecha_adquisicion">2023-06-11</field>
+      <field name="observaciones">Equipo tipo kit quimico</field>
+      <field name="almacen_id" ref="almacen_equipo_norte_valencia"/>
+    </record>
+
+    <!-- === Herramienta === -->
+
+    <record id="equipo_herramienta_multifuncion_01" model="malkion.equipo">
+      <field name="name">Herramienta Multifuncion #1</field>
+      <field name="tipo">herramienta_multifuncion</field>
+      <field name="estado">disponible</field>
+      <field name="fecha_adquisicion">2023-03-21</field>
+      <field name="observaciones">Equipo tipo herramienta multifuncion</field>
+      <field name="almacen_id" ref="almacen_equipo_norte_valencia"/>
+    </record>
+
+    <record id="equipo_herramienta_multifuncion_02" model="malkion.equipo">
+      <field name="name">Herramienta Multifuncion #2</field>
+      <field name="tipo">herramienta_multifuncion</field>
+      <field name="estado">disponible</field>
+      <field name="fecha_adquisicion">2023-11-20</field>
+      <field name="observaciones">Equipo tipo herramienta multifuncion</field>
+      <field name="almacen_id" ref="almacen_equipo_sur_valencia"/>
+    </record>
   </data>
 </odoo>
