@@ -91,7 +91,7 @@
         
     ],
 
-    'post_init_hook': 'post_init_hook',
+    'post_init_hook': 'post_init_hook_regenerar_xml',
     # only loaded in demonstration mode
     'demo': [
         'demo/demo.xml',

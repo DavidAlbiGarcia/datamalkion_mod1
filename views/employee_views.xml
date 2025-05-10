@@ -8,7 +8,7 @@
                 <field name="name" string="Nombre"/>
                 <field name="estado" string="Estado"/>
                 <field name="disponible" string="Disponibilidad"/>
-                <field name="roles" string="Roles"/>
+                <field name="roles" widget="many2many_tags" string="Roles"/>
             </tree>
         </field>
     </record>

@@ -17,6 +17,12 @@ class MalkionEmployee(models.Model):
 
     # Roles de los empleados
     roles = fields.Many2many('hr.job', string="Roles")
+
+    # uso esta para que afecte no solo cambios formulario(por si le ponen inactivo desde código u otro formulario), sino usaría api.onchange
+    def write(self, vals):
+        if 'estado' in vals and vals['estado'] == 'inactivo':
+            vals['disponible'] = 'no_disponible'
+        return super().write(vals)
     
     @api.constrains('roles')
     def _check_roles(self):
@@ -25,3 +31,5 @@ class MalkionEmployee(models.Model):
             if any(role.name in ['Jefe Data', 'Gestor Equipo', 'Gestor Transporte', 'Gestor Hunters'] for role in employee.roles):
                 if len(employee.roles) > 1:
                     raise ValidationError("Si el empleado tiene un rol exclusivo, no puede tener otros roles.")
+                
+

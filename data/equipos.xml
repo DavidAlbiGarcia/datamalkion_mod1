@@ -24,7 +24,7 @@
     <record id="equipo_guantes_03" model="malkion.equipo">
       <field name="name">Guantes #3</field>
       <field name="tipo">guantes</field>
-      <field name="estado">asignado</field>
+      <field name="estado">disponible</field>
       <field name="fecha_adquisicion">2023-02-22</field>
       <field name="observaciones">Equipo tipo guantes</field>
       <field name="almacen_id" ref="almacen_equipo_norte_valencia"/>
@@ -33,7 +33,7 @@
     <record id="equipo_guantes_04" model="malkion.equipo">
       <field name="name">Guantes #4</field>
       <field name="tipo">guantes</field>
-      <field name="estado">asignado</field>
+      <field name="estado">disponible</field>
       <field name="fecha_adquisicion">2023-07-25</field>
       <field name="observaciones">Equipo tipo guantes</field>
       <field name="almacen_id" ref="almacen_equipo_sur_valencia"/>
@@ -44,7 +44,7 @@
     <record id="equipo_recipienteA_01" model="malkion.equipo">
       <field name="name">Recipientea #1</field>
       <field name="tipo">recipienteA</field>
-      <field name="estado">asignado</field>
+      <field name="estado">disponible</field>
       <field name="fecha_adquisicion">2023-04-26</field>
       <field name="observaciones">Equipo tipo recipienteA</field>
       <field name="almacen_id" ref="almacen_equipo_sur_valencia"/>
@@ -53,7 +53,7 @@
     <record id="equipo_recipienteA_02" model="malkion.equipo">
       <field name="name">Recipientea #2</field>
       <field name="tipo">recipienteA</field>
-      <field name="estado">asignado</field>
+      <field name="estado">disponible</field>
       <field name="fecha_adquisicion">2024-02-03</field>
       <field name="observaciones">Equipo tipo recipienteA</field>
       <field name="almacen_id" ref="almacen_equipo_norte_valencia"/>
@@ -120,7 +120,7 @@
     <record id="equipo_cuerda_01" model="malkion.equipo">
       <field name="name">Cuerda #1</field>
       <field name="tipo">cuerda</field>
-      <field name="estado">asignado</field>
+      <field name="estado">disponible</field>
       <field name="fecha_adquisicion">2023-01-02</field>
       <field name="observaciones">Equipo tipo cuerda</field>
       <field name="almacen_id" ref="almacen_equipo_sur_valencia"/>
@@ -129,7 +129,7 @@
     <record id="equipo_cuerda_02" model="malkion.equipo">
       <field name="name">Cuerda #2</field>
       <field name="tipo">cuerda</field>
-      <field name="estado">asignado</field>
+      <field name="estado">disponible</field>
       <field name="fecha_adquisicion">2023-07-23</field>
       <field name="observaciones">Equipo tipo cuerda</field>
       <field name="almacen_id" ref="almacen_equipo_norte_valencia"/>
@@ -189,7 +189,7 @@
     <record id="equipo_traje_bioseguridad_02" model="malkion.equipo">
       <field name="name">Traje Bioseguridad #2</field>
       <field name="tipo">traje_bioseguridad</field>
-      <field name="estado">asignado</field>
+      <field name="estado">disponible</field>
       <field name="fecha_adquisicion">2023-10-02</field>
       <field name="observaciones">Equipo tipo traje bioseguridad</field>
       <field name="almacen_id" ref="almacen_equipo_sur_valencia"/>
@@ -200,7 +200,7 @@
     <record id="equipo_linterna_01" model="malkion.equipo">
       <field name="name">Linterna #1</field>
       <field name="tipo">linterna</field>
-      <field name="estado">asignado</field>
+      <field name="estado">disponible</field>
       <field name="fecha_adquisicion">2023-08-08</field>
       <field name="observaciones">Equipo tipo linterna</field>
       <field name="almacen_id" ref="almacen_equipo_sur_valencia"/>
@@ -209,7 +209,7 @@
     <record id="equipo_linterna_02" model="malkion.equipo">
       <field name="name">Linterna #2</field>
       <field name="tipo">linterna</field>
-      <field name="estado">asignado</field>
+      <field name="estado">disponible</field>
       <field name="fecha_adquisicion">2024-05-21</field>
       <field name="observaciones">Equipo tipo linterna</field>
       <field name="almacen_id" ref="almacen_equipo_norte_valencia"/>
@@ -300,7 +300,7 @@
     <record id="equipo_recipiente_biologico_02" model="malkion.equipo">
       <field name="name">Recipiente Biologico #2</field>
       <field name="tipo">recipiente_biologico</field>
-      <field name="estado">asignado</field>
+      <field name="estado">disponible</field>
       <field name="fecha_adquisicion">2024-04-17</field>
       <field name="observaciones">Equipo tipo recipiente biologico</field>
       <field name="almacen_id" ref="almacen_equipo_sur_valencia"/>
@@ -349,7 +349,7 @@
     <record id="equipo_sensor_humedad_01" model="malkion.equipo">
       <field name="name">Sensor Humedad #1</field>
       <field name="tipo">sensor_humedad</field>
-      <field name="estado">asignado</field>
+      <field name="estado">disponible</field>
       <field name="fecha_adquisicion">2023-09-29</field>
       <field name="observaciones">Equipo tipo sensor humedad</field>
       <field name="almacen_id" ref="almacen_equipo_sur_valencia"/>
@@ -358,7 +358,7 @@
     <record id="equipo_sensor_humedad_02" model="malkion.equipo">
       <field name="name">Sensor Humedad #2</field>
       <field name="tipo">sensor_humedad</field>
-      <field name="estado">asignado</field>
+      <field name="estado">disponible</field>
       <field name="fecha_adquisicion">2023-09-14</field>
       <field name="observaciones">Equipo tipo sensor humedad</field>
       <field name="almacen_id" ref="almacen_equipo_norte_valencia"/>
@@ -407,7 +407,7 @@
     <record id="equipo_muestra_suelo_01" model="malkion.equipo">
       <field name="name">Muestra Suelo #1</field>
       <field name="tipo">muestra_suelo</field>
-      <field name="estado">asignado</field>
+      <field name="estado">disponible</field>
       <field name="fecha_adquisicion">2023-03-19</field>
       <field name="observaciones">Equipo tipo muestra suelo</field>
       <field name="almacen_id" ref="almacen_equipo_norte_valencia"/>

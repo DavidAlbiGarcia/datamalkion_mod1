@@ -61,7 +61,7 @@ class MalkionPlantilla(models.Model):
             role_name.text = rol.rol_id.name  # 'rol_id' hace referencia al campo Many2one hacia 'hr.job'
             
             cantidad = ET.SubElement(role, "cantidad")
-            cantidad.text = str(rol.cantidad)  # Aquí tomas la cantidad de roles necesarios
+            cantidad.text = str(rol.cantidad)  # Aquí pillo la cantidad de roles necesarios
 
         # Equipo necesario (con tipos y cantidades)
         equipo_necesario = ET.SubElement(plantilla, "equipo_necesario")
@@ -83,10 +83,9 @@ class MalkionPlantilla(models.Model):
     
     @api.model
     def create(self, values):
-        # Crear el objeto plantilla
         plantilla = super(MalkionPlantilla, self).create(values)
-        
-        # Llamar al método generar_xml después de crear el registro
-        plantilla.generar_xml()
-        
+
+        if not self.env.context.get('from_data_load'): # si funciona esto...
+            plantilla.xml_data = plantilla.generar_xml()
+
         return plantilla

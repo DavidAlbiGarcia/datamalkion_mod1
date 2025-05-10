@@ -74,8 +74,21 @@ class MalkionOrdenTrabajo(models.Model):
                 'transporte_ids': [(6, 0, orden.transporte_ids.ids)],
                 'puntos_interes_ids': [(6, 0, orden.puntos_interes_ids.ids)], 
             }
+
+            
             # Crear la misión a partir de los datos de la orden de trabajo
             mission = self.env['malkion.mission'].create(mission_vals)
+
+            # Menos libertad para manual pero aseguro cambio disponibilidad desde misiones en data ya que pasa por aquí al final.
+
+            # Cambiar estado de los empleados a "no_disponible"
+            orden.empleados_roles.write({'disponible': 'no_disponible'})
+
+            # Cambiar estado de los equipos a "asignado"
+            orden.equipo_ids.write({'estado': 'asignado'})
+
+            # Cambiar estado de los transportes a "asignado"
+            orden.transporte_ids.write({'estado': 'asignado'})
 
             # Crear relaciones ternarias: empleado - equipo
             if orden.responsable_equipo_id and orden.equipo_ids:
@@ -144,7 +157,7 @@ class MalkionOrdenTrabajo(models.Model):
             ]
             equipo_ids = []
             for tipo, _ in equipo_tipo_cant:
-                eq = self.env['malkion.equipo'].search([('tipo', '=', tipo)], limit=1)
+                eq = self.env['malkion.equipo'].search([('tipo', '=', tipo), ('estado', '=', 'disponible')], limit=1)
                 if eq:
                     equipo_ids.append(eq.id)
 
@@ -155,7 +168,7 @@ class MalkionOrdenTrabajo(models.Model):
             ]
             transporte_ids = []
             for tipo, _ in transporte_tipo_cant:
-                tr = self.env['malkion.transport'].search([('tipo', '=', tipo)], limit=1)
+                tr = self.env['malkion.transport'].search([('tipo', '=', tipo), ('estado', '=', 'disponible')], limit=1)
                 if tr:
                     transporte_ids.append(tr.id)
 
@@ -172,7 +185,7 @@ class MalkionOrdenTrabajo(models.Model):
 
             for rol_name, cantidad in roles_info:
                 empleados = self.env['hr.employee'].search(
-                    [('roles.name', '=', rol_name)],
+                    [('roles.name', '=', rol_name), ('disponible', '=', 'disponible')],
                     limit=cantidad
                 )
                 if empleados:
@@ -226,6 +239,18 @@ class MalkionOrdenTrabajo(models.Model):
                 'responsable_equipo_id': responsable_equipo.id,
                 'responsable_transporte_id': responsable_transporte.id,
             }
+
+            # Cambiar estado de empleados a 'no_disponible'
+            if empleados_roles_ids:
+                self.env['hr.employee'].browse(empleados_roles_ids).write({'disponible': 'no_disponible'})
+
+            # Cambiar estado de equipos a 'asignado'
+            if equipo_ids:
+                self.env['malkion.equipo'].browse(equipo_ids).write({'estado': 'asignado'})
+
+            # Cambiar estado d transportes a 'asignado'
+            if transporte_ids:
+                self.env['malkion.transport'].browse(transporte_ids).write({'estado': 'asignado'})
 
 
             # Crear la orden de trabajo, lo que creará automáticamente la misión vía create()

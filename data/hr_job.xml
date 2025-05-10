@@ -33,7 +33,7 @@
       <field name="name">Conductor</field>
     </record>
 
-        <record id="job_asclepios" model="hr.job">
+    <record id="job_asclepios" model="hr.job">
       <field name="name">Asclepios</field>
     </record>
 

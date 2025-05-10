@@ -69,4 +69,16 @@ class MalkionMission(models.Model):
                 estados_permitidos = ['finalizada', 'incidencia_datoprocesando', 'dato_procesando']
                 if vals['estado'] not in estados_permitidos:
                     raise ValidationError("Solo puedes cambiar el estado a Dato en procesamiento, Incidencia en procesamiento o Finalizada.")
+
+            # código preparado por si decido liberar recursos en indicencia_datoprocesando, añadirlo a estados cierre y ya
+            estados_cierre = ['finalizada']
+            if vals['estado'] in estados_cierre:
+                for empleado in self.roles_ids:
+                    empleado.disponible = 'disponible'
+                for equipo in self.equipo_ids:
+                    equipo.estado = 'disponible'
+                for transporte in self.transporte_ids:
+                    transporte.estado = 'disponible'
+
         return super().write(vals)
+

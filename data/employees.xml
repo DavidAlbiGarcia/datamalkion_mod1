@@ -1,166 +1,151 @@
 <odoo>
   <data noupdate="1">
-
     <record id="empleado_arquero_1" model="hr.employee">
       <field name="name">Maria Arquero</field>
       <field name="user_id" ref="user_arquero_1"/>
       <field name="job_id" ref="job_arquero"/>
+      <field name="roles" eval="[(6, 0, [ref('job_arquero')])]"/>
+      <field name="disponible">disponible</field>
     </record>
-
     <record id="empleado_arquero_2" model="hr.employee">
       <field name="name">Pepe Arquero</field>
       <field name="user_id" ref="user_arquero_2"/>
       <field name="job_id" ref="job_arquero"/>
+      <field name="roles" eval="[(6, 0, [ref('job_arquero')])]"/>
+      <field name="disponible">disponible</field>
     </record>
-
-    <record id="empleado_arquero_3" model="hr.employee">
-      <field name="name">Maria Arquero</field>
-      <field name="user_id" ref="user_arquero_3"/>
-      <field name="job_id" ref="job_arquero"/>
-    </record>
-
-    <record id="empleado_arquero_4" model="hr.employee">
-      <field name="name">Pepe Arquero</field>
-      <field name="user_id" ref="user_arquero_4"/>
-      <field name="job_id" ref="job_arquero"/>
-    </record>
-
     <record id="empleado_cazador_1" model="hr.employee">
       <field name="name">Pepe Cazador</field>
       <field name="user_id" ref="user_cazador_1"/>
       <field name="job_id" ref="job_cazador"/>
+      <field name="roles" eval="[(6, 0, [ref('job_cazador')])]"/>
+      <field name="disponible">disponible</field>
     </record>
-
     <record id="empleado_cazador_2" model="hr.employee">
       <field name="name">Maria Cazador</field>
       <field name="user_id" ref="user_cazador_2"/>
       <field name="job_id" ref="job_cazador"/>
+      <field name="roles" eval="[(6, 0, [ref('job_cazador')])]"/>
+      <field name="disponible">disponible</field>
     </record>
-
-    <record id="empleado_cazador_3" model="hr.employee">
-      <field name="name">Pepe Cazador</field>
-      <field name="user_id" ref="user_cazador_3"/>
-      <field name="job_id" ref="job_cazador"/>
-    </record>
-
-    <record id="empleado_cazador_4" model="hr.employee">
-      <field name="name">Maria Cazador</field>
-      <field name="user_id" ref="user_cazador_4"/>
-      <field name="job_id" ref="job_cazador"/>
-    </record>
-
     <record id="empleado_recolector_1" model="hr.employee">
       <field name="name">Maria Recolector</field>
       <field name="user_id" ref="user_recolector_1"/>
       <field name="job_id" ref="job_recolector"/>
+      <field name="roles" eval="[(6, 0, [ref('job_recolector')])]"/>
+      <field name="disponible">disponible</field>
     </record>
-
     <record id="empleado_recolector_2" model="hr.employee">
       <field name="name">Pepe Recolector</field>
       <field name="user_id" ref="user_recolector_2"/>
       <field name="job_id" ref="job_recolector"/>
+      <field name="roles" eval="[(6, 0, [ref('job_recolector')])]"/>
+      <field name="disponible">disponible</field>
     </record>
-
-    <record id="empleado_recolector_3" model="hr.employee">
-      <field name="name">Maria Recolector</field>
-      <field name="user_id" ref="user_recolector_3"/>
-      <field name="job_id" ref="job_recolector"/>
-    </record>
-
-    <record id="empleado_recolector_4" model="hr.employee">
-      <field name="name">Pepe Recolector</field>
-      <field name="user_id" ref="user_recolector_4"/>
-      <field name="job_id" ref="job_recolector"/>
-    </record>
-
     <record id="empleado_jefe_datos_1" model="hr.employee">
       <field name="name">Pepe Jefe de datos</field>
       <field name="user_id" ref="user_jefe_datos_1"/>
       <field name="job_id" ref="job_jefe_datos"/>
+      <field name="roles" eval="[(6, 0, [ref('job_jefe_datos')])]"/>
+      <field name="disponible">disponible</field>
     </record>
-
     <record id="empleado_gestor_equipo_1" model="hr.employee">
       <field name="name">Maria Gestor de equipo</field>
       <field name="user_id" ref="user_gestor_equipo_1"/>
       <field name="job_id" ref="job_gestor_equipo"/>
+      <field name="roles" eval="[(6, 0, [ref('job_gestor_equipo')])]"/>
+      <field name="disponible">disponible</field>
     </record>
-
     <record id="empleado_gestor_equipo_2" model="hr.employee">
       <field name="name">Pepe Gestor de equipo</field>
       <field name="user_id" ref="user_gestor_equipo_2"/>
       <field name="job_id" ref="job_gestor_equipo"/>
+      <field name="roles" eval="[(6, 0, [ref('job_gestor_equipo')])]"/>
+      <field name="disponible">disponible</field>
     </record>
-
     <record id="empleado_gestor_hunters_1" model="hr.employee">
       <field name="name">Pepe Gestor de hunters</field>
       <field name="user_id" ref="user_gestor_hunters_1"/>
       <field name="job_id" ref="job_gestor_hunters"/>
+      <field name="roles" eval="[(6, 0, [ref('job_gestor_hunters')])]"/>
+      <field name="disponible">disponible</field>
     </record>
-
     <record id="empleado_gestor_hunters_2" model="hr.employee">
       <field name="name">Maria Gestor de hunters</field>
       <field name="user_id" ref="user_gestor_hunters_2"/>
       <field name="job_id" ref="job_gestor_hunters"/>
+      <field name="roles" eval="[(6, 0, [ref('job_gestor_hunters')])]"/>
+      <field name="disponible">disponible</field>
     </record>
-
     <record id="empleado_gestor_transportes_1" model="hr.employee">
       <field name="name">Maria Gestor de transportes</field>
       <field name="user_id" ref="user_gestor_transportes_1"/>
       <field name="job_id" ref="job_gestor_transportes"/>
+      <field name="roles" eval="[(6, 0, [ref('job_gestor_transportes')])]"/>
+      <field name="disponible">disponible</field>
     </record>
-
     <record id="empleado_gestor_transportes_2" model="hr.employee">
       <field name="name">Pepe Gestor de transportes</field>
       <field name="user_id" ref="user_gestor_transportes_2"/>
       <field name="job_id" ref="job_gestor_transportes"/>
+      <field name="roles" eval="[(6, 0, [ref('job_gestor_transportes')])]"/>
+      <field name="disponible">disponible</field>
     </record>
-
     <record id="empleado_conductor_1" model="hr.employee">
       <field name="name">Pepe Conductor</field>
       <field name="user_id" ref="user_conductor_1"/>
       <field name="job_id" ref="job_conductor"/>
+      <field name="roles" eval="[(6, 0, [ref('job_conductor')])]"/>
+      <field name="disponible">disponible</field>
     </record>
-
     <record id="empleado_conductor_2" model="hr.employee">
       <field name="name">Maria Conductor</field>
       <field name="user_id" ref="user_conductor_2"/>
       <field name="job_id" ref="job_conductor"/>
+      <field name="roles" eval="[(6, 0, [ref('job_conductor')])]"/>
+      <field name="disponible">disponible</field>
     </record>
-
     <record id="empleado_asclepios_1" model="hr.employee">
       <field name="name">Asclepios 1</field>
       <field name="user_id" ref="user_asclepios_1"/>
       <field name="job_id" ref="job_asclepios"/>
+      <field name="roles" eval="[(6, 0, [ref('job_asclepios')])]"/>
+      <field name="disponible">disponible</field>
     </record>
-
     <record id="empleado_asclepios_2" model="hr.employee">
       <field name="name">Asclepios 2</field>
       <field name="user_id" ref="user_asclepios_2"/>
       <field name="job_id" ref="job_asclepios"/>
+      <field name="roles" eval="[(6, 0, [ref('job_asclepios')])]"/>
+      <field name="disponible">disponible</field>
     </record>
-
     <record id="empleado_logistica_1" model="hr.employee">
       <field name="name">Logistica 1</field>
       <field name="user_id" ref="user_logistica_1"/>
       <field name="job_id" ref="job_logistica"/>
+      <field name="roles" eval="[(6, 0, [ref('job_logistica')])]"/>
+      <field name="disponible">disponible</field>
     </record>
-
     <record id="empleado_logistica_2" model="hr.employee">
       <field name="name">Logistica 2</field>
       <field name="user_id" ref="user_logistica_2"/>
       <field name="job_id" ref="job_logistica"/>
+      <field name="roles" eval="[(6, 0, [ref('job_logistica')])]"/>
+      <field name="disponible">disponible</field>
     </record>
-
     <record id="empleado_ventas_1" model="hr.employee">
       <field name="name">Ventas 1</field>
       <field name="user_id" ref="user_ventas_1"/>
       <field name="job_id" ref="job_ventas"/>
+      <field name="roles" eval="[(6, 0, [ref('job_ventas')])]"/>
+      <field name="disponible">disponible</field>
     </record>
-
     <record id="empleado_ventas_2" model="hr.employee">
       <field name="name">Ventas 2</field>
       <field name="user_id" ref="user_ventas_2"/>
       <field name="job_id" ref="job_ventas"/>
+      <field name="roles" eval="[(6, 0, [ref('job_ventas')])]"/>
+      <field name="disponible">disponible</field>
     </record>
   </data>
 </odoo>
