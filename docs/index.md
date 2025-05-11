@@ -154,4 +154,4 @@ El módulo define diferentes grupos de usuario según el rol en el proceso. Cada
 ## ℹ️ Créditos
 
 Desarrollado por David Albi García - CFGS DAM - Módulo de SGE  
-[Repositorio en GitHub](https://github.com/DavidAlbiGarcia/alkion)
+[Repositorio en GitHub](https://github.com/DavidAlbiGarcia/malkion)

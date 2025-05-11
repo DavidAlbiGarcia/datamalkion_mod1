@@ -1,3 +1,7 @@
+---
+title: Datos iniciales
+---
+
 # Datos iniciales del sistema Malkion
 
 ## 🧤 Equipo
