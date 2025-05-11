@@ -14,5 +14,5 @@ from . import mission
 # modelos intermedios después
 from . import mission_employee_team
 from . import mission_employee_transport
-
+from . import informes
 from . import orden_trabajo

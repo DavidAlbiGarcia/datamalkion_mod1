@@ -1,0 +1,11 @@
+<odoo>
+  <report
+    id="report_equipos_antiguos"
+    model="wizard.equipo.antiguo"
+    string="Informe de Equipos Antiguos"
+    report_type="qweb-pdf"
+    name="malkion.report_equipos_antiguos_template"
+    file="malkion.report_equipos_antiguos_template"
+    print_report_name="'Informe_Equipos_Antiguos'"
+  />
+</odoo>

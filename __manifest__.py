@@ -45,6 +45,10 @@
         'views/plantilla_views.xml',
         'views/orden_trabajo_views.xml',
         'views/mission_views.xml',
+        'views/wizard_mission_report.xml',
+        'views/wizard_recursos_report.xml',
+        'views/wizard_equipo_antiguo.xml',
+
         # 1. Definiciones base
         'data/hr_job.xml',
 
@@ -86,6 +90,8 @@
         'reports/report_mission_template.xml',
         'reports/report_recursos_asignados.xml',
         'reports/report_recursos_asignados_template.xml',
+        'reports/report_equipos_antiguos.xml',
+        'reports/report_equipos_antiguos_template.xml',
 
         
         

@@ -1,0 +1,42 @@
+<odoo>
+
+  <!-- Menú principal de Informes dentro de Malkion -->
+  <menuitem id="menu_malkion_reports_root"
+            name="Informes"
+            parent="malkion.menu_malkion_root"
+            sequence="99"/>
+
+  <!-- Vista del wizard -->
+  <record id="view_wizard_mission_report" model="ir.ui.view">
+    <field name="name">wizard.mission.report.form</field>
+    <field name="model">wizard.mission.report</field>
+    <field name="arch" type="xml">
+      <form string="Informe de Misiones">
+        <!-- TEXTO EXPLICATIVO -->
+        <div class="alert alert-info" style="margin-bottom: 15px;">
+          Este informe muestra el estado e información sobre todas las misiones.
+        </div>
+        <footer>
+          <button name="action_print" string="Imprimir" type="object" class="btn-primary"/>
+          <button string="Cancelar" special="cancel"/>
+        </footer>
+      </form>
+    </field>
+  </record>
+
+  <!-- Acción que abre el wizard -->
+  <record id="action_wizard_mission_report" model="ir.actions.act_window">
+    <field name="name">Informe de Misiones</field>
+    <field name="res_model">wizard.mission.report</field>
+    <field name="view_mode">form</field>
+    <field name="view_id" ref="view_wizard_mission_report"/>
+    <field name="target">new</field>
+  </record>
+
+  <!-- Menú para lanzar el wizard dentro del menú de Informes -->
+  <menuitem id="menu_wizard_mission_report"
+            name="Informe de Misiones"
+            parent="menu_malkion_reports_root"
+            action="action_wizard_mission_report"/>
+
+</odoo>

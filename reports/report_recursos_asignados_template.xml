@@ -1,59 +1,87 @@
 <odoo>
   <template id="report_recursos_asignados">
     <t t-call="web.basic_layout">
+
+      <t t-set="today" t-value="docs and docs[0].create_date or ''"/>
+      <t t-set="doc_model" t-value="'malkion.mission'"/>
+      <t t-set="docs" t-value="docs"/>
+
       <div class="page">
-        <h2>Recursos Asignados (Equipos y Transportes)</h2>
 
-        <h3>Equipos Asignados</h3>
-        <table class="table table-sm">
+        <h2 style="text-align:center; margin-bottom:20px;">Informe de Recursos Asignados</h2>
+        <p><strong>Fecha del informe:</strong> <t t-esc="today"/></p>
+
+        <!-- ================= TABLA POR EQUIPO ================= -->
+        <h3 style="margin-top:30px;">Recursos por Equipo</h3>
+        <table class="table table-sm mt32" style="border-collapse: collapse; width: 100%;">
           <thead>
-            <tr>
-              <th>Equipo</th>
-              <th>Estado</th>
-              <th>Misión</th>
-              <th>Empleado Responsable</th>
+            <tr style="background-color: #f2f2f2;">
+              <th style="border: 1px solid #000;">Equipo</th>
+              <th style="border: 1px solid #000;">Misión</th>
+              <th style="border: 1px solid #000;">Estado</th>
+              <th style="border: 1px solid #000;">Responsable Equipo</th>
+              <th style="border: 1px solid #000;">Responsable Transporte</th>
+              <th style="border: 1px solid #000;">Jefe de Datos</th>
             </tr>
           </thead>
           <tbody>
-            <t t-foreach="env['malkion.mission_employee_team'].search([])" t-as="rel">
-              <t t-if="rel.equipo_id.estado != 'disponible'">
+            <t t-foreach="sorted(docs, key=lambda m: m.equipo_ids and m.equipo_ids[0].name or '')" t-as="mission">
+              <t t-foreach="mission.equipo_ids" t-as="equipo">
                 <tr>
-                  <td><t t-esc="rel.equipo_id.name"/></td>
-                  <td><t t-esc="rel.equipo_id.estado"/></td>
-                  <td><t t-esc="rel.mision_id.name"/></td>
-                  <td><t t-esc="rel.empleado_id.name"/></td>
+                  <td style="border: 1px solid #000;"><t t-esc="equipo.name"/></td>
+                  <td style="border: 1px solid #000;"><t t-esc="mission.name"/></td>
+                  <td style="border: 1px solid #000;"><t t-esc="mission.estado"/></td>
+                  <td style="border: 1px solid #000;"><t t-esc="mission.responsable_equipo_id.name"/></td>
+                  <td style="border: 1px solid #000;"><t t-esc="mission.responsable_transporte_id.name"/></td>
+                  <td style="border: 1px solid #000;"><t t-esc="mission.jefe_data_id.name"/></td>
                 </tr>
               </t>
             </t>
           </tbody>
         </table>
 
-        <h3>Transportes Asignados</h3>
-        <table class="table table-sm">
+        <!-- ================= TABLA POR TRANSPORTE ================= -->
+        <h3 style="margin-top:50px;">Recursos por Transporte</h3>
+        <table class="table table-sm mt32" style="border-collapse: collapse; width: 100%;">
           <thead>
-            <tr>
-              <th>Transporte</th>
-              <th>Estado</th>
-              <th>Misión</th>
-              <th>Empleado Responsable</th>
+            <tr style="background-color: #f2f2f2;">
+              <th style="border: 1px solid #000;">Transporte</th>
+              <th style="border: 1px solid #000;">Misión</th>
+              <th style="border: 1px solid #000;">Estado</th>
+              <th style="border: 1px solid #000;">Responsable Equipo</th>
+              <th style="border: 1px solid #000;">Responsable Transporte</th>
+              <th style="border: 1px solid #000;">Jefe de Datos</th>
             </tr>
           </thead>
           <tbody>
-            <t t-foreach="env['malkion.mission_employee_transport'].search([])" t-as="rel">
-            
-              <t t-if="rel.transporte_id.estado == 'disponible'"> <!-- temporalmente cambiado de != -->
+            <t t-foreach="sorted(docs, key=lambda m: m.transporte_ids and m.transporte_ids[0].name or '')" t-as="mission">
+              <t t-foreach="mission.transporte_ids" t-as="transporte">
                 <tr>
-                  <td><t t-esc="rel.transporte_id.name"/></td>
-                  <td><t t-esc="rel.transporte_id.estado"/></td>
-                  <td><t t-esc="rel.mision_id.name"/></td>
-                  <td><t t-esc="rel.empleado_id.name"/></td>
+                  <td style="border: 1px solid #000;"><t t-esc="transporte.name"/></td>
+                  <td style="border: 1px solid #000;"><t t-esc="mission.name"/></td>
+                  <td style="border: 1px solid #000;"><t t-esc="mission.estado"/></td>
+                  <td style="border: 1px solid #000;"><t t-esc="mission.responsable_equipo_id.name"/></td>
+                  <td style="border: 1px solid #000;"><t t-esc="mission.responsable_transporte_id.name"/></td>
+                  <td style="border: 1px solid #000;"><t t-esc="mission.jefe_data_id.name"/></td>
                 </tr>
               </t>
             </t>
           </tbody>
         </table>
+
+        <!-- Firma -->
+        <div style="margin-top:50px;">
+          <p><strong>Firma del responsable:</strong></p>
+          <div style="border-bottom: 1px solid #000; width: 60%; height: 30px;"></div>
+        </div>
+
+        <!-- Nota legal -->
+        <div style="margin-top:30px; font-size: 10px; color: #555;">
+          <p>Este informe ha sido generado automáticamente por el sistema Malkion. Su contenido es confidencial y está destinado únicamente para uso interno.</p>
+        </div>
 
       </div>
+
     </t>
   </template>
 </odoo>

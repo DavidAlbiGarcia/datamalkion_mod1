@@ -1,0 +1,45 @@
+<odoo>
+  <template id="report_equipos_antiguos_template">
+    <t t-call="web.basic_layout">
+
+      <!-- Variables desde data, copón -->
+      <t t-set="tipo" t-value="data['tipo']"/>
+      <t t-set="limite" t-value="data['limite']"/>
+
+      <t t-set="equipos" t-value="env['malkion.equipo'].search([('tipo', '=', tipo), ('fecha_adquisicion', '&lt;', limite)])"/>
+
+      <div class="page">
+        <h2 style="text-align:center;">Equipos del tipo "<t t-esc="tipo"/>" con más de 2 años</h2>
+
+
+        <table class="table table-sm mt32" style="border-collapse: collapse; width: 100%;">
+          <thead>
+            <tr style="background-color: #f2f2f2;">
+              <th style="border: 1px solid #000;">Nombre</th>
+              <th style="border: 1px solid #000;">Fecha de Adquisición</th>
+              <th style="border: 1px solid #000;">Estado</th>
+              <th style="border: 1px solid #000;">Observaciones</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr t-foreach="equipos" t-as="e">
+              <td style="border: 1px solid #000;"><t t-esc="e.name"/></td>
+              <td style="border: 1px solid #000;"><t t-esc="e.fecha_adquisicion"/></td>
+              <td style="border: 1px solid #000;"><t t-esc="e.estado"/></td>
+              <td style="border: 1px solid #000;"><t t-esc="e.observaciones"/></td>
+            </tr>
+            <tr>
+              <td colspan="4" style="border: 1px solid #000; text-align:right; font-weight: bold;">
+                Total de equipos: <t t-esc="len(equipos)"/>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div style="margin-top:30px; font-size: 10px; color: #555;">
+          <p>Este informe ha sido generado automáticamente por el sistema Malkion.</p>
+        </div>
+      </div>
+    </t>
+  </template>
+</odoo>

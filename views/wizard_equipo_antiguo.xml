@@ -1,0 +1,34 @@
+<odoo>
+  <record id="view_wizard_equipo_antiguo_form" model="ir.ui.view">
+    <field name="name">wizard.equipo.antiguo.form</field>
+    <field name="model">wizard.equipo.antiguo</field>
+    <field name="arch" type="xml">
+      <form string="Informe de Equipos Antiguos">
+        <group>
+        <!-- TEXTO EXPLICATIVO -->
+        <div class="alert alert-info" style="margin-bottom: 15px;">
+          Este informe muestra todo el equipo de un tipo que tiene más tiempo de la fecha límite (2 años).
+        </div>
+          <field name="tipo"/>
+        </group>
+        <footer>
+          <button name="generate_report" string="Generar Informe" type="object" class="btn-primary"/>
+          <button string="Cancelar" class="btn-secondary" special="cancel"/>
+        </footer>
+      </form>
+    </field>
+  </record>
+
+  <record id="action_wizard_equipo_antiguo" model="ir.actions.act_window">
+    <field name="name">Informe: Equipos Antiguos</field>
+    <field name="res_model">wizard.equipo.antiguo</field>
+    <field name="view_mode">form</field>
+    <field name="target">new</field>
+  </record>
+
+  <menuitem id="menu_report_equipos_antiguos"
+            name="Equipos Antiguos"
+            parent="menu_malkion_reports_root"
+            action="action_wizard_equipo_antiguo"
+            sequence="30"/>
+</odoo>

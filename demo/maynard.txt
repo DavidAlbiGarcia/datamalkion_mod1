@@ -237,3 +237,13 @@ Con este casi iba el filtrado:
                 self.responsable_equipo_id = empleados_ids[0]
                 self.responsable_transporte_id = empleados_ids[0]  # Usamos el primer empleado también para transporte si es necesario
 '''
+    <!- print_report_name="'EquiposAntiguos - %s' % (object.tipo)" -> ()
+    (al final uso convert to display, odo13+?)
+
+
+    <t t-set="equipos" t-value="env['malkion.equipo'].search([('tipo', '=', 'guantes'), ('fecha_adquisicion', '&lt;', '2025-12-12')])"/>
+
+    """
+    def generate_report(self):
+        return self.env.ref('malkion.report_equipos_antiguos').report_action(self)
+    """
