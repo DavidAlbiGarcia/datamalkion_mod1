@@ -15,13 +15,13 @@ Bienvenido a la documentación oficial del módulo **Malkion**, un sistema de pl
 # Proyecto Malkion — Fase 4: Planificación del Módulo
 
 **Autor**: David Albi García  
-**Fecha**: 24/02/2025  
+**Fecha**: 07/05/2025  
 **Asignatura**: Sistemas de Gestión Empresarial  
 **Profesor**: Alfredo Oltra Orengo  
 
 ## 🧾 Información general
 
-**Nombre Interno:** `Malkion_Data`  
+**Nombre Interno:** `malkion`  
 **Nombre Comercial:** *Malkion Data Gathering*
 
 Este módulo gestiona todo el proceso desde la petición de obtención de datos hasta la entrega procesada al cliente en la aplicación *Asclepios*.
@@ -31,7 +31,11 @@ Incluye automatización de:
 - Contratos y periodicidad  
 - Órdenes de trabajo  
 - Asignación de gestores y recursos (equipo, transporte, personal)  
-- Seguimiento y auditoría automática para clientes  
+
+---
+## Instalación - Fase 5
+
+➡️ [Datos Instalación](install.md)
 
 ---
 
@@ -60,27 +64,25 @@ Incluye automatización de:
 ### 4. Asignación de Recursos
 
 - Personal operativo, equipos y transporte según disponibilidad  
-- Optimización automática según experiencia y coste  
 
 ### 5. Flujo de Estados de la Misión
 
-- Estados: pendiente, asignada, en curso, entregada, finalizada  
-- Notificaciones al cliente  
+- Estados: pendiente, asignada, en curso, entregada, finalizada, estados adicional de fallo en cada etapa
 
 ### 6. Inventario
 
 - Gestión de equipos técnicos y vehículos  
-- Estados, avisos de revisión y reposición  
+- Estados
 
 ### 7. Informes
 
-- Contratos, misiones, tiempos medios, errores, cuellos de botella  
+- Misiones, situación del equipo, revisiones de estado de equipo  
 
 ---
 
 ## 🗺️ Mapa del Módulo
 
-![](../assets/images/mapa/Mapsite%20Malkion.png)
+![](./assets/images/mapa/Mapsite%20Malkion.png)
 
 
 ---
@@ -93,8 +95,6 @@ El módulo **Malkion Data** se apoya en diversos módulos nativos de Odoo para a
 - `'base'`: núcleo de Odoo, requerido por todos los módulos.
 - `'hr'`: modificado para ampliar la gestión de empleados y clasificarlos según su rol operativo (arqueros, cazadores, recolectores, transportistas...).
 - `'contacts'`: utilizado para gestionar los datos de clientes y sus contratos asociados.
-- `'stock'`: necesario para el control de inventario de equipos técnicos asignados a las misiones.
-- `'fleet'`: empleado para la gestión de vehículos y transporte logístico.
 
 ---
 
@@ -136,24 +136,24 @@ El módulo define diferentes grupos de usuario según el rol en el proceso. Cada
 
 ## 🧬 Diagrama Entidad-Relación
 
-![Diagrama E-R](../assets/images/er/PFM%20F4%20ER%20Modulo%20Malkion%20Data.png)
+![Diagrama E-R](./assets/images/er/PFM%20F4%20ER%20Modulo%20Malkion%20Data.png)
 
 ---
 
 ## 🔁 Diagramas de Flujo
 
 1. **Generación de Misión desde Orden de Trabajo**  
-   ![](../assets/images/diagramas/Flujo_Orden_Trabajo_fondo.png)
+   ![](./assets/images/diagramas/Flujo_Orden_Trabajo_fondo.png)
 
 2. **Aprobación de Gestores y Asignación de Recursos**  
-   ![](../assets/images/diagramas/Flujo_mision_iniciada_fondo.png)
+   ![](./assets/images/diagramas/Flujo_mision_iniciada_fondo.png)
 
 3. **Ejecución y Cierre de Misión**  
-   ![](../assets/images/diagramas/Flujo_Mision_Ejecucion_General_fondo.png)
+   ![](./assets/images/diagramas/Flujo_Mision_Ejecucion_General_fondo.png)
 
 ---
 
 ## ℹ️ Créditos
 
 Desarrollado por David Albi García - CFGS DAM - Módulo de SGE  
-[Repositorio en GitHub](https://github.com/DavidAlbiGarcia/datamalkion_mod1)
+[Repositorio en GitHub](https://github.com/DavidAlbiGarcia/alkion)
