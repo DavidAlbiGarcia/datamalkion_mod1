@@ -5,8 +5,6 @@ show_sidebar_ false
 hero_height: is_fullwidth
 ---
 
-# 📦 Malkion - Gestión de Misiones de Recogida de Datos
-
 Bienvenido a la documentación oficial del módulo **Malkion**, un sistema de planificación automatizada para la recogida y entrega de datos estructurados en Odoo.
 
 ---

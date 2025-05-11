@@ -1,3 +1,7 @@
+---
+title: Instalación
+---
+
 # Instalación del sistema Malkion
 
 ## URLS
@@ -6,8 +10,6 @@
 - GitHubPages: [](https://davidalbigarcia.github.io/malkion/)
 
 ---
-
-## Orden de instalación
 
 ## Orden de instalación
 

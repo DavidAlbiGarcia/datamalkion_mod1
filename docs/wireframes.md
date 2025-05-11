@@ -22,7 +22,7 @@ permalink: /wireframes
    ![Aprobar Misión](./assets/images/wireframes/aprobacion_mision.png)
 
 6. **Puntos y Centros**  
-   ![Puntos y Centros]({./assets/images/wireframes/puntos_y_centros.png)
+   ![Puntos y Centros](./assets/images/wireframes/puntos_y_centros.png)
 
 7. **Informes**  
    ![Informes](./assets/images/wireframes/Informes.png)

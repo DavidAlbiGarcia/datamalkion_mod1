@@ -1,3 +1,7 @@
+---
+title: Grupos
+---
+
 # Grupos, permisos y restricciones de vistas
 
 ## Manager (`malkion.group_MANAGER`)
