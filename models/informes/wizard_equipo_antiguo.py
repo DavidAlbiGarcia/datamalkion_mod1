@@ -29,14 +29,18 @@ class WizardEquipoAntiguo(models.TransientModel):
         ('kit_quimico', 'Kit químico portátil'),
         ('herramienta_multifuncion', 'Herramienta multifunción')
     ], string="Tipo de equipo", required=True)
-    # limite = fields.Date(string="Fecha límite", default=lambda self: date.today() - timedelta(days=730))
+    limite = fields.Date(
+        string="Fecha límite",
+        required=True,
+        default=lambda self: date.today() - timedelta(days=730)
+    )
 
 
     def generate_report(self):
         tipo = self.tipo
-        limite = (date.today() - timedelta(days=730)).isoformat()
+        # limite = (date.today() - timedelta(days=730)).isoformat()
         return self.env.ref('malkion.report_equipos_antiguos').report_action(
-            self, data={'tipo': tipo, 'limite': limite}
+            self, data={'tipo': tipo, 'limite': self.limite.isoformat()}
         )
 
 """

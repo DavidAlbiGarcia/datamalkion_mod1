@@ -15,7 +15,7 @@ access_almacenes_manager,malkion.almacenes.manager,model_malkion_almacenes,malki
 access_hr_employee_manager,hr.employee.manager,hr.model_hr_employee,malkion.group_MANAGER,1,1,1,1
 access_wizard_mission_report_manager,wizard.mission.report,model_wizard_mission_report,malkion.group_MANAGER,1,1,1,1
 access_wizard_recursos_report_manager,wizard.recursos.report,model_wizard_recursos_report,malkion.group_MANAGER,1,0,1,0
-access_wizard_equipo_antiguo_manager,wizard.equipo.antiguo,model_wizard_equipo_antiguo,malkion.group_MANAGER,1,0,1,0
+access_wizard_equipo_antiguo_manager,wizard.equipo.antiguo,model_wizard_equipo_antiguo,malkion.group_MANAGER,1,1,1,1
 access_mission_agentescampo,malkion.mission.agentescampo,model_malkion_mission,malkion.group_AGENTESCAMPO,1,1,0,0
 access_mission_employee_team_agentescampo,malkion.mission_employee_team.agentescampo,model_malkion_mission_employee_team,malkion.group_AGENTESCAMPO,1,0,0,0
 access_mission_employee_transport_agentescampo,malkion.mission_employee_transport.agentescampo,model_malkion_mission_employee_transport,malkion.group_AGENTESCAMPO,1,0,0,0

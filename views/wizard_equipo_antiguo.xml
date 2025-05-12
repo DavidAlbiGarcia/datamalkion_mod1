@@ -7,9 +7,10 @@
         <group>
         <!-- TEXTO EXPLICATIVO -->
         <div class="alert alert-info" style="margin-bottom: 15px;">
-          Este informe muestra todo el equipo de un tipo que tiene más tiempo de la fecha límite (2 años).
+          Este informe muestra todo el equipo de un tipo anterior a la fecha límite seleccionada.
         </div>
           <field name="tipo"/>
+          <field name="limite"/>
         </group>
         <footer>
           <button name="generate_report" string="Generar Informe" type="object" class="btn-primary"/>
