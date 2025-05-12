@@ -112,10 +112,19 @@ class MalkionOrdenTrabajo(models.Model):
 
     @api.model
     def create(self, vals):
+        _logger.info("Valor de no_auto_mission: %s", self.env.context.get('no_auto_mission'))
+
+
         res = super(MalkionOrdenTrabajo, self).create(vals)
+        _logger.info(" Nombre generado para búsqueda: Orden auto de %s", res.contrato_id.name)
         if not self.env.context.get('no_auto_mission'):
-            # Verificar si ya existe una misión con el mismo nombre
-            mision = self.env['malkion.mission'].search([('name', '=', res.name)], limit=1)
+            
+            # Verificar si ya existe una misión con el mismo nombre, solución para los context automission que no funcionan bien
+            mision = self.env['malkion.mission'].search([
+                '|',
+                ('name', '=', res.name),
+                ('name', '=', f"Orden auto de {res.contrato_id.name}")
+            ], limit=1)
             if not mision:
                 res.create_mission_from_order()
         return res
@@ -225,7 +234,7 @@ class MalkionOrdenTrabajo(models.Model):
             responsable_transporte = empleados_disponibles[0] 
 
             orden_vals = {
-                'name': f"Orden auto de {contrato.name}",
+                'name': f"Orden auto de {contrato.contrato_id.name}", #contrato es el form! chapuza
                 'estado': 'iniciada',
                 'observaciones': f"AutoGenerada desde contrato {contrato.name} el {fields.Date.today()}",
                 'puntos_interes_ids': [(6, 0, puntos_ids)],
@@ -256,8 +265,29 @@ class MalkionOrdenTrabajo(models.Model):
             # Crear la orden de trabajo, lo que creará automáticamente la misión vía create()
             mission = self.env['malkion.mission'].with_context(no_auto_mission=True).create(orden_vals)
 
+            # QA
+            # solución: ejecutaba doble misión porque filtro no auto mission no funcionba
+            # porque, claro, lo pasaba a malkion.mission, con lo que en el create aquí se ignoraba
+            # antes funcionaba bien por el chequeo de nombre repetido pero al personalizar nombre falló
+            # Record vacío para cambiar contexto de orden_trabajo
+            orden_con_contexto = self.with_context(no_auto_mission=True)
 
-            return mission
+            # impedirá crear misión hasta que no salga de orden de trabajo, hago que cambie vista y resetea context
+            # también mejor para "flujo" de trabajo de usuario
+
+            # Mensaje en pantalla antes de redirigir: creo que pide odoo16+ y usamos 14 community, no arriesgo
+            # creo que sería un rollo de ir.actions.client' con "type": "notify"... y JS... bad idea
+            # self.env.user.notify_success(message="✅ Misión creada automáticamente.")
+
+
+        
+        return {
+            'type': 'ir.actions.act_window',
+            'name': 'Misiones',
+            'res_model': 'malkion.mission',
+            'view_mode': 'tree,form',
+            'target': 'current',
+        }
 
 
     @api.onchange('contrato_id')

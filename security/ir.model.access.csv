@@ -16,6 +16,7 @@ access_hr_employee_manager,hr.employee.manager,hr.model_hr_employee,malkion.grou
 access_wizard_mission_report_manager,wizard.mission.report,model_wizard_mission_report,malkion.group_MANAGER,1,1,1,1
 access_wizard_recursos_report_manager,wizard.recursos.report,model_wizard_recursos_report,malkion.group_MANAGER,1,0,1,0
 access_wizard_equipo_antiguo_manager,wizard.equipo.antiguo,model_wizard_equipo_antiguo,malkion.group_MANAGER,1,1,1,1
+access_hr_job_manager,hr.job.manager,hr.model_hr_job,malkion.group_MANAGER,1,1,1,1
 access_mission_agentescampo,malkion.mission.agentescampo,model_malkion_mission,malkion.group_AGENTESCAMPO,1,1,0,0
 access_mission_employee_team_agentescampo,malkion.mission_employee_team.agentescampo,model_malkion_mission_employee_team,malkion.group_AGENTESCAMPO,1,0,0,0
 access_mission_employee_transport_agentescampo,malkion.mission_employee_transport.agentescampo,model_malkion_mission_employee_transport,malkion.group_AGENTESCAMPO,1,0,0,0
@@ -32,13 +33,16 @@ access_almacenes_logistica,malkion.almacenes.logistica,model_malkion_almacenes,m
 access_equipo_logistica,malkion.equipo.logistica,model_malkion_equipo,malkion.group_LOGISTICA,1,1,1,1
 access_transport_logistica,malkion.transport.logistica,model_malkion_transport,malkion.group_LOGISTICA,1,1,1,1
 access_point_of_interest_logistica,malkion.point_of_interest.logistica,model_malkion_point_of_interest,malkion.group_LOGISTICA,1,1,1,1
+access_hr_employee_logistica,hr.employee.logistica,hr.model_hr_employee,malkion.group_LOGISTICA,1,1,1,1
+access_hr_job_logistica,hr.job.logistica,hr.model_hr_job,malkion.group_LOGISTICA,1,1,1,1
 access_mission_asclepios,malkion.mission.asclepios,model_malkion_mission,malkion.group_ASCLEPIOS,1,1,0,0
-access_mission_employee_team_asclepios,malkion.mission_employee_team.asclepios,model_malkion_mission_employee_team,malkion.group_ASCLEPIOS,1,0,0,0
-access_mission_employee_transport_asclepios,malkion.mission_employee_transport.asclepios,model_malkion_mission_employee_transport,malkion.group_ASCLEPIOS,1,0,0,0
-access_equipo_asclepios,malkion.equipo.asclepios,model_malkion_equipo,malkion.group_ASCLEPIOS,1,0,0,0
-access_transport_asclepios,malkion.transport.asclepios,model_malkion_transport,malkion.group_ASCLEPIOS,1,0,0,0
-access_point_of_interest_asclepios,malkion.point_of_interest.asclepios,model_malkion_point_of_interest,malkion.group_ASCLEPIOS,1,0,0,0
-access_hr_employee_asclepios,hr.employee.asclepios,hr.model_hr_employee,malkion.group_ASCLEPIOS,1,0,0,0
+access_mission_employee_team_asclepios,malkion.mission_employee_team.asclepios,model_malkion_mission_employee_team,malkion.group_ASCLEPIOS,1,1,1,1
+access_mission_employee_transport_asclepios,malkion.mission_employee_transport.asclepios,model_malkion_mission_employee_transport,malkion.group_ASCLEPIOS,1,1,1,1
+access_equipo_asclepios,malkion.equipo.asclepios,model_malkion_equipo,malkion.group_ASCLEPIOS,1,1,1,1
+access_transport_asclepios,malkion.transport.asclepios,model_malkion_transport,malkion.group_ASCLEPIOS,1,1,1,1
+access_point_of_interest_asclepios,malkion.point_of_interest.asclepios,model_malkion_point_of_interest,malkion.group_ASCLEPIOS,1,1,1,1
+access_hr_employee_asclepios,hr.employee.asclepios,hr.model_hr_employee,malkion.group_ASCLEPIOS,1,1,1,1
+
 
 
 
